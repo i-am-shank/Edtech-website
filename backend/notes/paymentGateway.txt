@@ -1,0 +1,42 @@
+1. "Pay Now" button is clicked by user.
+2. An Order is created, from a Razorpay-instance by calling create-function on it, passing options inside it containing currency, amount, notes, etc.
+3. 
+
+
+Razorpay documentation steps :- 
+
+1. Create an order using orders API  ===> 
+ by taking instance of Razorpay also passing options using create-method (amount, currency, reciept, ..) in it.
+
+2. Store fields in your server  ===>  
+Fields like payment_id, order_id (when order is generated in db .. it's _id), razorpay_signature. These data are used when refunding or processes similar to it.
+
+3. Verify Payment Signature  ===>  
+Whatever payment is done, it's authorization is also important. 
+
+Different states of order :- 
+    (a.) CREATED  -->  After clicking buy-now. Your data gets stored.
+    (b.) ATTEMPTED  -->  Order moves to here, when payment is first attempted, & remains until order is captured.
+    (c.) PAID  -->  After order is captured successfully.
+
+Different states of payment :- 
+    (a.) CREATED  -->  Customer sends payment info to Optimizer, but payment isn't processed.
+    (b.) AUTHORIZED  -->  bank successfully authenticates the customer's payment details.
+    (c.) CAPTURED  -->  Payment is verified as complete by Optimizer.
+    (d.) REFUNDED  -->  Can refund the payments, successfully captured.
+    (e.) FAILED  -->  An unsuccessful transaction.
+    
+Code (2 steps .. 2 functions) : 
+
+1. capturePayment
+    --->  Payment initiate & order creation.
+    --->  Fetch data (courseId, userId)
+    --->  Validate data
+    --->  Create order
+
+====> After creating order (clicking on Pay Now), Razorpay & Bank is interacting. To check if payment is done OR failed, have to do a verification.
+====> For verification, webHook (kind of notification) is used. Setup a webHook on razorpay. Whenever a successful transaction occurs, webHook will hit an API Route (with a secret key, for authentication).
+
+Topics to study : 
+1. Proxy server
+2. webHook
