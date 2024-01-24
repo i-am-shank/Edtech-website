@@ -1,0 +1,23 @@
+.stats-components {
+    @apply bg-richblack-700;
+}
+
+.stats-components-content {
+    @apply flex flex-col gap-10 justify-between w-11/12 max-w-maxContent text-white mx-auto;
+}
+
+.stats-list {
+    @apply grid grid-cols-2 md:grid-cols-4 text-center;
+}
+
+.stat {
+    @apply flex flex-col py-10;
+}
+
+.stat-heading-1 {
+    @apply text-[30px] font-bold text-richblack-5;
+}
+
+.stat-heading-2 {
+    @apply font-semibold text-[16px] text-richblack-500;
+}

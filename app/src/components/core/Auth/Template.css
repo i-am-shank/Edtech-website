@@ -1,0 +1,41 @@
+.template {
+    @apply grid place-items-center;
+}
+
+.template-div {
+    @apply mx-auto flex w-11/12 max-w-maxContent flex-col-reverse justify-between gap-y-12 py-12 md:flex-row md:gap-y-0 md:gap-x-12;
+}
+
+/* Left template */
+/* ============================= */
+
+.template-left {
+    @apply mx-auto w-11/12 max-w-[450px] md:mx-0;
+}
+
+.template-heading {
+    @apply text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5;
+}
+
+.template-description {
+    @apply mt-4 text-[1.125rem] leading-[1.625rem];
+}
+
+.template-description1 {
+    @apply text-richblack-100;
+}
+
+.template-description2 {
+    @apply font-edu-sa font-bold italic text-blue-100;
+}
+
+/* Right template */
+/* ============================= */
+
+.template-right {
+    @apply relative mx-auto w-11/12 max-w-[450px] md:mx-0;
+}
+
+.template-right-img {
+    @apply absolute -top-4 right-4 z-10;
+}

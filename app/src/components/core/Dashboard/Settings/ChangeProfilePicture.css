@@ -1,0 +1,31 @@
+.change-dp {
+    @apply flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12 text-richblack-5;
+}
+
+.change-dp-content {
+    @apply flex items-center gap-x-4;
+}
+
+.change-dp-img {
+    @apply aspect-square w-[78px] rounded-full object-cover;
+}
+
+.change-dp-main-content {
+    @apply space-y-2;
+}
+
+.change-dp-settings {
+    @apply flex flex-row gap-3;
+}
+
+.change-dp-file-input {
+    @apply hidden;
+}
+
+.change-dp-file-select-btn {
+    @apply cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50;
+}
+
+.upload-dp-btn-content {
+    @apply text-lg text-richblack-900;
+}

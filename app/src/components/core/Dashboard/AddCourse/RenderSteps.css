@@ -1,0 +1,7 @@
+.active-render-step {
+    @apply bg-yellow-900 border-yellow-50 text-yellow-50;
+}
+
+.inactive-render-step {
+    @apply border-richblack-700 bg-richblack-800 text-richblack-300;
+}

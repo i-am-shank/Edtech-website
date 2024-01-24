@@ -1,0 +1,31 @@
+.sidebar-link {
+    @apply relative px-8 py-2 text-sm font-medium transition-all duration-200;
+}
+
+.active-sidebar-link {
+    @apply bg-yellow-800 text-yellow-50;
+}
+
+.inactive-sidebar-link {
+    @apply bg-opacity-0 text-richblack-300;
+}
+
+.sidebar-link-border {
+    @apply absolute left-0 top-0 h-full w-[0.15rem] bg-yellow-50;
+}
+
+.active-border {
+    @apply opacity-100;
+}
+
+.inactive-border {
+    @apply opacity-0;
+}
+
+.sidebar-link-content {
+    @apply flex items-center gap-x-2;
+}
+
+.sidebar-link-icon {
+    @apply text-lg;
+}

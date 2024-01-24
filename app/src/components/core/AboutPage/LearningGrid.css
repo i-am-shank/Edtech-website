@@ -1,0 +1,53 @@
+.learning-grid {
+    @apply grid mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 p-5 lg:w-fit;
+}
+
+.learning-grid-card {
+    @apply p-5;
+}
+
+.learning-grid-card-1 {
+    @apply lg:col-span-2 lg:h-[280px] bg-opacity-0;
+}
+
+.learning-grid-card-grey {
+    @apply bg-richblack-700 lg:h-[280px];
+}
+
+.learning-grid-card-black {
+    @apply bg-richblack-800 lg:h-[280px];
+}
+
+.learning-grid-card-3 {
+    @apply lg:col-start-2;
+}
+
+/* First card inner-styling */
+/* ============================= */
+.first-learning-grid-card {
+    @apply lg:w-[90%] flex flex-col pb-5 gap-3;
+}
+
+.first-learning-card-heading {
+    @apply text-4xl font-semibold;
+}
+
+.first-learning-card-description {
+    @apply font-medium;
+}
+
+.first-learning-card-btn {
+    @apply w-fit mt-4;
+}
+
+.other-learning-grid-card {
+    @apply flex flex-col gap-8 p-7;
+}
+
+.other-grid-card-heading {
+    @apply text-richblack-5 text-lg;
+}
+
+.other-grid-card-description {
+    @apply text-richblack-300 font-medium;
+}

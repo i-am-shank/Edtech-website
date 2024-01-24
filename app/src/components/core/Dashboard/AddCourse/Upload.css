@@ -1,0 +1,59 @@
+.upload-wrapper {
+    @apply flex flex-col space-y-2;
+}
+
+.upload-label {
+    @apply text-sm text-richblack-5;
+}
+
+.active-upload-content {
+    @apply bg-richblack-600;
+}
+
+.inactive-upload-content {
+    @apply bg-richblack-700;
+}
+
+.upload-content {
+    @apply flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500;
+}
+
+/* Preview Source */
+/* ================================== */
+.upload-preview-source {
+    @apply flex w-full flex-col p-6;
+}
+
+.upload-preview-img {
+    @apply h-full w-full rounded-md object-cover;
+}
+
+.upload-cancel-btn {
+    @apply mt-3 text-richblack-400 underline;
+}
+
+/* Upload Input wrapper */
+/* ================================== */
+.upload-input-wrapper {
+    @apply flex w-full flex-col items-center p-6;
+}
+
+.upload-icon-wrapper {
+    @apply grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800;
+}
+
+.upload-icon {
+    @apply text-2xl text-yellow-50;
+}
+
+.upload-para {
+    @apply mt-2 max-w-[200px] text-center text-sm text-richblack-200;
+}
+
+.upload-browse {
+    @apply font-semibold text-yellow-50;
+}
+
+.upload-requirements {
+    @apply mt-10 flex list-disc justify-between space-x-12 text-center text-xs text-richblack-200;
+}

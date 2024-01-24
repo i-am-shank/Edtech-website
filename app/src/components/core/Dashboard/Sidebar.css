@@ -1,0 +1,37 @@
+.sidebar-loading {
+    @apply grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800;
+}
+
+.sidebar-content {
+    @apply flex min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10;
+}
+
+.sidebar-links {
+    @apply flex flex-col;
+}
+
+/* Horizontal line */
+/* ============================== */
+
+.sidebar-horz-line {
+    @apply mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700;
+}
+
+/* Setting & Logout */
+/* ============================== */
+
+.sidebar-settings-logout {
+    @apply flex flex-col;
+}
+
+.sidebar-logout-btn {
+    @apply text-sm font-medium text-richblack-300 px-8 py-2;
+}
+
+.sidebar-logout-btn-content {
+    @apply flex items-center gap-x-2;
+}
+
+.sidebar-logout-icon {
+    @apply text-lg;
+}

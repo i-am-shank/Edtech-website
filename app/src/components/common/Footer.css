@@ -1,0 +1,144 @@
+.footer-section {
+    @apply bg-richblack-800;
+}
+
+/* ========================================================== */
+/* Footer Above =================================== */
+/* ========================================================== */
+
+.footer-above {
+    @apply flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14;
+}
+
+.footer-above-content {
+    @apply border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700;
+}
+
+/* Footer Above Section - 1 */
+/* ========================================= */
+
+.footer-above-section-1 {
+    @apply lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3;
+}
+
+/* Part - 1 */
+.footer-above-section-1-part-1 {
+    @apply w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0;
+}
+
+.part-1-img {
+    @apply object-contain;
+}
+
+.part-1-heading {
+    @apply text-richblack-50 font-semibold text-[16px];
+}
+
+.part-1-links {
+    @apply flex flex-col gap-2;
+}
+
+.part-1-link-element-div {
+    @apply text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200;
+}
+
+.part-1-icons {
+    @apply flex gap-3 text-lg;
+}
+
+/* Part - 2 */
+.footer-above-section-1-part-2 {
+    @apply w-[48%] lg:w-[30%] mb-7 lg:pl-0;
+}
+
+.part-2-heading {
+    @apply text-richblack-50 font-semibold text-[16px];
+}
+
+.part-2-links-1 {
+    @apply flex flex-col gap-2 mt-2;
+}
+
+.part-2-links-1-element {
+    @apply text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200;
+}
+
+.part-2-heading-2 {
+    @apply text-richblack-50 font-semibold text-[16px] mt-7;
+}
+
+.part-2-links-2 {
+    @apply text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200 mt-2;
+}
+
+/* Part - 3 */
+.footer-above-section-1-part-3 {
+    @apply w-[48%] lg:w-[30%] mb-7 lg:pl-0;
+}
+
+.part-3-heading-1 {
+    @apply text-richblack-50 font-semibold text-[16px];
+}
+
+.part-3-links {
+    @apply flex flex-col gap-2 mt-2;
+}
+
+.part-3-links-element {
+    @apply text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200;
+}
+
+.part-3-heading-2 {
+    @apply text-richblack-50 font-semibold text-[16px] mt-7;
+}
+
+.part-3-links-2 {
+    @apply flex flex-col gap-2 mt-2;
+}
+
+/* Footer Above Section - 2 */
+/* ========================================== */
+
+.footer-above-section-2 {
+    @apply lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3;
+}
+
+.footer-above-section-2-lists {
+    @apply w-[48%] lg:w-[30%] mb-7 lg:pl-0;
+}
+
+.footer-above-section-2-lists-heading {
+    @apply text-richblack-50 font-semibold text-[16px];
+}
+
+.footer-above-section-2-lists-elements {
+    @apply flex flex-col gap-2 mt-2;
+}
+
+.footer-above-section-2-lists-element {
+    @apply text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200;
+}
+
+/* ================================================================ */
+/* Footer Bottom ======================================== */
+/* ================================================================ */
+
+.footer-bottom {
+    @apply flex flex-row items-center justify-between w-11/12 max-w-maxContent text-richblack-400 mx-auto pb-14 text-sm;
+}
+
+.footer-bottom-content {
+    @apply flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full;
+}
+
+.footer-bottom-list {
+    @apply flex flex-row;
+}
+
+.footer-bottom-list-element {
+    @apply border-r border-richblack-700 cursor-pointer hover:text-richblack-50 transition-all duration-200;
+}
+
+.footer-bottom-text {
+    @apply text-center;
+}

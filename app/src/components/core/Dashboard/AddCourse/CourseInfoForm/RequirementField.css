@@ -1,0 +1,15 @@
+.requirement-field-input {
+    @apply w-full text-black;
+}
+
+.requirement-field-add-btn {
+    @apply font-semibold text-yellow-50;
+}
+
+.requirement-field-list-item {
+    @apply flex items-center text-richblack-5;
+}
+
+.requirement-field-list-item-btn {
+    @apply text-xs text-pure-greys-300;
+}

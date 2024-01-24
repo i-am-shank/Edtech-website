@@ -1,0 +1,33 @@
+.delete-account {
+    @apply my-10 flex flex-row gap-x-5 rounded-md border-[1px] border-pink-700 bg-pink-900 p-8 px-12;
+}
+
+/* Icon */
+/* =========================== */
+
+.delete-account-icon-wrapper {
+    @apply flex aspect-square h-14 w-14 items-center justify-center rounded-full bg-pink-700;
+}
+
+.delete-account-icon {
+    @apply text-3xl text-pink-200;
+}
+
+/* Message & Buttons */
+/* =========================== */
+
+.delete-account-message-btn {
+    @apply flex flex-col space-y-2;
+}
+
+.delete-account-heading {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+.delete-account-text {
+    @apply w-3/5 text-pink-25;
+}
+
+.delete-account-btn {
+    @apply w-fit cursor-pointer italic text-pink-300;
+}

@@ -1,0 +1,25 @@
+.course-builder-section-input {
+    @apply text-black;
+}
+
+.course-builder-create-section-btn-div {
+    @apply mt-10 flex;
+}
+
+.course-builder-create-section-btn {
+    @apply text-yellow-50;
+}
+
+.course-builder-cancel-edit-btn {
+    @apply text-sm text-richblack-300 underline ml-5;
+}
+
+/* Buttons */
+/* ========================= */
+.course-builder-btns {
+    @apply flex justify-end gap-x-3;
+}
+
+.course-builder-back-btn {
+    @apply rounded-md cursor-pointer flex items-center;
+}

@@ -1,0 +1,65 @@
+/* Profile information titles */
+/* =============================== */
+
+.edit-profile-info {
+    @apply my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12;
+}
+
+.edit-profile-info-heading {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+/* Profile sections */
+/* =============================== */
+
+.edit-profile-firstname-lastname,
+.edit-profile-dateOfBirth-gender,
+.edit-profile-contactNumber-about {
+    @apply flex flex-col gap-5 lg:flex-row;
+}
+
+.edit-profile-firstname,
+.edit-profile-lastname,
+.edit-profile-dateOfBirth,
+.edit-profile-gender,
+.edit-profile-contactNumber,
+.edit-profile-about {
+    @apply flex flex-col gap-2 lg:w-[48%];
+}
+
+.edit-profile-firstname-label,
+.edit-profile-lastname-label,
+.edit-profile-dateOfBirth-label,
+.edit-profile-gender-label,
+.edit-profile-contactNumber-label,
+.edit-profile-about-label {
+    @apply text-[14px] text-richblack-5;
+}
+
+.edit-profile-firstname-input,
+.edit-profile-lastname-input,
+.edit-profile-dateOfBirth-input,
+.edit-profile-gender-input,
+.edit-profile-contactNumber-input,
+.edit-profile-about-input {
+    @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.edit-profile-name-error,
+.edit-profile-dateOfBirth-error,
+.edit-profile-gender-error,
+.edit-profile-contactNumber-error,
+.edit-profile-about-error {
+    @apply -mt-1 text-[12px] text-yellow-100;
+}
+
+/* Submit & Cancel Buttons */
+/* ================================= */
+
+.edit-profile-btns {
+    @apply flex justify-end gap-2;
+}
+
+.edit-profile-cancel-btn {
+    @apply cursor-pointer rounded-md bg-richblack-700 py-2 px-5 font-semibold text-richblack-50;
+}

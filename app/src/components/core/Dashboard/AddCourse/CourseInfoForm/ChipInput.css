@@ -1,0 +1,27 @@
+.chip-input {
+    @apply flex flex-col space-y-2;
+}
+
+.chip-input-label {
+    @apply text-sm text-richblack-5;
+}
+
+.chip-input-tags-and-input {
+    @apply flex w-full flex-wrap gap-y-2;
+}
+
+.chip-input-chip {
+    @apply m-1 flex items-center rounded-full bg-yellow-400 px-2 py-1 text-sm text-richblack-5;
+}
+
+.chip-input-chip-delete-btn {
+    @apply ml-2 focus:outline-none;
+}
+
+.chip-input-delete-icon {
+    @apply text-sm;
+}
+
+.chip-input-tag-input {
+    @apply w-full;
+}

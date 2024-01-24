@@ -1,0 +1,91 @@
+.my-profile-heading {
+    @apply mb-14 text-3xl font-medium text-richblack-5;
+}
+
+/* User-name Section */
+/* ================================= */
+
+.my-profile-user-name {
+    @apply flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12;
+}
+
+.my-profile-user-name-content {
+    @apply flex items-center gap-x-4;
+}
+
+.my-profile-user-image {
+    @apply aspect-square w-[78px] rounded-full object-cover;
+}
+
+.my-profile-user-name-text {
+    @apply space-y-1;
+}
+
+.my-profile-user-name-text-1 {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+.my-profile-user-name-text-2 {
+    @apply text-sm text-richblack-300;
+}
+
+/* About Section */
+/* ================================== */
+
+.my-profile-about-section {
+    @apply my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12;
+}
+
+.my-profile-about-section-top-row {
+    @apply flex w-full items-center justify-between;
+}
+
+.my-profile-about-section-heading {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+.my-profile-about-section-content {
+    @apply text-sm font-medium;
+}
+
+.my-profile-about-text {
+    @apply text-richblack-5;
+}
+
+.my-profile-about-placeholder {
+    @apply text-richblack-400;
+}
+
+/* Personal Details Section */
+/* ====================================== */
+
+.my-profile-personal-details {
+    @apply my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12;
+}
+
+/* Personal Details (heading) --------------- */
+.my-profile-personal-details-heading-btn {
+    @apply flex w-full items-center justify-between;
+}
+
+.my-profile-personal-details-heading {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+/* Personal Details (data) ---------------- */
+.my-profile-personal-details-data {
+    @apply flex max-w-[500px] justify-between;
+}
+
+.my-profile-personal-details-data-left,
+.my-profile-personal-details-data-right {
+    @apply flex flex-col gap-y-5;
+}
+
+.my-profile-personal-details-data-label {
+    @apply mb-2 text-sm text-richblack-600;
+}
+
+.my-profile-personal-details-data-output {
+    @apply text-sm font-medium text-richblack-5;
+}

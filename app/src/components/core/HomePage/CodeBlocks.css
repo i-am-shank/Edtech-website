@@ -1,0 +1,31 @@
+.codeblocks {
+    @apply flex my-20 justify-between gap-10;
+}
+
+.codeblocks-section-1 {
+    @apply w-[50%] flex flex-col gap-8;
+}
+
+.codeblocks-section-1-subheading {
+    @apply text-richblack-300 font-bold;
+}
+
+.codeblocks-btns {
+    @apply flex gap-7 mt-7;
+}
+
+.codeblocks-btn {
+    @apply flex gap-2 items-center;
+}
+
+.codeblocks-code-numbering {
+    @apply text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold;
+}
+
+.codeblocks-code-div {
+    @apply w-[90%] flex flex-col gap-2 font-bold font-mono pr-2;
+}
+
+.codeblocks-section-2 {
+    @apply h-fit flex flex-row text-[10px] w-[100%] py-4 lg:w-[500px];
+}

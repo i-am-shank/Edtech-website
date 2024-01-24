@@ -1,0 +1,3 @@
+.error-page {
+    @apply flex justify-center items-center text-brown-400 text-3xl;
+}

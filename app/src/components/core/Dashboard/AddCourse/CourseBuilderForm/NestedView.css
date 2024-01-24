@@ -1,0 +1,22 @@
+.nested-view-section-summary {
+    @apply flex items-center justify-between gap-x-3 border-b-2;
+}
+
+.nested-view-section-title,
+.nested-view-subsection-title,
+.nested-view-btns,
+.nested-view-subsection-btns {
+    @apply flex items-center gap-x-3;
+}
+
+.nested-view-more-btn {
+    @apply text-xl text-richblack-300;
+}
+
+.nested-view-section-subsection {
+    @apply flex items-center justify-between gap-x-3 border-b-2;
+}
+
+.nested-view-add-lecture {
+    @apply mt-4 flex items-center gap-x-2 text-yellow-50;
+}

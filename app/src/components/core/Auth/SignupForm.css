@@ -1,0 +1,43 @@
+.signup-form {
+    @apply flex w-full flex-col gap-y-4;
+}
+
+/* Names (firstName & lastName) */
+/* =============================== */
+.signup-names {
+    @apply flex gap-x-4;
+}
+
+.signup-general-text {
+    @apply mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5;
+}
+
+.signup-general-input {
+    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5;
+}
+
+/* Password */
+/* =============================== */
+
+.signup-password-fields {
+    @apply flex gap-x-4;
+}
+
+.signup-password,
+.signup-confirm-password {
+    @apply relative;
+}
+
+.signup-password-input {
+    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-10 text-richblack-5;
+}
+
+.signup-show-hide-password {
+    @apply absolute right-3 top-[38px] z-[10] cursor-pointer;
+}
+
+/* Submit Button */
+/* =============================== */
+.signup-create-account-btn {
+    @apply mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900;
+}

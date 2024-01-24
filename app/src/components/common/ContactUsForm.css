@@ -1,0 +1,40 @@
+.contactus-firstname-lastname {
+    @apply flex flex-row justify-between gap-5;
+}
+
+.firstname-div,
+.lastname-div {
+    @apply flex flex-col w-[50%];
+}
+.contactus-email,
+.contactus-message,
+.contactus-phoneno {
+    @apply flex flex-col;
+}
+
+.contact-us-form {
+    @apply flex flex-col gap-14;
+}
+
+.contactus-btn {
+    @apply rounded-md bg-yellow-50 text-center px-6 text-[16px] font-bold text-black;
+}
+
+.contactus-input {
+    @apply text-black;
+}
+
+/* Phone No. */
+/* =========================== */
+
+.dropdown-input {
+    @apply flex gap-2;
+}
+
+.countrycode-select {
+    @apply bg-richblack-600 w-[10%];
+}
+
+.phoneno-input {
+    @apply w-[90%];
+}

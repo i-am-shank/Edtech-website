@@ -1,0 +1,15 @@
+.tab-content {
+    @apply flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max;
+}
+
+.tab-match {
+    @apply bg-richblack-900 text-richblack-5;
+}
+
+.tab-unmatch {
+    @apply bg-transparent text-richblack-200;
+}
+
+.tab-data {
+    @apply py-2 px-5 rounded-full transition-all duration-200;
+}

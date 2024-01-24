@@ -1,0 +1,60 @@
+.course-info-form {
+    @apply rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 space-y-8;
+}
+
+.course-info-form-field {
+    @apply flex flex-col space-y-2;
+}
+
+.course-info-label {
+    @apply text-sm text-richblack-5;
+}
+
+.compulsory-icon {
+    @apply text-pink-200;
+}
+
+.course-info-input {
+    @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.course-info-error {
+    @apply ml-2 text-xs tracking-wide text-pink-200;
+}
+
+.course-info-course-title-input {
+    @apply w-full;
+}
+
+.course-info-course-short-desc-input {
+    @apply min-h-[130px] w-full;
+}
+
+.course-info-course-price {
+    @apply w-full !pl-12;
+}
+
+.course-info-course-price-icon {
+    @apply absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400;
+}
+
+.course-info-course-category-options {
+    @apply w-full;
+}
+
+/* done */
+
+.course-info-benefits-input {
+    @apply min-h-[130px] w-full;
+}
+
+/* Course Btns */
+/* ================================= */
+
+.course-info-btns {
+    @apply flex justify-end gap-x-2;
+}
+
+.course-info-btn-1 {
+    @apply flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900;
+}

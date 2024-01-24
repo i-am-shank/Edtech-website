@@ -1,0 +1,19 @@
+.icon-btn {
+    @apply flex items-center cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold text-richblack-900;
+}
+
+.icon-btn-outline {
+    @apply border border-yellow-50 bg-transparent;
+}
+
+.icon-btn-no-outline {
+    @apply bg-yellow-50;
+}
+
+.icon-btn-content {
+    @apply flex items-center gap-2;
+}
+
+.icon-btn-outline-content {
+    @apply text-yellow-50;
+}

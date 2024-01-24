@@ -1,0 +1,51 @@
+.timeline-section-content {
+    @apply flex flex-row gap-14 items-center;
+}
+
+.timeline-left {
+    @apply w-[45%] flex flex-col gap-5;
+}
+
+.timeline-element {
+    @apply flex flex-row gap-6;
+}
+
+.timeline-element-left {
+    @apply w-[50px] h-[50px] bg-white flex items-center;
+}
+
+.timeline-element-heading {
+    @apply font-semibold text-[18px];
+}
+
+.timeline-element-para {
+    @apply text-base;
+}
+
+.timeline-right {
+    @apply relative shadow-blue-200;
+}
+
+.timeline-image {
+    @apply shadow-white object-cover h-fit;
+}
+
+.overlap-div {
+    @apply absolute text-white bg-caribbeangreen-700 flex flex-row uppercase py-7 left-[50%] translate-x-[-50%] translate-y-[-50%];
+}
+
+.overlap-div-left {
+    @apply flex flex-row gap-5 items-center border-r border-caribbeangreen-300 px-7;
+}
+
+.overlap-text-heading {
+    @apply text-3xl font-bold;
+}
+
+.overlap-text-para {
+    @apply text-caribbeangreen-300 text-sm;
+}
+
+.overlap-div-right {
+    @apply flex gap-5 items-center px-7;
+}

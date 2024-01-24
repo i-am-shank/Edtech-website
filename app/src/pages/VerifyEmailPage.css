@@ -1,0 +1,41 @@
+/* Top-content ------------------- */
+
+.verify-email-page {
+    @apply min-h-[calc(100vh-3.5rem)] grid place-items-center;
+}
+
+.verify-email-content {
+    @apply max-w-[500px] p-4 lg:p-8;
+}
+
+.verify-email-heading {
+    @apply text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem];
+}
+
+.verify-email-para {
+    @apply text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100;
+}
+
+/* Form ------------------- */
+
+.otp-input {
+    @apply w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50;
+}
+
+.verify-email-btn {
+    @apply w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900;
+}
+
+/* Links -------------------- */
+
+.verify-email-links {
+    @apply mt-6 flex items-center justify-between;
+}
+
+.verify-email-signup {
+    @apply text-richblack-5 flex items-center gap-x-2;
+}
+
+.verify-email-resend-otp {
+    @apply flex items-center text-blue-100 gap-x-2;
+}

@@ -1,0 +1,49 @@
+.login-form {
+    @apply mt-6 flex w-full flex-col gap-y-4;
+}
+
+/* Email field */
+/* ================================== */
+.email-field {
+    @apply w-full;
+}
+
+.email-label {
+    @apply mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5;
+}
+
+.compulsory {
+    @apply text-pink-200;
+}
+
+.email-input {
+    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5;
+}
+
+/* Password field */
+/* ================================== */
+.password-field {
+    @apply relative;
+}
+
+.password-label {
+    @apply mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5;
+}
+
+.password-input {
+    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5;
+}
+
+.hide-unhide-password {
+    @apply absolute right-3 top-[38px] z-[10] cursor-pointer;
+}
+
+.forgot-password-text {
+    @apply mt-1 ml-auto max-w-max text-xs text-blue-100;
+}
+
+/* Sign In button */
+/* ================================== */
+.sign-in-btn {
+    @apply mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900;
+}

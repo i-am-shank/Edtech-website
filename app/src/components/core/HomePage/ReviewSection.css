@@ -1,0 +1,3 @@
+.review-section-heading {
+    @apply font-semibold mt-10 text-center text-4xl;
+}

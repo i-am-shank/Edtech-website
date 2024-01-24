@@ -1,0 +1,49 @@
+.navbar {
+    @apply flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700;
+}
+
+.navbar-content {
+    @apply flex w-11/12 max-w-maxContent items-center justify-between;
+}
+
+/* Navbar links */
+/* =============================== */
+
+.navbar-links-list {
+    @apply flex gap-x-6 text-richblack-25;
+}
+
+.navbar-link-text-active {
+    @apply text-yellow-25;
+}
+
+.navbar-link-text {
+    @apply text-richblack-25;
+}
+
+/* Dashboard links */
+/* =============================== */
+
+.dashboard-links {
+    @apply flex gap-x-4 items-center;
+}
+
+.cart-link {
+    @apply relative;
+}
+
+.auth-btn {
+    @apply border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md;
+}
+
+.catalog-div {
+    @apply flex items-center gap-2 relative;
+}
+
+.catalog-hover-content {
+    @apply invisible absolute left-[50%] translate-x-[-50%] translate-y-[30%] top-[50%] flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[300px] z-50;
+}
+
+.diamond-shape {
+    @apply absolute left-[50%] top-0 translate-y-[-45%] translate-x-[80%] h-6 w-6 rotate-45 rounded-md bg-richblack-5;
+}
