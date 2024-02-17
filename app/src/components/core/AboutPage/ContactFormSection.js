@@ -8,15 +8,17 @@ export default function ContactFormSection() {
         <div className="contact-form-section">
             {/* Heading */}
             {/* ========================= */}
-            <h1>Get in Touch</h1>
+            <h1 className="contact-form-heading">Get in Touch</h1>
 
             {/* Subtitle */}
             {/* ========================= */}
-            <p>We'd love to here for you, Please fill out this form.</p>
+            <p className="contact-form-text">
+                We'd love to here for you, Please fill out this form.
+            </p>
 
             {/* Form */}
             {/* ========================= */}
-            <div>
+            <div className="contact-us-form">
                 <ContactUsForm />
             </div>
         </div>

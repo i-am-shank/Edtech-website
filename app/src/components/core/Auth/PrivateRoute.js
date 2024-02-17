@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 export default function PrivateRoute({ children }) {
-    // Fetch token (for authorisation)
+    // Fetch token (for Authorization)
     const { token } = useSelector((state) => state.auth);
 
     if (token !== null) {

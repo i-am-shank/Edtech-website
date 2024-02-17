@@ -1,40 +1,50 @@
+.contact-us-form {
+    @apply flex flex-col gap-7;
+}
+
 .contactus-firstname-lastname {
-    @apply flex flex-row justify-between gap-5;
+    @apply flex flex-col gap-5 lg:flex-row;
 }
 
 .firstname-div,
 .lastname-div {
-    @apply flex flex-col w-[50%];
-}
-.contactus-email,
-.contactus-message,
-.contactus-phoneno {
-    @apply flex flex-col;
+    @apply flex flex-col gap-2 lg:w-[48%];
 }
 
-.contact-us-form {
-    @apply flex flex-col gap-14;
-}
-
-.contactus-btn {
-    @apply rounded-md bg-yellow-50 text-center px-6 text-[16px] font-bold text-black;
+.contactus-label {
+    @apply text-[14px] text-richblack-5;
 }
 
 .contactus-input {
-    @apply text-black;
+    @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }
 
-/* Phone No. */
-/* =========================== */
-
-.dropdown-input {
-    @apply flex gap-2;
+.contactus-error {
+    @apply -mt-1 text-[12px] text-yellow-100;
 }
 
-.countrycode-select {
-    @apply bg-richblack-600 w-[10%];
+.contactus-email,
+.contactus-message,
+.contactus-phoneno {
+    @apply flex flex-col gap-2;
 }
 
-.phoneno-input {
-    @apply w-[90%];
+.contactus-countrycode-phoneno {
+    @apply flex gap-5;
+}
+
+.contactus-countrycode-div {
+    @apply flex w-[81px] flex-col gap-2;
+}
+
+.contactus-phoneno-div {
+    @apply flex w-[calc(100%-90px)] flex-col gap-2;
+}
+
+.contactus-submit-btn {
+    @apply rounded-md bg-yellow-50 px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] disabled:bg-richblack-500 sm:text-[16px];
+}
+
+.contactus-loaded-submit-btn {
+    @apply transition-all duration-200 hover:scale-95 hover:shadow-none;
 }

@@ -31,15 +31,15 @@
 /* Level & Flow-chart */
 /* ============================== */
 .card-level-flowchart {
-    @apply w-[360px] lg:w-[30%] text-richblack-25 h-[300px] box-border cursor-pointer;
+    @apply flex justify-between px-6 py-3 font-medium;
 }
 
 .active-card-level-flowchart {
-    @apply bg-white shadow-[12px_12px_0_0] shadow-yellow-50;
+    @apply text-blue-300;
 }
 
 .inactive-card-level-flowchart {
-    @apply bg-richblack-800;
+    @apply text-richblack-300;
 }
 
 .card-level {

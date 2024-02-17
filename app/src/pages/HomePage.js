@@ -1,17 +1,6 @@
-// import CSS
-// ===========================
-import "./HomePage.css";
-
-// import icons
-// ===========================
-import { FaArrowRight } from "react-icons/fa";
-
-// import modules
-// ===========================
-import { Link } from "react-router-dom";
-
 // import components
 // ===========================
+import "./HomePage.css";
 import HighlightText from "../components/core/HomePage/HighlightText";
 import Button from "../components/core/HomePage/Button";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
@@ -21,6 +10,14 @@ import InstructorSection from "../components/core/HomePage/InstructorSection";
 import ReviewSection from "../components/core/HomePage/ReviewSection";
 import Footer from "../components/common/Footer";
 import ExploreMore from "../components/core/HomePage/ExploreMore";
+
+// import icons
+// ===========================
+import { FaArrowRight } from "react-icons/fa";
+
+// import hooks & React-tools
+// ===========================
+import { Link } from "react-router-dom";
 
 // import files
 // ===========================
@@ -32,13 +29,13 @@ export default function HomePage() {
             {/* =========================== */}
             {/* Section 1  .... black */}
             {/* =========================== */}
-            <div className="section-1">
+            <div className="homepage-section-1">
                 {/* Button */}
                 {/* ============================================== */}
-                <Link to={"/signup"} className="instructor-btn">
+                <Link to={"/signup"} className="homepage-instructor-btn">
                     {/* top-button */}
-                    <div className="group outer-btn-div">
-                        <div className="inner-btn-div">
+                    <div className="group homepage-outer-btn-div">
+                        <div className="homepage-inner-btn-div">
                             <p>Become an Instructor</p> <FaArrowRight />
                         </div>
                     </div>
@@ -46,14 +43,14 @@ export default function HomePage() {
 
                 {/* Heading */}
                 {/* ============================================== */}
-                <div className="future-heading">
+                <div className="homepage-future-heading">
                     Empower Your Future with{" "}
                     <HighlightText text={"Coding Skills"} />
                 </div>
 
                 {/* Sub-heading */}
                 {/* ============================================== */}
-                <div className="future-subheading">
+                <div className="homepage-future-subheading">
                     With our online coding courses, you can learn at your own
                     pace, from anywhere in the world, and get access to a wealth
                     of resources, including hands-on projects, quizzes, and
@@ -62,7 +59,7 @@ export default function HomePage() {
 
                 {/* {Buttons .. yellow / black} */}
                 {/* ============================================== */}
-                <div className="buttons">
+                <div className="homepage-buttons">
                     <Button active={true} linkto={"/signup"}>
                         Learn More
                     </Button>
@@ -74,8 +71,8 @@ export default function HomePage() {
 
                 {/* Video .. */}
                 {/* ============================================== */}
-                <div className="video-div">
-                    <video className="video" muted loop autoPlay>
+                <div className="homepage-video-div">
+                    <video className="homepage-video" muted loop autoPlay>
                         <source src={Banner} type="video/mp4" />
                     </video>
                 </div>
@@ -86,7 +83,7 @@ export default function HomePage() {
                     <CodeBlocks
                         position={"lg:flex-row"}
                         heading={
-                            <div className="codeblocks-heading-div">
+                            <div className="homepage-codeblocks-heading-div">
                                 Unlock your{" "}
                                 <HighlightText text={"coding potential"} /> with
                                 our online courses.
@@ -117,7 +114,7 @@ export default function HomePage() {
                     <CodeBlocks
                         position={"lg:flex-row-reverse"}
                         heading={
-                            <div className="codeblocks-heading-div">
+                            <div className="homepage-codeblocks-heading-div">
                                 Start{" "}
                                 <HighlightText text={"coding in seconds"} />
                             </div>
@@ -149,21 +146,21 @@ export default function HomePage() {
             {/* =========================== */}
             {/* Section 2  .... white */}
             {/* =========================== */}
-            <div className="section-2">
+            <div className="homepage-section-2">
                 {/* Bg with buttons */}
-                <div className="bg-and-btns">
-                    <div className="section-2-btns-div-1">
-                        <div className="above-btn-gap"></div>
-                        <div className="section-2-btns">
+                <div className="homepage-bg-and-btns">
+                    <div className="homepage-section-2-btns-div-1">
+                        <div className="homepage-above-btn-gap"></div>
+                        <div className="homepage-section-2-btns">
                             <Button active={true} linkto={"/signup"}>
-                                <div className="section-2-btn">
+                                <div className="homepage-section-2-btn">
                                     Explore Full Catalogue
                                     <FaArrowRight />
                                 </div>
                             </Button>
 
                             <Button active={false} linkto={"/signup"}>
-                                <div className="section-2-btn-2">
+                                <div className="homepage-section-2-btn-2">
                                     Learn More
                                 </div>
                             </Button>
@@ -172,16 +169,16 @@ export default function HomePage() {
                 </div>
 
                 {/* Skills for Job -- content */}
-                <div className="skills-for-job">
+                <div className="homepage-skills-for-job">
                     {/* Job-skills heading */}
-                    <div className="job-skills-heading">
-                        <div className="job-skills-heading-content">
+                    <div className="homepage-job-skills-heading">
+                        <div className="homepage-job-skills-heading-content">
                             Get the skills for a{" "}
                             <HighlightText text={"Job that is in demand"} />
                         </div>
 
-                        <div className="job-skills-text">
-                            <div className="job-skills-text-content">
+                        <div className="homepage-job-skills-text">
+                            <div className="homepage-job-skills-text-content">
                                 The modern StudyNotion is the one who dictates
                                 its own terms. Today, to be a competitive
                                 specialist requires more than professional
@@ -202,7 +199,7 @@ export default function HomePage() {
             </div>
 
             {/* Section 3  .... black */}
-            <div className="section-3">
+            <div className="homepage-section-3">
                 {/* Instructor-section */}
                 <InstructorSection />
 

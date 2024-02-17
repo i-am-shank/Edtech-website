@@ -150,7 +150,7 @@ export default function CourseBuilderForm() {
 
     return (
         <div className="course-builder-wrapper">
-            <p>Course Builder</p>
+            <p className="course-builder-heading">Course Builder</p>
 
             {/* Form */}
             {/* =============================== */}
@@ -158,9 +158,14 @@ export default function CourseBuilderForm() {
                 onSubmit={handleSubmit(onSubmit)}
                 className="course-builder-form"
             >
-                <div>
-                    <label htmlFor="sectionName">
-                        Section name<sup>*</sup>
+                {/* Section details */}
+                {/* =================== */}
+                <div className="course-builder-section">
+                    <label
+                        htmlFor="sectionName"
+                        className="course-builder-section-label"
+                    >
+                        Section name<sup className="compulsory-icon">*</sup>
                     </label>
                     <input
                         id="sectionName"
@@ -169,7 +174,9 @@ export default function CourseBuilderForm() {
                         className="course-builder-section-input"
                     />
                     {errors.sectionName && (
-                        <span>Section name is required**</span>
+                        <span className="course-builder-section-error">
+                            Section name is required**
+                        </span>
                     )}
                 </div>
 

@@ -1,0 +1,42 @@
+/* Course Img */
+/* ======================================== */
+
+.course-card-img-wrapper {
+    @apply rounded-lg;
+}
+
+.course-card-img {
+    @apply w-full rounded-xl object-cover;
+}
+
+/* Course Details */
+/* ======================================== */
+
+.course-card-details {
+    @apply flex flex-col gap-2 px-1 py-3;
+}
+
+.course-card-title {
+    @apply text-xl text-richblack-5;
+}
+
+.course-card-instructor {
+    @apply text-sm text-richblack-50;
+}
+
+/* Course Rating */
+.course-rating-wrapper {
+    @apply flex items-center gap-2;
+}
+
+.course-rating-avg {
+    @apply text-yellow-5;
+}
+
+.course-rating-count {
+    @apply text-richblack-400;
+}
+
+.course-card-price {
+    @apply text-xl text-richblack-5;
+}

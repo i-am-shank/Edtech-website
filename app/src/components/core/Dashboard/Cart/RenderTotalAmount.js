@@ -5,12 +5,24 @@ import IconBtn from "../../../common/IconBtn";
 
 // import hooks & React-tools
 // ===============================
-import { useSelector } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+// import API-related modules
+// ===============================
+import { buyCourse } from "../../../../services/operations/studentFeaturesAPI";
 
 export default function RenderTotalAmount() {
+    // initialise hooks
+    // ================
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     // states
     // ================
     const { total, cart } = useSelector((state) => state.cart);
+    const { token } = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.profile);
 
     // Handlers
     // ================
@@ -18,6 +30,7 @@ export default function RenderTotalAmount() {
         // Payment Gateway isn't ready
         // So, do console-log for time-being
         const courses = cart.map((course) => course._id);
+        buyCourse(token, courses, user, navigate, dispatch);
         console.log("Bought these courses:", courses);
 
         // (ToDo) API integrate => Takes us to payment-gateway
@@ -25,10 +38,10 @@ export default function RenderTotalAmount() {
 
     return (
         <div className="total-amount">
-            <p>Total:</p>
+            <p className="total-amount-title">Total:</p>
 
             {/* Amount ----------- */}
-            <p>Rs {total}</p>
+            <p className="total-amount-amount">Rs {total}</p>
 
             {/* Buy btn ----------- */}
             <IconBtn

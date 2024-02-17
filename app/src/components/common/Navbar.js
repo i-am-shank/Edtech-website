@@ -1,31 +1,24 @@
-import "./Navbar.css";
-
-// import modules
+// import components
 // =============================
-import { Link, matchPath } from "react-router-dom";
+import "./Navbar.css";
+import ProfileDropDown from "../core/Auth/ProfileDropDown";
 
-// import data
+// import hooks & React-tools
+// =============================
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { Link, matchPath, useLocation } from "react-router-dom";
+
+// import data & constants
 // =============================
 import { NavbarLinks } from "../../data/navbar-links";
+import { ACCOUNT_TYPE } from "../../utils/constants";
 
 // import assets
 // =============================
 import logo from "../../assets/Logo/Logo-Full-Light.png";
-
-// import icons
-// =============================
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoIosArrowDown } from "react-icons/io";
-
-// import hooks
-// =============================
-import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-
-// import components
-// =============================
-import ProfileDropDown from "../core/Auth/ProfileDropDown";
+import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
 
 // import API related modules
 // =============================
@@ -46,35 +39,41 @@ import { categories } from "../../services/apis";
 // ];
 
 export default function Navbar() {
-    // fetch states
+    // states
     // ======================
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
     const { totalItems } = useSelector((state) => state.cart);
+    const [subLinks, setSubLinks] = useState([]);
+    const [loading, setLoading] = useState(false);
 
+    // initialise hooks
+    // ======================
     const location = useLocation(); // fetch location-params from useLocation-hook
 
     // API call (to backend)
     // ======================
-    const [subLinks, setSubLinks] = useState([]);
-
     const fetchSublinks = async () => {
-        try {
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
+        // show loading ----------
+        setLoading(true);
 
-            // Just for debugging
+        try {
+            // fire API-call ----------
+            const result = await apiConnector("GET", categories.CATEGORIES_API);
             console.log("Printing SubLinks result : ", result);
 
             // Update the state of links-array
             setSubLinks(result.data.data);
         } catch (error) {
-            console.log("Could not fetch the category list");
+            console.log("Could'nt fetch the category list : ", error);
         }
+
+        // hide loading ----------
+        setLoading(false);
     };
 
     // Only need to do API call when page loads for 1st time
     useEffect(() => {
-        // Commenting function-call, as API-call isn't working
         // Updating sub-links by self
         fetchSublinks();
     }, []);
@@ -86,7 +85,13 @@ export default function Navbar() {
     };
 
     return (
-        <div className="navbar">
+        <div
+            className={`navbar ${
+                location.pathname === "/"
+                    ? "navbar-homepage"
+                    : "navbar-other-pages"
+            }`}
+        >
             <div className="navbar-content">
                 {/* Logo */}
                 {/* ==================== */}
@@ -102,43 +107,83 @@ export default function Navbar() {
 
                 {/* Navbar-links */}
                 {/* ==================== */}
-                <nav>
+                <nav className="navbar-links">
                     <ul className="navbar-links-list">
                         {NavbarLinks.map((link, index) => {
                             return (
                                 <li key={index} className="navbar-link">
                                     {link.title === "Catalog" ? (
-                                        <div className="catalog-div group">
-                                            <p>{link.title}</p>
-                                            <IoIosArrowDown />
-
-                                            {/* Hover content */}
-                                            <div className="catalog-hover-content">
-                                                {/* Diamond shape */}
-                                                <div className="diamond-shape"></div>
-
-                                                {/* Dropdown link-list */}
-
-                                                {subLinks.length ? (
-                                                    subLinks.map(
-                                                        (subLink, index) => (
-                                                            <Link
-                                                                to={`${subLink.link}`}
-                                                                key={index}
-                                                            >
-                                                                <p>
-                                                                    {
-                                                                        subLink.name
-                                                                    }
-                                                                </p>
-                                                            </Link>
-                                                        )
+                                        <>
+                                            <div
+                                                className={`catalog-div group ${
+                                                    matchRoute(
+                                                        "/catalog/:catalogName"
                                                     )
-                                                ) : (
-                                                    <div>0 links</div>
-                                                )}
+                                                        ? "navbar-link-text-active"
+                                                        : "navbar-link-text"
+                                                }`}
+                                            >
+                                                <p>{link.title}</p>
+                                                <BsChevronDown />
+
+                                                {/* Hover content */}
+                                                <div className="catalog-hover-content">
+                                                    {/* Diamond shape */}
+                                                    <div className="diamond-shape"></div>
+
+                                                    {/* Dropdown link-list */}
+                                                    {loading ? (
+                                                        <p className="navbar-catalog-loader">
+                                                            <div className="spinner"></div>
+                                                        </p>
+                                                    ) : subLinks.length ? (
+                                                        <>
+                                                            {/* Add below filter to subLinks ---------- */}
+                                                            {/* .filter(
+                                                                    (subLink) =>
+                                                                        subLink
+                                                                            ?.courses
+                                                                            ?.length >=
+                                                                        0
+                                                                )
+                                                                ? */}
+
+                                                            {subLinks?.map(
+                                                                (
+                                                                    subLink,
+                                                                    index
+                                                                ) => (
+                                                                    <Link
+                                                                        to={`/catalog/${subLink.name
+                                                                            .split(
+                                                                                " "
+                                                                            )
+                                                                            .join(
+                                                                                "-"
+                                                                            )
+                                                                            .toLowerCase()}`}
+                                                                        className="navbar-catalog-link"
+                                                                        key={
+                                                                            index
+                                                                        }
+                                                                    >
+                                                                        <p>
+                                                                            {
+                                                                                subLink.name
+                                                                            }
+                                                                        </p>
+                                                                    </Link>
+                                                                )
+                                                            )}
+                                                        </>
+                                                    ) : (
+                                                        <div className="navbar-catalog-no-courses">
+                                                            No Courses Found
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
+                                        </>
                                     ) : (
                                         <Link to={link?.path}>
                                             <p
@@ -162,11 +207,13 @@ export default function Navbar() {
                 {/* ==================== */}
                 <div className="dashboard-links">
                     {/* Condition over state --> user .. to show cart-icon */}
-                    {user && user?.accountType !== "Instructor" && (
-                        <Link to="/dashboard/cart" className="cart-link">
-                            <AiOutlineShoppingCart />
+                    {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
+                        <Link to="/dashboard/cart" className="navbar-cart-link">
+                            <AiOutlineShoppingCart className="navbar-cart-icon" />
                             {totalItems > 0 && (
-                                <span className="cart-count">{totalItems}</span>
+                                <span className="navbar-cart-count">
+                                    {totalItems}
+                                </span>
                             )}
                         </Link>
                     )}
@@ -174,18 +221,14 @@ export default function Navbar() {
                     {/* Condition over state --> token .. to show login button */}
                     {token === null && (
                         <Link to="/login">
-                            <button className="auth-btn login-btn">
-                                Log In
-                            </button>
+                            <button className="auth-btn">Log In</button>
                         </Link>
                     )}
 
                     {/* Condition over state --> token .. to show signup button */}
                     {token === null && (
                         <Link to="/signup">
-                            <button className="auth-btn signup-btn">
-                                Sign Up
-                            </button>
+                            <button className="auth-btn">Sign Up</button>
                         </Link>
                     )}
 
@@ -195,6 +238,12 @@ export default function Navbar() {
                     {/* Just to visualise, when token !== null */}
                     {/* {token !== null && <p>Token - not null</p>} */}
                 </div>
+
+                {/* Navbar Menu */}
+                {/* =========================== */}
+                <button className="navbar-menu">
+                    <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+                </button>
             </div>
         </div>
     );

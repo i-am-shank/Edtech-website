@@ -1,0 +1,15 @@
+.course-review-modal {
+    @apply text-white;
+}
+
+.review-modal-profile-pic {
+    @apply aspect-square w-[50px] rounded-full object-cover;
+}
+
+.review-modal-form {
+    @apply mt-6 flex flex-col items-center;
+}
+
+.review-modal-experience-input {
+    @apply min-h-[130px] w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}

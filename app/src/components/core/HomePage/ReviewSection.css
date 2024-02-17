@@ -1,3 +1,22 @@
+.review-section {
+    @apply text-white;
+}
+
 .review-section-heading {
     @apply font-semibold mt-10 text-center text-4xl;
+}
+
+.review-section-slider {
+    @apply h-[190px] max-w-maxContent;
+}
+
+.review-section-slider-swiper {
+    @apply w-full;
+}
+
+/* Review */
+/* ====================================== */
+
+.review-section-review-img {
+    @apply h-9 w-9 object-cover rounded-full;
 }

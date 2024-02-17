@@ -1,6 +1,5 @@
 // import components
 // ===================
-import Button from "../components/core/HomePage/Button";
 import "./UpdatePasswordPage.css";
 
 // import hooks
@@ -12,6 +11,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import icons
 // ===================
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi";
 
 // import services (API call functions)
 // ===================
@@ -48,7 +48,7 @@ export default function UpdatePasswordPage() {
         // Fetch reset-password-token (from URL)
         const token = location.pathname.split("/").at(-1);
         // Dispatch action
-        dispatch(resetPassword(password, confirmPassword, token));
+        dispatch(resetPassword(password, confirmPassword, token, navigate));
     };
 
     return (
@@ -75,8 +75,11 @@ export default function UpdatePasswordPage() {
                     >
                         {/* Password-field */}
                         {/* ======================== */}
-                        <label>
-                            <p>New Password</p>
+                        <label className="update-password-label">
+                            <p className="update-password-label-text">
+                                New Password{" "}
+                                <sup className="compulsory-icon">*</sup>
+                            </p>
                             <input
                                 required
                                 type={showPassword ? "text" : "password"}
@@ -84,11 +87,11 @@ export default function UpdatePasswordPage() {
                                 value={password}
                                 onChange={handleOnChange}
                                 placeholder="Enter new password"
-                                className="update-password-password"
+                                className="update-password-input"
                             />
                             {/* Eye-icons .. closed/open */}
                             <span
-                                className="update-password-icon"
+                                className="update-password-eye-icon"
                                 onClick={() => setShowPassword((prev) => !prev)}
                             >
                                 {showPassword ? (
@@ -101,8 +104,10 @@ export default function UpdatePasswordPage() {
 
                         {/* Confirm-Password field */}
                         {/* ========================= */}
-                        <label>
-                            <p>Confirm Password</p>
+                        <label className="update-confirm-password-label">
+                            <p className="update-password-label-text">
+                                Confirm Password
+                            </p>
                             <input
                                 required
                                 type={showConfirmPassword ? "text" : "password"}
@@ -110,11 +115,11 @@ export default function UpdatePasswordPage() {
                                 value={confirmPassword}
                                 onChange={handleOnChange}
                                 placeholder="Enter password again"
-                                className="update-password-password"
+                                className="update-password-input"
                             />
                             {/* Eye-icons .. closed/open */}
                             <span
-                                className="update-password-icon"
+                                className="update-password-eye-icon"
                                 onClick={() =>
                                     setShowConfirmPassword((prev) => !prev)
                                 }
@@ -140,7 +145,9 @@ export default function UpdatePasswordPage() {
                     {/* ====================== */}
                     <div>
                         <Link to="/login">
-                            <p>Back to Login</p>
+                            <p>
+                                <BiArrowBack /> Back to Login
+                            </p>
                         </Link>
                     </div>
                 </div>

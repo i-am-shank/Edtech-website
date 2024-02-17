@@ -7,6 +7,7 @@ import StatsComponent from "../components/core/AboutPage/StatsComponent";
 import LearningGrid from "../components/core/AboutPage/LearningGrid";
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection";
 import Footer from "../components/common/Footer";
+import ReviewSection from "../components/core/HomePage/ReviewSection";
 
 // import assets
 // ==========================
@@ -156,11 +157,12 @@ export default function AboutPage() {
                 {/* ========================== */}
                 <section className="about-section-6">
                     <div>
-                        <h1 className="about-section-6-heading">
+                        {/* <h1 className="about-section-6-heading">
                             Reviews from other learners
-                        </h1>
+                        </h1> */}
 
-                        {/* <ReviewSlider /> */}
+                        {/* Review-section ----------- */}
+                        <ReviewSection />
                     </div>
                 </section>
             </div>

@@ -1,7 +1,64 @@
-.active-render-step {
-    @apply bg-yellow-900 border-yellow-50 text-yellow-50;
+/* Step Count */
+/* ================================= */
+.render-steps {
+    @apply relative mb-2 flex w-full justify-center;
 }
 
-.inactive-render-step {
+.render-step {
+    @apply flex flex-col items-center;
+}
+
+.render-step-btn {
+    @apply grid cursor-default aspect-square w-[34px] place-items-center rounded-full border-[1px];
+}
+
+.active-render-step-btn {
+    @apply border-yellow-50 bg-yellow-900 text-yellow-50;
+}
+
+.inactive-render-step-btn {
     @apply border-richblack-700 bg-richblack-800 text-richblack-300;
+}
+
+.next-render-step-btn {
+    @apply bg-yellow-50 text-yellow-50;
+}
+
+.render-step-check-icon {
+    @apply font-bold text-richblack-900;
+}
+
+/* Dashes ---------------- */
+.render-steps-dashes {
+    @apply h-[calc(34px/2)] w-[33%] border-dashed border-b-2;
+}
+
+.next-render-steps-dashes {
+    @apply border-yellow-50;
+}
+
+.prev-render-steps-dashes {
+    @apply border-richblack-500;
+}
+
+/* Title of Form count */
+/* ================================= */
+.render-steps-titles {
+    @apply relative mb-16 flex w-full select-none justify-between;
+}
+
+.render-step-text {
+    @apply flex min-w-[130px] flex-col items-center gap-y-2;
+}
+
+.render-step-title {
+    @apply text-sm;
+}
+
+.next-render-step-title {
+    @apply text-richblack-5;
+}
+
+.prev-render-step-title {
+    @apply text-richblack-500;
 }

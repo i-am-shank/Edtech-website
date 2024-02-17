@@ -1,3 +1,84 @@
-.enrolled-courses {
-    @apply text-white;
+.enrolled-courses-heading {
+    @apply text-3xl text-richblack-50;
+}
+
+.enrolled-courses-loader {
+    @apply grid min-h-[calc(100vh-3.5rem)] place-items-center;
+}
+
+.enrolled-courses-no-courses {
+    @apply grid h-[10vh] w-full place-content-center text-richblack-5;
+}
+
+.enrolled-course-wrapper {
+    @apply my-8 text-richblack-5;
+}
+
+/* Heading */
+/* ============================================== */
+
+.enrolled-courses-list-heading {
+    @apply flex rounded-t-lg bg-richblack-500;
+}
+
+.enrolled-courses-heading-name {
+    @apply w-[45%] px-5 py-3;
+}
+
+.enrolled-courses-heading-duration {
+    @apply w-1/4 px-2 py-3;
+}
+
+.enrolled-courses-heading-progress {
+    @apply flex-1 px-2 py-3;
+}
+
+/* Course names */
+/* ============================================== */
+
+.enrolled-courses-list-course {
+    @apply flex items-center border border-richblack-700;
+}
+
+.enrolled-courses-list-last-course {
+    @apply rounded-b-lg;
+}
+
+.enrolled-courses-list-other-course {
+    @apply rounded-none;
+}
+
+/* Course Details ----------------------- */
+
+.enrolled-course-details {
+    @apply flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3;
+}
+
+.enrolled-course-details-thumbnail {
+    @apply h-14 w-14 rounded-lg object-cover;
+}
+
+/* Course Info */
+.enrolled-course-details-info {
+    @apply flex max-w-xs flex-col gap-2;
+}
+
+.enrolled-course-info-name {
+    @apply font-semibold;
+}
+
+.enrolled-course-info-description {
+    @apply text-xs text-richblack-300;
+}
+
+/* Duration ------------------------- */
+
+.enrolled-course-duration {
+    @apply w-1/4 px-2 py-3;
+}
+
+/* Progress ------------------------- */
+
+.enrolled-course-progress {
+    @apply flex w-1/5 flex-col gap-2 px-2 py-3;
 }

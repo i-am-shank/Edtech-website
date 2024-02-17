@@ -51,7 +51,7 @@ export default function CourseCard({ cardData, currentCard, setCurrentCard }) {
                 {/* Flow-chart ---------------- */}
                 <div className="card-flowchart">
                     <ImTree />
-                    <p>{cardData?.lessionNumber} Lession</p>
+                    <p>{cardData?.lessionNumber} Lessons</p>
                 </div>
             </div>
         </div>

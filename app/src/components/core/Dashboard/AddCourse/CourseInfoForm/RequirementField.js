@@ -5,6 +5,7 @@ import "./RequirementField.css";
 // import hooks
 // ======================================
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // import API-call functions
 // ======================================
@@ -19,17 +20,21 @@ export default function RequirementField({
 }) {
     // states
     // ====================
+    const { editCourse, course } = useSelector((state) => state.course);
     const [requirement, setRequirement] = useState("");
     const [requirementList, setRequirementList] = useState([]);
 
     // Render-handlers
     // ======================
     useEffect(() => {
+        if (editCourse) {
+            setRequirementList(course?.instructions);
+        }
         register(name, {
             required: true,
-            // validate: (value) => value.length > 0,
+            validate: (value) => value.length > 0,
         });
-    });
+    }, []);
 
     // Whenever list is updating, change the value mapped to "name"-variable
     useEffect(() => {
@@ -56,13 +61,13 @@ export default function RequirementField({
     return (
         <div className="requirement-field">
             {/* Label --------------- */}
-            <label htmlFor={name}>
+            <label htmlFor={name} className="requirement-field-label">
                 {label}
-                <sup>*</sup>
+                <sup className="compulsory-icon">*</sup>
             </label>
 
             {/* Input-field ---------------- */}
-            <div>
+            <div className="requirement-field-input-div">
                 {/* Input field */}
                 {/* ================== */}
                 <input
@@ -86,7 +91,7 @@ export default function RequirementField({
 
             {/* Requirement-list ----------------- */}
             {requirementList.length > 0 && (
-                <ul>
+                <ul className="requirement-field-list">
                     {requirementList.map((requirement, index) => {
                         return (
                             <li

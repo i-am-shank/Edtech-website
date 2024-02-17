@@ -2,6 +2,7 @@
 // ===================================
 import "./NestedView.css";
 import SubSectionModal from "./SubSectionModal";
+import ConfirmationModal from "../../../../common/ConfirmationModal";
 
 // import hooks & React tools
 // ===================================
@@ -26,7 +27,6 @@ import { MdEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
-import ConfirmationModal from "../../../../common/ConfirmationModal";
 
 export default function NestedView({ handleChangeEditSectionName }) {
     // initialise hooks
@@ -45,6 +45,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
 
     // Handlers
     // ===================
+    // Delete Section handler -------------
     const handleDeleteSection = async (sectionId) => {
         // fire API call
         const response = await deleteSection({
@@ -60,30 +61,43 @@ export default function NestedView({ handleChangeEditSectionName }) {
         setConfirmationModal(null);
     };
 
+    // Delete Sub-Section handler --------------
     const handleDeleteSubSection = async (subSectionId, sectionId) => {
         // fire API call
-        const response = await deleteSubSection(
-            {
-                courseId: subSectionId,
-                sectionId,
-            },
-            token
-        );
+        const response = await deleteSubSection({
+            subSectionId,
+            sectionId,
+            token,
+        });
         // condition over API-response
         if (response) {
-            dispatch(setCourse(response));
+            // Generated updated-course -----------
+            //      (using updated-subSection)
+            const updatedCourseContent = course.courseContent.map((section) =>
+                section._id === sectionId ? response : section
+            );
+            //   (If sectionId matches.. updated the section in course)
+            const updatedCourse = {
+                ...course,
+                courseContent: updatedCourseContent,
+            };
+
+            // Update the course -----------
+            dispatch(setCourse(updatedCourse));
         }
         // Remove confirmation modal
         setConfirmationModal(null);
     };
 
+    // Render Handlers
+    // ===================
     useEffect(() => {
         console.log("Rendering it again !");
     }, [course]);
 
     return (
         <div className="nested-view-wrapper">
-            <p>Nested View</p>
+            {/* Nested View ------------- */}
             <div className="nested-view">
                 {course?.courseContent?.map((section) => (
                     <details key={section._id} open>
@@ -91,14 +105,16 @@ export default function NestedView({ handleChangeEditSectionName }) {
                         {/* (for corresponding section) */}
                         {/* ====================== */}
                         <summary className="nested-view-section-summary">
-                            {/* Title */}
+                            {/* Title ------------ */}
                             <div className="nested-view-section-title">
-                                <RxDropdownMenu />
-                                <p>{section.sectionName}</p>
+                                <RxDropdownMenu className="nested-view-section-dropdown" />
+                                <p className="nested-view-section-name">
+                                    {section.sectionName}
+                                </p>
                             </div>
 
                             {/* Buttons ------------ */}
-                            <div className="nested-view-btns">
+                            <div className="nested-view-section-btns">
                                 {/* Edit Btn */}
                                 <button
                                     onClick={() =>
@@ -108,7 +124,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                                         )
                                     }
                                 >
-                                    <MdEdit />
+                                    <MdEdit className="nested-view-section-btn" />
                                 </button>
 
                                 {/* Delete Btn */}
@@ -128,35 +144,43 @@ export default function NestedView({ handleChangeEditSectionName }) {
                                         })
                                     }
                                 >
-                                    <RiDeleteBin6Line />
+                                    <RiDeleteBin6Line className="nested-view-section-btn" />
                                 </button>
 
-                                <span>|</span>
+                                <span className="nested-view-section-slash">
+                                    |
+                                </span>
 
                                 {/* Drop-down Btn */}
-                                <BiSolidDownArrow className="nested-view-more-btn" />
+                                <BiSolidDownArrow className="nested-view-section-btn" />
                             </div>
                         </summary>
 
                         {/* Sub-section details */}
                         {/* (for corresponding section) */}
                         {/* ====================== */}
-                        <div className="nested-view-section-subsections">
+                        <div className="nested-view-subsections">
                             {/* Sub-sections list --------- */}
                             {section?.subSection?.map((data) => (
                                 <div
-                                    className="nested-view-section-subsection"
+                                    className="nested-view-subsection"
                                     key={data?._id}
                                     onClick={() => setViewSubSection(data)}
                                 >
                                     {/* Subsection-title */}
-                                    <div className="nested-view-subsection-title">
-                                        <RxDropdownMenu />
-                                        <p>{data.title}</p>
+                                    <div className="nested-view-subsection-title-div">
+                                        <RxDropdownMenu className="nested-view-subsection-dropdown" />
+                                        <p className="nested-view-subsection-title">
+                                            {data.title}
+                                        </p>
                                     </div>
 
                                     {/* Subsection-buttons */}
-                                    <div className="nested-view-subsection-btns">
+                                    {/*   (have to stop the propagation of set-view on-click function of parent div.. to this div) */}
+                                    <div
+                                        className="nested-view-subsection-btns"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
                                         {/* Edit Btn */}
                                         <button
                                             onClick={() =>
@@ -166,7 +190,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                                                 })
                                             }
                                         >
-                                            <MdEdit />
+                                            <MdEdit className="nested-view-subsection-btn" />
                                         </button>
 
                                         {/* Delete Btn */}
@@ -189,7 +213,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                                                 })
                                             }
                                         >
-                                            <RiDeleteBin6Line />
+                                            <RiDeleteBin6Line className="nested-view-subsection-btn" />
                                         </button>
                                     </div>
                                 </div>
@@ -200,7 +224,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                                 onClick={() => setAddSubSection(section._id)}
                                 className="nested-view-add-lecture"
                             >
-                                <AiOutlinePlus />
+                                <AiOutlinePlus className="nested-view-add-icon" />
                                 <p>Add Lecture</p>
                             </button>
                         </div>
@@ -246,5 +270,3 @@ export default function NestedView({ handleChangeEditSectionName }) {
         </div>
     );
 }
-
-// 1:34

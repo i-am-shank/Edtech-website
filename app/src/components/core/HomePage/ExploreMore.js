@@ -53,11 +53,13 @@ export default function ExploreMore() {
         <div className="explore-more">
             {/* Explore more section */}
             {/* =========================== */}
-            <div className="explore-more-section">
-                Unlock the <HighlightText text={"Power of Code"} />
-                <p className="explore-more-text">
-                    Learn to build anything you can imagine
-                </p>
+            <div>
+                <div className="explore-more-section">
+                    Unlock the <HighlightText text={"Power of Code"} />
+                    <p className="explore-more-text">
+                        Learn to build anything you can imagine
+                    </p>
+                </div>
             </div>
 
             {/* Tabs section */}

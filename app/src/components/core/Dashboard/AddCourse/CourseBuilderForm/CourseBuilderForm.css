@@ -1,9 +1,37 @@
-.course-builder-section-input {
-    @apply text-black;
+.course-builder-wrapper {
+    @apply space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6;
 }
 
+.course-builder-heading {
+    @apply text-2xl font-semibold text-richblack-5;
+}
+
+/* Form */
+/* ====================================== */
+.course-builder-form {
+    @apply space-y-4;
+}
+
+/* Section-details ----------- */
+.course-builder-section {
+    @apply flex flex-col space-y-2;
+}
+
+.course-builder-section-label {
+    @apply text-sm text-richblack-5;
+}
+
+.course-builder-section-input {
+    @apply w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.course-builder-section-error {
+    @apply ml-2 text-xs tracking-wide text-pink-200;
+}
+
+/* Create-Section btn ------------ */
 .course-builder-create-section-btn-div {
-    @apply mt-10 flex;
+    @apply flex items-end gap-x-4;
 }
 
 .course-builder-create-section-btn {
@@ -11,15 +39,15 @@
 }
 
 .course-builder-cancel-edit-btn {
-    @apply text-sm text-richblack-300 underline ml-5;
+    @apply text-sm text-richblack-300 underline;
 }
 
-/* Buttons */
-/* ========================= */
+/* Back & Next btns */
+/* ====================================== */
 .course-builder-btns {
     @apply flex justify-end gap-x-3;
 }
 
 .course-builder-back-btn {
-    @apply rounded-md cursor-pointer flex items-center;
+    @apply flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900;
 }

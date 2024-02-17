@@ -2,10 +2,14 @@
     @apply flex flex-col space-y-2;
 }
 
+/* Label */
+/* ========================================= */
 .upload-label {
     @apply text-sm text-richblack-5;
 }
 
+/* Input-field */
+/* ========================================= */
 .active-upload-content {
     @apply bg-richblack-600;
 }
@@ -18,7 +22,7 @@
     @apply flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500;
 }
 
-/* Preview Source */
+/* Preview Source --------------- */
 /* ================================== */
 .upload-preview-source {
     @apply flex w-full flex-col p-6;
@@ -32,7 +36,7 @@
     @apply mt-3 text-richblack-400 underline;
 }
 
-/* Upload Input wrapper */
+/* Upload Input wrapper ---------------- */
 /* ================================== */
 .upload-input-wrapper {
     @apply flex w-full flex-col items-center p-6;
@@ -56,4 +60,8 @@
 
 .upload-requirements {
     @apply mt-10 flex list-disc justify-between space-x-12 text-center text-xs text-richblack-200;
+}
+
+.upload-error {
+    @apply ml-2 text-xs tracking-wide text-pink-200;
 }

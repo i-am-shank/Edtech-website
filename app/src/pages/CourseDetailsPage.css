@@ -1,0 +1,169 @@
+.course-details-hero-section-wrapper {
+    @apply relative w-full bg-richblack-800;
+}
+
+.course-details-hero-section {
+    @apply mx-auto box-content px-4 lg:w-[1260px] 2xl:relative;
+}
+
+/* ============================================= */
+/* Hero section ================================ */
+/* ============================================= */
+
+.course-details-header {
+    @apply mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px];
+}
+
+/* Course Thumbnail -------------- */
+
+.course-details-thumbnail-wrapper {
+    @apply relative block max-h-[30rem] lg:hidden;
+}
+
+.course-details-thumbnail-div {
+    @apply absolute bottom-0 left-0 h-full w-full shadow-[#161D29_0px_-64px_36px_-28px_inset];
+}
+
+.course-details-thumbnail {
+    @apply aspect-auto w-full;
+}
+
+/* Credentials ---------------- */
+
+.course-details-credentials {
+    @apply z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5;
+}
+
+.course-details-coursename {
+    @apply text-4xl font-bold text-richblack-5 sm:text-[42px];
+}
+
+.course-details-description {
+    @apply text-richblack-200;
+}
+
+/* Ratings & Reviews */
+
+.course-details-ratings-reviews {
+    @apply text-base flex flex-wrap items-center gap-2;
+}
+
+.course-details-avg-review {
+    @apply text-yellow-25;
+}
+
+/* Time, Language */
+
+.course-details-time-language {
+    @apply flex flex-wrap gap-5 text-lg;
+}
+
+.course-details-time,
+.course-details-language {
+    @apply flex items-center gap-2;
+}
+
+/* Buttons -------------- */
+
+.course-details-btns {
+    @apply text-white flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden;
+}
+
+.course-details-btns-price {
+    @apply space-x-3 pb-4 text-3xl font-semibold text-richblack-5;
+}
+
+/* Course Card */
+/* ========================================== */
+
+.course-details-course-card {
+    @apply right-[1rem] top-[60px] mx-auto hidden min-h-[600px] w-1/3 max-w-[410px] translate-y-24 md:translate-y-0 lg:absolute lg:block;
+}
+
+/* ========================================== */
+/* Content Section ========================== */
+/* ========================================== */
+
+.course-details-content-section-wrapper {
+    @apply mx-auto box-content px-4 text-start text-richblack-5 lg:w-[1260px];
+}
+
+.course-details-content-section {
+    @apply mx-auto max-w-maxContentTab lg:mx-0 xl:max-w-[810px];
+}
+
+/* What You'll learn - box */
+/* ======================================== */
+
+.course-details-learn-box {
+    @apply my-8 border border-richblack-600 p-8;
+}
+
+.course-details-learn-box-label {
+    @apply text-3xl font-semibold;
+}
+
+.course-details-learn-points {
+    @apply mt-5;
+}
+
+/* Course Content */
+/* ======================================== */
+
+.course-details-course-content {
+    @apply max-w-[830px];
+}
+
+/* Course Content titles ---------------- */
+.course-details-course-content-titles {
+    @apply flex flex-col gap-3;
+}
+
+.course-details-course-content-heading {
+    @apply text-[28px] font-semibold;
+}
+
+/* Course Statistics */
+.course-details-course-stats-wrapper {
+    @apply flex flex-wrap justify-between gap-2;
+}
+
+.course-details-course-stats {
+    @apply flex gap-2;
+}
+
+.course-details-collapse-sections-btn {
+    @apply text-yellow-25;
+}
+
+/* Course Details Accordion ------------------ */
+
+.course-details-accordion {
+    @apply py-4;
+}
+
+/* Author details ---------------- */
+
+.course-details-author-details {
+    @apply mb-12 py-4;
+}
+
+.course-details-author-details-heading {
+    @apply text-[28px] font-semibold;
+}
+
+.course-details-author-details-info {
+    @apply flex items-center gap-4 py-4;
+}
+
+.course-details-author-details-dp {
+    @apply h-14 w-14 rounded-full object-cover;
+}
+
+.course-details-author-details-names {
+    @apply text-lg;
+}
+
+.course-details-author-details-about {
+    @apply text-richblack-50;
+}

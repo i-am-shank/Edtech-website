@@ -2,89 +2,91 @@
 /* Section - 1 */
 /* ===================================== */
 
-.section-1 {
+.homepage-section-1 {
     @apply relative mx-auto flex flex-col w-11/12 items-center text-white justify-between max-w-maxContent;
 }
 
-.outer-btn-div {
+.homepage-outer-btn-div {
     @apply mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit mt-16 p-1;
 }
 
-.inner-btn-div {
+.homepage-inner-btn-div {
     @apply flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900;
 }
 
-.future-heading {
+.homepage-future-heading {
     @apply text-center text-4xl font-semibold mt-7;
 }
 
-.future-subheading {
+.homepage-future-subheading {
     @apply w-[90%] text-center text-lg font-bold text-richblack-300 mt-4;
 }
 
-.buttons {
+.homepage-buttons {
     @apply flex flex-row gap-7 mt-8;
 }
 
-.video-div {
+.homepage-video-div {
     @apply shadow-blue-200 mx-3 my-12;
 }
 
-.codeblocks-heading-div {
+.homepage-codeblocks-heading-div {
     @apply text-4xl font-semibold;
 }
 
 /* ===================================== */
 /* Section - 2 */
 /* ===================================== */
-.section-2 {
+.homepage-section-2 {
     @apply bg-pure-greys-5 text-richblack-700;
 }
 
-.bg-and-btns {
+/* Bg with btns ------------------ */
+.homepage-bg-and-btns {
     @apply h-[310px];
-    background-image: url("../assets/Images/bghome.svg");
+    background: url("../assets/Images/bghome.svg");
 }
 
-.section-2-btns-div-1 {
+.homepage-section-2-btns-div-1 {
     @apply w-11/12 max-w-maxContent flex flex-col items-center justify-center gap-5 mx-auto;
 }
 
-.section-2-btns {
-    @apply flex flex-row gap-7 text-white;
-}
-
-.section-2-btn {
-    @apply flex items-center gap-3;
-}
-
-.above-btn-gap {
+.homepage-above-btn-gap {
     @apply h-[150px];
 }
 
-.skills-for-job {
+.homepage-section-2-btns {
+    @apply flex flex-row gap-7 text-white;
+}
+
+.homepage-section-2-btn {
+    @apply flex items-center gap-3;
+}
+
+/* Skills for job - content ---------------- */
+.homepage-skills-for-job {
     @apply mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7;
 }
 
-.job-skills-heading {
+.homepage-job-skills-heading {
     @apply flex flex-row gap-5 mb-10 mt-[95px];
 }
 
-.job-skills-heading-content {
+.homepage-job-skills-heading-content {
     @apply text-4xl font-semibold w-[45%];
 }
 
-.job-skills-text {
+.homepage-job-skills-text {
     @apply flex flex-col gap-10 w-[40%] items-start;
 }
 
-.job-skills-text-content {
+.homepage-job-skills-text-content {
     @apply text-[16px];
 }
 
 /* ======================================= */
 /* Section - 3 */
 /* ======================================= */
-.section-3 {
+.homepage-section-3 {
     @apply w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
 }

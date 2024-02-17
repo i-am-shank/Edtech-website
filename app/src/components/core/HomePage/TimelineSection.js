@@ -37,6 +37,7 @@ export default function TimelineSection() {
         <div className="timeline-section">
             <div className="timeline-section-content">
                 {/* Left section */}
+                {/* =================== */}
                 <div className="timeline-left">
                     {timeline.map((element, index) => {
                         return (
@@ -61,6 +62,7 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Right section */}
+                {/* =================== */}
                 <div className="timeline-right">
                     <img
                         src={timelineImage}

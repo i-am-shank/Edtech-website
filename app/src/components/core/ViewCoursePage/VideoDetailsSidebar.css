@@ -1,0 +1,15 @@
+.video-details-sidebar {
+    @apply text-white;
+}
+
+.video-details-subsection {
+    @apply flex gap-5 p-5;
+}
+
+.video-details-subsection-active {
+    @apply bg-yellow-200 text-richblack-900;
+}
+
+.video-details-subsection-inactive {
+    @apply bg-richblack-900 text-white;
+}

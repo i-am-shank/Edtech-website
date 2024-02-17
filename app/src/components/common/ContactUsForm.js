@@ -7,6 +7,11 @@ import "./ContactUsForm.css";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
+// import API-connector & API-endpoints
+// ===============================
+import { apiConnector } from "../../services/apiConnector";
+import { contactusEndpoint } from "../../services/apis";
+
 // import data
 // ===============================
 import CountryCode from "../../data/countrycode.json";
@@ -21,6 +26,32 @@ export default function ContactUsForm() {
         reset,
         formState: { errors, isSubmitSuccessful },
     } = useForm();
+
+    // Handlers
+    // =========================
+    // Send all data through a backend API-call function.
+    const submitContactForm = async (data) => {
+        console.log("Contact form data : ", data);
+        try {
+            // show loading ----------
+            setLoading(true);
+
+            // fire API-call ----------
+            const response = await apiConnector(
+                "POST",
+                contactusEndpoint.CONTACT_US_API,
+                data
+            );
+            // const response = { status: "OK" };
+            console.log("Contact form response : ", response);
+
+            // hide loading ----------
+            setLoading(false);
+        } catch (error) {
+            console.log("Error in contact-form submission : ", error.message);
+            setLoading(false);
+        }
+    };
 
     // Render-functions
     // ========================
@@ -39,27 +70,6 @@ export default function ContactUsForm() {
     // whenever a change in format of form happens --> reset-function changes.
     // Reset the form, whenever form is submitted OR format of form changes (on selection of a field).
 
-    // Handlers
-    // =========================
-    // Send all data through a backend API-call function.
-    const submitContactForm = async (data) => {
-        console.log("Contact form data : ", data);
-        try {
-            setLoading(true);
-            // const response = await apiConnector(
-            //     "POST",
-            //     contactusEndpoint.CONTACT_US_API,
-            //     data
-            // );
-            const response = { status: "OK" };
-            console.log("Contact form response : ", response);
-            setLoading(false);
-        } catch (error) {
-            console.log("Error in contact-form submission : ", error.message);
-            setLoading(false);
-        }
-    };
-
     return (
         <form
             onSubmit={handleSubmit(submitContactForm)}
@@ -71,7 +81,9 @@ export default function ContactUsForm() {
                 {/* FirstName */}
                 {/* ---------------- */}
                 <div className="firstname-div">
-                    <label htmlFor="firstname">First Name</label>
+                    <label htmlFor="firstname" className="contactus-label">
+                        First Name
+                    </label>
                     <input
                         type="text"
                         name="firstname"
@@ -80,13 +92,19 @@ export default function ContactUsForm() {
                         {...register("firstname", { required: true })}
                         className="contactus-input"
                     />
-                    {errors.firstname && <span>Please enter first name</span>}
+                    {errors.firstname && (
+                        <span className="contactus-error">
+                            Please enter first name
+                        </span>
+                    )}
                 </div>
 
                 {/* LastName */}
                 {/* ---------------- */}
                 <div className="lastname-div">
-                    <label htmlFor="lastname">Last Name</label>
+                    <label htmlFor="lastname" className="contactus-label">
+                        Last Name
+                    </label>
                     <input
                         type="text"
                         name="lastname"
@@ -95,14 +113,15 @@ export default function ContactUsForm() {
                         {...register("lastname")}
                         className="contactus-input"
                     />
-                    {errors.lastname && <span>Please enter last name</span>}
                 </div>
             </div>
 
             {/* Email Address */}
             {/* ========================== */}
             <div className="contactus-email">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email" className="contactus-label">
+                    Email Address
+                </label>
                 <input
                     type="email"
                     name="email"
@@ -111,67 +130,83 @@ export default function ContactUsForm() {
                     {...register("email", { required: true })}
                     className="contactus-input"
                 />
-                {errors.email && <span>Please enter email address</span>}
+                {errors.email && (
+                    <span className="contactus-error">
+                        Please enter email address
+                    </span>
+                )}
             </div>
 
             {/* Phone Number */}
             {/* ========================== */}
             <div className="contactus-phoneno">
-                <label htmlFor="phonenumber">Phone Number</label>
+                <label htmlFor="phonenumber" className="contactus-label">
+                    Phone Number
+                </label>
 
-                <div className="phoneno-div dropdown-input">
+                <div className="contactus-countrycode-phoneno">
                     {/* Dropdown */}
-                    <select
-                        name="dropdown"
-                        id="dropdown"
-                        {...register("countrycode", { required: true })}
-                        className="countrycode-select"
-                    >
-                        {CountryCode.map((element, index) => {
-                            return (
-                                <option
-                                    key={index}
-                                    value={element.code}
-                                    className="phoneno-countrycode"
-                                >
-                                    {element.code} - {element.country}
-                                </option>
-                            );
-                        })}
-                    </select>
+                    <div className="contactus-countrycode-div">
+                        <select
+                            name="dropdown"
+                            id="dropdown"
+                            {...register("countrycode", { required: true })}
+                            className="contactus-input"
+                        >
+                            {CountryCode.map((element, index) => {
+                                return (
+                                    <option
+                                        key={index}
+                                        value={element.code}
+                                        className="phoneno-countrycode"
+                                    >
+                                        {element.code} - {element.country}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
 
                     {/* Number-input */}
-                    <input
-                        type="number"
-                        name="phonenumber"
-                        id="phonenumber"
-                        placeholder="12345 67890"
-                        className="phoneno-input contactus-input"
-                        // Specifying all validation-points (if not fulfilled, message will be shown in error-handling below)
-                        {...register("phoneNo", {
-                            required: {
-                                value: true,
-                                message: "Please enter your phone no.",
-                            },
-                            maxLength: {
-                                value: 10,
-                                message: "Invalid Phone Number",
-                            },
-                            minLength: {
-                                value: 8,
-                                message: "Invalid Phone Number",
-                            },
-                        })}
-                    />
+                    <div className="contactus-phoneno-input">
+                        <input
+                            type="number"
+                            name="phonenumber"
+                            id="phonenumber"
+                            placeholder="12345 67890"
+                            className="contactus-input"
+                            // Specifying all validation-points (if not fulfilled, message will be shown in error-handling below)
+                            {...register("phoneNo", {
+                                required: {
+                                    value: true,
+                                    message: "Please enter your phone no.",
+                                },
+                                maxLength: {
+                                    value: 12,
+                                    message: "Invalid Phone Number",
+                                },
+                                minLength: {
+                                    value: 10,
+                                    message: "Invalid Phone Number",
+                                },
+                            })}
+                        />
+                    </div>
                 </div>
 
-                {errors.phoneNo && <span>{errors.phoneNo.message}</span>}
+                {errors.phoneNo && (
+                    <span className="contactus-error">
+                        {errors.phoneNo.message}
+                    </span>
+                )}
             </div>
 
             {/* Message-box */}
             {/* ========================== */}
             <div className="contactus-message">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message" className="contactus-label">
+                    Message
+                </label>
                 <textarea
                     name="message"
                     id="message"
@@ -181,12 +216,21 @@ export default function ContactUsForm() {
                     {...register("message", { required: true })}
                     className="contactus-input"
                 />
-                {errors.message && <span>Please enter your message</span>}
+                {errors.message && (
+                    <span className="contactus-error">
+                        Please enter your message
+                    </span>
+                )}
             </div>
 
             {/* Submit button */}
             {/* =========================== */}
-            <button type="submit" className="contactus-btn">
+            <button
+                type="submit"
+                className={`contactus-submit-btn ${
+                    !loading && "contactus-loaded-submit-btn"
+                }`}
+            >
                 Send Message
             </button>
         </form>

@@ -1,0 +1,7 @@
+.my-courses-header {
+    @apply flex justify-between items-center mb-14;
+}
+
+.my-courses-heading {
+    @apply text-3xl font-medium text-richblack-5;
+}

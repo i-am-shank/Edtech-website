@@ -6,6 +6,7 @@ import "./RenderCartCourses.css";
 // ===============================
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
 
 // import assets
@@ -26,22 +27,41 @@ export default function RenderCartCourses() {
     // =============
     const { cart } = useSelector((state) => state.cart);
 
+    // useEffect(() => {
+    //     console.log("Print cart : ", cart);
+    // }, []);
+
     return (
         <div className="cart-courses">
-            {cart.map((course, index) => {
-                <div className="cart-course" key={index}>
+            {cart.map((course, index) => (
+                <div
+                    className={`cart-course ${
+                        index !== cart.length - 1 && "cart-last-course"
+                    } ${index !== 0 && "cart-course-after-first"}`}
+                    key={course._id}
+                >
                     {/* Course Content */}
                     {/* =============== */}
                     <div className="cart-course-content">
-                        <img src={course?.thumbnail} alt="" />
+                        <img
+                            src={course?.thumbnail}
+                            alt={course?.courseName}
+                            className="cart-course-thumbnail"
+                        />
                         <div className="cart-course-details">
-                            <p>{course?.courseName}</p>
-                            <p>{course?.category?.name}</p>
+                            <p className="cart-course-details-coursename">
+                                {course?.courseName}
+                            </p>
+                            <p className="cart-course-details-category">
+                                {course?.category?.name}
+                            </p>
 
                             {/* Rating --------- */}
-                            <div>
+                            <div className="cart-course-details-rating">
                                 {/* Average Rating */}
-                                <span>4.8</span>
+                                <span className="cart-course-details-avg-rating">
+                                    4.8
+                                </span>
                                 <ReactStars
                                     count={5}
                                     size={20}
@@ -51,7 +71,7 @@ export default function RenderCartCourses() {
                                     fullIcon={<IoIosStar />}
                                 />
                                 {/* Review count */}
-                                <span>
+                                <span className="cart-course-details-review-count">
                                     {course?.ratingAndReviews?.length} Ratings
                                 </span>
                             </div>
@@ -60,20 +80,21 @@ export default function RenderCartCourses() {
 
                     {/* Button & Price */}
                     {/* =============== */}
-                    <div>
+                    <div className="cart-btn-price-wrapper">
                         {/* Delete Btn ---------- */}
                         <button
                             onClick={() => dispatch(removeFromCart(course._id))}
+                            className="cart-delete-btn"
                         >
                             <RiDeleteBin6Line />
                             <span>Remove</span>
                         </button>
 
                         {/* Price ---------- */}
-                        <p>Rs {course?.price}</p>
+                        <p className="cart-price">₹ {course?.price}</p>
                     </div>
-                </div>;
-            })}
+                </div>
+            ))}
         </div>
     );
 }

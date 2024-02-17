@@ -1,5 +1,9 @@
+// import components
+// ====================================
 import "./Button.css";
 
+// import hooks & React-tools
+// ====================================
 import { Link } from "react-router-dom";
 
 export default function Button({ children, active, linkto }) {
@@ -7,7 +11,9 @@ export default function Button({ children, active, linkto }) {
         <Link to={linkto}>
             <div
                 className={`button-children ${
-                    active ? "bg-yellow-50 text-black" : "bg-richblack-800"
+                    active
+                        ? "active-button-children"
+                        : "inactive-button-children"
                 } hover:scale-95 transition-all duration-200`}
             >
                 {children}

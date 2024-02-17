@@ -6,11 +6,6 @@ import { toast } from "react-hot-toast";
 // define initial state
 // ===============================
 const initialState = {
-    // stores cart-item count
-    totalItems: localStorage.getItem("totalItems")
-        ? JSON.parse(localStorage.getItem("totalItems"))
-        : 0,
-
     // stores items of cart
     cart: localStorage.getItem("cart")
         ? JSON.parse(localStorage.getItem("cart"))
@@ -20,13 +15,18 @@ const initialState = {
     total: localStorage.getItem("total")
         ? JSON.parse(localStorage.getItem("total"))
         : 0,
+
+    // stores cart-item count
+    totalItems: localStorage.getItem("totalItems")
+        ? JSON.parse(localStorage.getItem("totalItems"))
+        : 0,
 };
 
 // create & export slice
 // ===============================
 const cartSlice = createSlice({
     name: "cart",
-    initialState: initialState,
+    initialState,
     reducers: {
         // add to cart
         // =======================
@@ -68,16 +68,16 @@ const cartSlice = createSlice({
             const courseId = action.payload;
             const index = state.cart.findIndex((item) => item._id === courseId);
             if (index >= 0) {
-                // course is in the cart, remove it
-                state.cart.splice(index, 1);
-
                 // update item-count & total-cost
                 state.totalItems--;
                 state.total -= state.cart[index].price;
 
+                // course is in the cart, remove it
+                state.cart.splice(index, 1);
+
                 // update to localstorage
                 localStorage.setItem("cart", JSON.stringify(state.cart));
-                localStorage.setItem(("total", JSON.stringify(state.total)));
+                localStorage.setItem("total", JSON.stringify(state.total));
                 localStorage.setItem(
                     "totalItems",
                     JSON.stringify(state.totalItems)

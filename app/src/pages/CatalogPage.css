@@ -1,0 +1,89 @@
+/* Loading & Error Handler */
+/* ===================================== */
+
+.catalog-page-loader {
+    @apply grid min-h-[calc(100vh-3.5rem)] place-items-center;
+}
+
+/* Page Header */
+/* ===================================== */
+
+.catalog-page-header {
+    @apply box-content bg-richblack-800 px-4;
+}
+
+.catalog-page-header-content {
+    @apply mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent;
+}
+
+/* category link-tree */
+.catalog-page-header-link-tree {
+    @apply text-sm text-richblack-300;
+}
+
+.catalog-page-header-link-category-name {
+    @apply text-yellow-25;
+}
+
+/* category name */
+.catalog-page-header-category-name {
+    @apply text-3xl text-richblack-5;
+}
+
+/* category description */
+.catalog-page-header-category-description {
+    @apply max-w-[870px] text-richblack-200;
+}
+
+/* Start Courses */
+/* ===================================== */
+
+.catalog-start-courses {
+    @apply mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent;
+}
+
+.catalog-start-courses-categories {
+    @apply my-4 flex border-b border-b-richblack-600 text-sm;
+}
+
+.catalog-start-courses-category {
+    @apply px-4 py-2 cursor-pointer;
+}
+
+.catalog-start-courses-active-category {
+    @apply border-b border-b-yellow-25 text-yellow-25;
+}
+
+.catalog-start-courses-inactive-category {
+    @apply text-richblack-50;
+}
+
+/* Top Courses */
+/* ===================================== */
+
+.catalog-section-heading {
+    @apply text-richblack-5;
+}
+
+.catalog-page-top-courses {
+    @apply mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent;
+}
+
+.catalog-page-top-courses-content {
+    @apply py-8;
+}
+
+/* Frequently Bought */
+/* ===================================== */
+
+.catalog-page-frequently-bought {
+    @apply mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent;
+}
+
+.catalog-frequently-bought-content {
+    @apply py-8;
+}
+
+.catalog-frequently-bought-courses {
+    @apply grid grid-cols-1 gap-6 lg:grid-cols-2;
+}

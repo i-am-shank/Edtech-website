@@ -1,0 +1,54 @@
+.course-details-card {
+    @apply flex flex-col gap-4 rounded-md bg-richblack-700 p-4 text-richblack-5;
+}
+
+/* Course thumbnail */
+/* ============================================ */
+
+.course-details-card-thumbnail {
+    @apply max-h-[300px] min-h-[180px] w-[400px] overflow-hidden rounded-2xl object-cover md:max-w-full;
+}
+
+/* Course info */
+/* ============================================ */
+
+.course-details-course-info {
+    @apply px-4;
+}
+
+/* Price ------------ */
+.course-details-card-price {
+    @apply space-x-3 pb-4 text-3xl font-semibold;
+}
+
+/* Buttons ------------- */
+.course-details-card-btns {
+    @apply flex flex-col gap-4;
+}
+
+/* Guarantee ------------- */
+.course-details-card-guarantee {
+    @apply pb-3 pt-6 text-center text-sm text-richblack-25;
+}
+
+/* Bottom texts -------------- */
+.course-details-card-bottom-title {
+    @apply my-2 text-xl font-semibold;
+}
+
+.course-details-card-bottom-points {
+    @apply flex flex-col gap-3 text-sm text-caribbeangreen-100;
+}
+
+.course-details-card-bottom-point {
+    @apply flex gap-2;
+}
+
+/* Share button -------------- */
+.course-details-card-share {
+    @apply text-center;
+}
+
+.course-details-card-share-btn {
+    @apply mx-auto flex items-center gap-2 py-6 text-yellow-100;
+}

@@ -41,28 +41,39 @@ export default function RenderSteps() {
             {/* ===================== */}
             <div className="render-steps">
                 {steps.map((item) => (
-                    <div key={item.id} className="render-step-wrapper">
-                        <div
-                            className={`render-step ${
-                                step === item.id
-                                    ? "active-render-step"
-                                    : "inactive-render-step"
-                            }`}
-                        >
-                            {step > item.id ? (
-                                // item is processed (show tick)
-                                <FaCheck />
-                            ) : (
-                                // This form-step is remaining (show step no.)
-                                item.id
-                            )}
+                    <>
+                        <div key={item.id} className="render-step">
+                            <button
+                                className={`render-step-btn ${
+                                    step === item.id
+                                        ? "active-render-step-btn"
+                                        : "inactive-render-step-btn"
+                                } ${step > item.id && "next-render-step-btn"}`}
+                            >
+                                {step > item.id ? (
+                                    // item is processed (show tick)
+                                    <FaCheck className="render-step-check-icon" />
+                                ) : (
+                                    // This form-step is remaining (show step no.)
+                                    item.id
+                                )}
+                            </button>
                         </div>
 
                         {/* Dashes */}
                         {item.id !== steps.length && (
-                            <div>{/* Add dashes here */}</div>
+                            <>
+                                {/* Add dashes here */}
+                                <div
+                                    className={`render-steps-dashes ${
+                                        step > item.id
+                                            ? "next-render-steps-dashes"
+                                            : "prev-render-steps-dashes"
+                                    }`}
+                                ></div>
+                            </>
                         )}
-                    </div>
+                    </>
                 ))}
             </div>
 
@@ -70,8 +81,18 @@ export default function RenderSteps() {
             {/* ===================== */}
             <div className="render-steps-titles">
                 {steps.map((item) => (
-                    <div key={item.id} className="render-steps-title">
-                        <p>{item.title}</p>
+                    <div key={item.id}>
+                        <div className="render-step-text">
+                            <p
+                                className={`render-step-title ${
+                                    step >= item.id
+                                        ? "next-render-step-title"
+                                        : "prev-render-step-title"
+                                }`}
+                            >
+                                {item.title}
+                            </p>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -80,7 +101,7 @@ export default function RenderSteps() {
             {/* ===================== */}
             {step === 1 && <CourseInformationForm />}
             {step === 2 && <CourseBuilderForm />}
-            {/* {step === 3 && <PublishCourseForm />} */}
+            {step === 3 && <PublishCourseForm />}
         </div>
     );
 }

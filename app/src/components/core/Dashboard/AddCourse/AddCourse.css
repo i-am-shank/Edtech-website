@@ -1,3 +1,31 @@
 .add-course {
-    @apply text-white;
+    @apply flex w-full items-start gap-x-6;
+}
+
+/* Heading & Form */
+/* ================================= */
+.add-course-content {
+    @apply flex flex-1 flex-col;
+}
+
+.add-course-heading {
+    @apply mb-14 text-3xl font-medium text-richblack-5;
+}
+
+.add-course-form {
+    @apply flex-1;
+}
+
+/* Instructions */
+/* ================================= */
+.add-course-instructions {
+    @apply sticky top-10 hidden max-w-[400px] flex-1 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 xl:block;
+}
+
+.add-course-instructions-heading {
+    @apply mb-8 text-lg text-richblack-5;
+}
+
+.add-course-instructions-list {
+    @apply ml-5 list-item list-disc space-y-4 text-xs text-richblack-5;
 }

@@ -16,7 +16,7 @@ const initialState = {
 // =================================
 const courseSlice = createSlice({
     name: "course",
-    initialState: initialState,
+    initialState,
     reducers: {
         // Reducers (for individual states) -----------
         setStep: (state, action) => {

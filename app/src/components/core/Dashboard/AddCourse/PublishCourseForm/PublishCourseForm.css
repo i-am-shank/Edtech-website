@@ -1,0 +1,37 @@
+.publish-course-form {
+    @apply rounded-md border-[1px] bg-richblack-800 border-richblack-700 p-6;
+}
+
+.publish-course-header {
+    @apply text-2xl font-semibold text-richblack-5;
+}
+
+/* Checkbox */
+/* ===================================== */
+
+.publish-course-checkbox {
+    @apply my-6 mb-8;
+}
+
+.publish-course-checkbox-label {
+    @apply inline-flex items-center text-lg;
+}
+
+.publish-course-checkbox-input {
+    @apply h-4 w-4 rounded bg-richblack-500 text-richblack-400 focus:ring-2 focus:ring-richblack-5;
+}
+
+.publish-course-checkbox-label-text {
+    @apply ml-2 text-richblack-400;
+}
+
+/* Buttons */
+/* ===================================== */
+
+.publish-course-btns {
+    @apply ml-auto flex max-w-max items-center gap-x-4;
+}
+
+.publish-course-back-btn {
+    @apply flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900;
+}

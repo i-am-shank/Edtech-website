@@ -7,9 +7,18 @@ const router = express.Router(); // attach routes to this
 // course-controllers ---------------
 const {
     createCourse,
-    showAllCourses,
+    getAllCourses,
     getCourseDetails,
+    getFullCourseDetails,
+    getInstructorCourses,
+    editCourse,
+    deleteCourse,
 } = require("../controllers/courseController");
+
+// courseProgress-controllers ----------------
+const {
+    updateCourseProgress,
+} = require("../controllers/courseProgressController");
 
 // category-controllers ---------------
 const {
@@ -54,9 +63,19 @@ const {
 // create-course (authorized instructor) ---------------
 router.post("/createCourse", auth, isInstructor, createCourse);
 // get-all-courses (all users) ----------------
-router.get("/getAllCourses", showAllCourses);
+router.get("/getAllCourses", getAllCourses);
 // get-specific-course's-details (all users) ----------------
 router.post("/getCourseDetails", getCourseDetails);
+// get-full-course's details (authorized users) ---------------
+router.post("/getFullCourseDetails", auth, getFullCourseDetails);
+// get-courses of an instructor (authorized, instructor) ---------------
+router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses);
+// edit a course (authorized, instructor) ----------------
+router.post("/editCourse", auth, isInstructor, editCourse);
+// delete a course (authorized, instructor) ----------------
+router.delete("/deleteCourse", auth, isInstructor, deleteCourse);
+// update course progress (authorized, student) ----------------
+router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 
 // ===========================================
 // Section-routes ============================

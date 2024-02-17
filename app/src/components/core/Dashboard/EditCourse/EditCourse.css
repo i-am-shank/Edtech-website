@@ -1,0 +1,15 @@
+.edit-course-loader {
+    @apply grid flex-1 place-items-center;
+}
+
+.edit-course-heading {
+    @apply mb-14 text-3xl font-medium text-richblack-5;
+}
+
+.edit-course-content {
+    @apply mx-auto max-w-[600px];
+}
+
+.edit-course-no-course {
+    @apply mt-14 text-center text-3xl font-semibold text-richblack-100;
+}

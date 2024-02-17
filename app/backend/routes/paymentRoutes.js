@@ -5,7 +5,8 @@ const router = express.Router();
 // Import controllers =============================
 const {
     capturePayment,
-    verifySignature,
+    verifyPayment,
+    sendPaymentSuccessEmail,
 } = require("../controllers/paymentController");
 
 // Import auth-middlewares =============================
@@ -18,7 +19,13 @@ const { auth, isStudent } = require("../middlewares/authMiddlewares");
 // capture-payment (authorized student) ----------------
 router.post("/capturePayment", auth, isStudent, capturePayment);
 // verify-signature (all users) ----------------
-router.post("/verifySignature", verifySignature);
+router.post("/verifyPayment", auth, isStudent, verifyPayment);
+router.post(
+    "/sendPaymentSuccessEmail",
+    auth,
+    isStudent,
+    sendPaymentSuccessEmail
+);
 
 // Export router ============================
 module.exports = router;

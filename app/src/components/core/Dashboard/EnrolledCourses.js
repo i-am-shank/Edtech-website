@@ -6,6 +6,7 @@ import "./EnrolledCourses.css";
 // ================================
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 // import API-call functions
@@ -13,13 +14,17 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { getUserEnrolledCourses } from "../../../services/operations/profileAPI";
 
 export default function EnrolledCourses() {
+    // initialise hooks
+    // ======================
+    const navigate = useNavigate();
+
     // states
-    // ===============
+    // ======================
     const { token } = useSelector((state) => state.auth);
     const [enrolledCourses, setEnrolledCourses] = useState(null);
 
     // Handlers
-    // ===============
+    // ======================
     // Get Enrolled Courses -------------
     const getEnrolledCourses = async () => {
         try {
@@ -27,6 +32,7 @@ export default function EnrolledCourses() {
             const response = await getUserEnrolledCourses(token);
             // Update state
             setEnrolledCourses(response);
+            console.log("Enrolled Courses : ", response);
         } catch (error) {
             // log error
             console.log("Unable to fetch enrolled courses.");
@@ -50,32 +56,73 @@ export default function EnrolledCourses() {
             <div className="enrolled-courses-list">
                 {!enrolledCourses ? (
                     // show loading
-                    <div className="spinner"></div>
+                    <div className="enrolled-courses-loader">
+                        <div className="spinner"></div>
+                    </div>
                 ) : // check length of courses-array
                 !enrolledCourses.length ? (
                     // Length = 0
-                    <p>You have not enrolled in any course yet.</p>
+                    <p className="enrolled-courses-no-courses">
+                        You have not enrolled in any course yet.
+                    </p>
                 ) : (
                     <div className="enrolled-course-wrapper">
+                        {/* Heading */}
+                        {/* =================== */}
                         <div className="enrolled-courses-list-heading">
-                            <p>Course Name</p>
-                            <p>Duration</p>
-                            <p>Progress</p>
+                            <p className="enrolled-courses-heading-name">
+                                Course Name
+                            </p>
+                            <p className="enrolled-courses-heading-duration">
+                                Duration
+                            </p>
+                            <p className="enrolled-courses-heading-progress">
+                                Progress
+                            </p>
                         </div>
 
-                        {/* Course cards :- */}
+                        {/* Course names :- */}
+                        {/* =================== */}
                         <div className="enrolled-courses-list-content">
-                            {enrolledCourses.map((course, index) => {
-                                <div>
+                            {enrolledCourses.map((course, index, arr) => (
+                                <div
+                                    className={`enrolled-courses-list-course ${
+                                        index === arr.length - 1
+                                            ? "enrolled-courses-list-last-course"
+                                            : "enrolled-courses-list-other-course"
+                                    }`}
+                                    key={index}
+                                >
                                     {/* Course Details ------- */}
-                                    <div className="enrolled-course-details">
+                                    <div
+                                        className="enrolled-course-details"
+                                        onClick={() => {
+                                            navigate(
+                                                `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
+                                            );
+                                        }}
+                                    >
                                         {/* Thumbnail */}
-                                        <img src={course.thumbnail} alt="" />
+                                        <img
+                                            src={course.thumbnail}
+                                            alt="course_img"
+                                            className="enrolled-course-details-thumbnail"
+                                        />
 
                                         {/* Course Info */}
-                                        <div className="enrolled-course-info">
-                                            <p>{course.courseName}</p>
-                                            <p>{course.courseDescription}</p>
+                                        <div className="enrolled-course-details-info">
+                                            <p className="enrolled-course-info-name">
+                                                {course.courseName}
+                                            </p>
+                                            <p className="enrolled-course-info-description">
+                                                {course.courseDescription
+                                                    .length > 50
+                                                    ? `${course.courseDescription.slice(
+                                                          0,
+                                                          50
+                                                      )}...`
+                                                    : course.courseDescription}
+                                            </p>
                                         </div>
                                     </div>
 
@@ -92,19 +139,16 @@ export default function EnrolledCourses() {
                                         </p>
 
                                         {/* Progress bar */}
-                                        <div className="enrolled-course-progress-bar">
-                                            <ProgressBar
-                                                completed={
-                                                    course.progressPercentage ||
-                                                    0
-                                                }
-                                                height="8px"
-                                                isLabelVisible={false}
-                                            />
-                                        </div>
+                                        <ProgressBar
+                                            completed={
+                                                course.progressPercentage || 0
+                                            }
+                                            height="8px"
+                                            isLabelVisible={false}
+                                        />
                                     </div>
-                                </div>;
-                            })}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 )}

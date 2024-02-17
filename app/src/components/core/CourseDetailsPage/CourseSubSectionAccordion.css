@@ -1,0 +1,7 @@
+.course-subsection-accordion {
+    @apply flex justify-between py-2;
+}
+
+.course-subsection-accordion-content {
+    @apply flex items-center gap-2;
+}

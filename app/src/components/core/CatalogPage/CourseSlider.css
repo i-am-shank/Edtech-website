@@ -1,0 +1,7 @@
+.course-slider-swiper {
+    @apply max-h-[30rem];
+}
+
+.course-slider-no-course {
+    @apply text-xl text-richblack-5;
+}

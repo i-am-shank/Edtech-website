@@ -144,7 +144,7 @@ export const fetchInstructorCourses = async (token) => {
             GET_ALL_INSTRUCTOR_COURSES_API,
             null,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log("GET_ALL_INSTRUCTOR_COURSES_API API response : ", response);
@@ -184,7 +184,7 @@ export const getFullDetailsOfCourse = async (courseId, token) => {
                 courseId,
             },
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log(
@@ -227,7 +227,7 @@ export const addCourseDetails = async (data, token) => {
         // fire API-call ------------
         const response = await apiConnector("POST", CREATE_COURSE_API, data, {
             "Content-Type": "multipart/form-data",
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
 
         // log response (for checking) ------------
@@ -263,7 +263,7 @@ export const createSection = async (data, token) => {
     try {
         // fire API-call -------------
         const response = await apiConnector("POST", CREATE_SECTION_API, data, {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("CREATE_SECTION_API API response : ", response);
 
@@ -301,7 +301,7 @@ export const createSubSection = async (data, token) => {
             CREATE_SUBSECTION_API,
             data,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log("CREATE_SUBSECTION_API API response : ", response);
@@ -336,7 +336,7 @@ export const createRating = async (data, token) => {
     try {
         // fire API call -----------
         const response = await apiConnector("POST", CREATE_RATING_API, data, {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("CREATE_RATING_API API response : ", response);
 
@@ -375,7 +375,7 @@ export const editCourseDetails = async (data, token) => {
 
         const response = await apiConnector("POST", EDIT_COURSE_API, data, {
             "Content-Type": "multipart/form-data",
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("EDIT_COURSE_API API response : ", response);
 
@@ -409,7 +409,7 @@ export const updateSection = async (data, token) => {
     try {
         // fire API-call ------------
         const response = await apiConnector("POST", UPDATE_SECTION_API, data, {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("UPDATE_SECTION_API API response : ", response);
 
@@ -447,7 +447,7 @@ export const updateSubSection = async (data, token) => {
             UPDATE_SUBSECTION_API,
             data,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log("UPDATE_SUBSECTION_API API response : ", response);
@@ -486,7 +486,7 @@ export const markLectureAsCompleted = async (data, token) => {
             LECTURE_COMPLETION_API,
             data,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log("LECTURE_COMPLETION_API API response : ", response);
@@ -524,7 +524,7 @@ export const deleteSection = async (data, token) => {
     try {
         // fire API-call ------------
         const response = await apiConnector("POST", DELETE_SECTION_API, data, {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("DELETE_SECTION_API API response : ", response);
 
@@ -562,7 +562,7 @@ export const deleteSubSection = async (data, token) => {
             DELETE_SUBSECTION_API,
             data,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         );
         console.log("DELETE_SUBSECTION_API API response : ", response);
@@ -596,7 +596,7 @@ export const deleteCourse = async (data, token) => {
     try {
         // fire API-call ------------
         const response = await apiConnector("DELETE", DELETE_COURSE_API, data, {
-            Authorisation: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         });
         console.log("DELETE_COURSE_API API response : ", response);
 

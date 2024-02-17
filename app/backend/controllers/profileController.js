@@ -1,12 +1,14 @@
 // import modules =========================
 require("dotenv").config();
 
+const courseProgressModel = require("../models/courseProgressModel");
 // import-models ==============================
 const profileModel = require("../models/profileModel");
 const userModel = require("../models/userModel");
 
 // import util-files ==============================
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
+const { convertSecondsToDuration } = require("../utils/secToDuration");
 
 // ========================================
 // updateProfile-handler
@@ -188,14 +190,91 @@ exports.getEnrolledCourses = async (req, res) => {
     try {
         // fetch id --> fetch userDetails (with courses)
         const userId = req.user.id;
-        const userDetails = await userModel
+        let userDetails = await userModel
             .findOne({
                 _id: userId,
             })
-            .populate("courses")
+            .populate({
+                path: "courses",
+                populate: {
+                    path: "courseContent",
+                    populate: {
+                        path: "subSection",
+                    },
+                },
+            })
             .exec();
 
-        // validation
+        // ******************************
+        // Below calculation (for progress percentage, in enrolled-courses page)
+
+        userDetails = userDetails.toObject();
+        // converting from document to object (to operate over it)
+
+        // iterate over all courses ------------
+        for (var i = 0; i < userDetails.courses.length; i++) {
+            let totalDurationInSeconds = 0;
+            var subSectionLength = 0;
+            // total lecture-count --> needed for each course
+            //      (for getting %)
+
+            // iterate over sections ------------
+            for (
+                var j = 0;
+                j < userDetails.courses[i].courseContent.length;
+                j++
+            ) {
+                // Add total-duration (of j-th section, of i-th course)
+                totalDurationInSeconds += userDetails.courses[i].courseContent[
+                    j
+                ].subSection.reduce(
+                    (sum, curr) => sum + parseInt(curr.timeDuration),
+                    0
+                );
+
+                // Update total-duration field
+                userDetails.courses[i].totalDuration = convertSecondsToDuration(
+                    totalDurationInSeconds
+                );
+
+                // Add lecture-count (of j-th section, of i-th course)
+                subSectionLength +=
+                    userDetails.courses[i].courseContent[j].subSection.length;
+            }
+
+            // fetch completed-lecture-count of ith-course
+            let courseProgressCount = await courseProgressModel.findOne({
+                courseId: userDetails.courses[i]._id,
+                userId: userId,
+            });
+            courseProgressCount = courseProgressCount?.completedVideos.length;
+
+            if (subSectionLength === 0) {
+                // No lectures in course --> 100% complete
+                //    (edge-case as this is denominator in calculating % .. & 0 can't be in denom)
+                userDetails.courses[i].progressPercentage = 100;
+            } else {
+                // To make it to 2-decimal --> need multiplier
+                const multiplier = Math.pow(10, 2);
+
+                // Calculate progress-percentage ----------
+                let percentProgress =
+                    Math.round(
+                        (courseProgressCount / subSectionLength) *
+                            100 *
+                            multiplier
+                    ) / multiplier;
+                // console.log(
+                //     "Progress percent (profile-controller) : ",
+                //     percentProgress
+                // );
+                userDetails.courses[i].progressPercentage = percentProgress;
+            }
+        }
+
+        // ******************************
+
+        // validation ------------
         if (!userDetails) {
             return res.status(404).json({
                 success: false,
@@ -203,7 +282,7 @@ exports.getEnrolledCourses = async (req, res) => {
             });
         }
 
-        // return response
+        // return response -------------
         return res.status(200).json({
             success: true,
             data: userDetails.courses,
@@ -215,4 +294,11 @@ exports.getEnrolledCourses = async (req, res) => {
             message: error.message,
         });
     }
+};
+
+// =================================================
+// instructorDashboard-handler
+exports.instructorDashboard = async (req, res) => {
+    try {
+    } catch (error) {}
 };

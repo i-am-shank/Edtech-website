@@ -1,7 +1,52 @@
-.subsection-modal-title-input {
-    @apply w-full;
+.subsection-modal {
+    @apply fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm;
 }
 
-.subsection-modal-desc-input {
-    @apply w-full min-h-[130px];
+.subsection-modal-content {
+    @apply my-10 w-11/12 max-w-[700px] rounded-lg border border-richblack-400 bg-richblack-800;
+}
+
+/* Modal Header */
+/* =================================== */
+.subsection-modal-header {
+    @apply flex items-center justify-between rounded-t-lg bg-richblack-700 p-5;
+}
+
+.subsection-modal-heading {
+    @apply text-xl font-semibold text-richblack-5;
+}
+
+.subsection-modal-exit-btn {
+    @apply text-2xl text-richblack-5;
+}
+
+/* Modal Form */
+/* =================================== */
+
+.subsection-modal-form {
+    @apply space-y-8 px-8 py-10;
+}
+
+/* Lecture title & description --------------- */
+.subsection-modal-lecture-title-div,
+.subsection-modal-lecture-desc-div {
+    @apply flex flex-col space-y-2;
+}
+
+.subsection-modal-lecture-title-label,
+.subsection-modal-lecture-desc-label {
+    @apply text-sm text-richblack-5;
+}
+
+.subsection-modal-lecture-title-input {
+    @apply w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.subsection-modal-lecture-title-error,
+.subsection-modal-lecture-desc-error {
+    @apply ml-2 text-xs tracking-wide text-pink-200;
+}
+
+.subsection-modal-lecture-desc-input {
+    @apply min-h-[130px] w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }

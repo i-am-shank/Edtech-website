@@ -2,6 +2,9 @@
     @apply flex flex-row gap-14 items-center;
 }
 
+/* Left Section */
+/* ======================================== */
+
 .timeline-left {
     @apply w-[45%] flex flex-col gap-5;
 }
@@ -21,6 +24,9 @@
 .timeline-element-para {
     @apply text-base;
 }
+
+/* Right Section */
+/* ======================================= */
 
 .timeline-right {
     @apply relative shadow-blue-200;

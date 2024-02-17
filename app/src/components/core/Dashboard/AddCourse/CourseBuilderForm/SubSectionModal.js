@@ -6,6 +6,7 @@ import Upload from "../Upload";
 
 // import hooks & React-tools
 // ==================================
+import { React } from "react";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -116,7 +117,15 @@ export default function SubSectionModal({
 
         // condition over API-call -----------
         if (response) {
-            dispatch(setCourse(response));
+            // Generate updated course, by attaching the updated subSection.
+            const updatedCourseContent = course.courseContent.map((section) =>
+                section._id === modalData.sectionId ? response : section
+            );
+            const updatedCourse = {
+                ...course,
+                courseContent: updatedCourseContent,
+            };
+            dispatch(setCourse(updatedCourse));
         }
 
         // remove confirmation modal ----------
@@ -160,7 +169,14 @@ export default function SubSectionModal({
 
         // Condition over API-response -----------
         if (response) {
-            dispatch(setCourse(null));
+            const updatedCourseContent = course.courseContent.map((section) =>
+                section._id === modalData ? response : section
+            );
+            const updatedCourse = {
+                ...course,
+                courseContent: updatedCourseContent,
+            };
+            dispatch(setCourse(updatedCourse));
         }
 
         // Close confirmation-modal ----------
@@ -172,10 +188,11 @@ export default function SubSectionModal({
     return (
         <div className="subsection-modal">
             <div className="subsection-modal-content">
-                {/* Top content */}
-                <div className="subsection-modal-top-content">
+                {/* Modal Header */}
+                {/* ====================== */}
+                <div className="subsection-modal-header">
                     {/* Modal-Heading (conditional) */}
-                    <p>
+                    <p className="subsection-modal-heading">
                         {view && "Viewing"}
                         {add && "Adding"} {edit && "Editing"} Lecture
                     </p>
@@ -184,12 +201,16 @@ export default function SubSectionModal({
                     <button
                         onClick={() => (!loading ? setModalData(null) : {})}
                     >
-                        <RxCross1 />
+                        <RxCross1 className="subsection-modal-exit-btn" />
                     </button>
                 </div>
 
-                {/* Content form */}
-                <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Modal form */}
+                {/* ====================== */}
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="subsection-modal-form"
+                >
                     {/* Video upload */}
                     {/* ================ */}
                     {/* (visible only when either view OR edit is true .. handled by viewData & editData) */}
@@ -206,31 +227,40 @@ export default function SubSectionModal({
 
                     {/* Lecture Title */}
                     {/* ================ */}
-                    <div>
-                        <label>Lecture Title</label>
+                    <div className="subsection-modal-lecture-title-div">
+                        <label className="subsection-modal-lecture-title-label">
+                            Lecture Title{" "}
+                            {!view && <sup className="compulsory-icon">*</sup>}
+                        </label>
                         <input
                             id="lectureTitle"
                             placeholder="Enter Lecture Title"
                             {...register("lectureTitle", { required: true })}
-                            className="subsection-modal-title-input"
+                            className="subsection-modal-lecture-title-input"
                         />
                         {errors.lectureTitle && (
-                            <span>Lecture Title is required**</span>
+                            <span className="subsection-modal-lecture-title-error">
+                                Lecture Title is required
+                            </span>
                         )}
                     </div>
 
                     {/* Description */}
                     {/* ================= */}
-                    <div>
-                        <label>Lecture Description</label>
+                    <div className="subsection-modal-lecture-desc-div">
+                        <label className="subsection-modal-lecture-desc-label">
+                            Lecture Description
+                        </label>
                         <textarea
                             id="lectureDesc"
                             placeholder="Enter Lecture Description"
                             {...register("lectureDesc", { required: true })}
-                            className="subsection-modal-desc-input"
+                            className="subsection-modal-lecture-desc-input"
                         />
                         {errors.lectureDesc && (
-                            <span>Lecture Description is required**</span>
+                            <span className="subsection-modal-lecture-desc-error resize-x-none">
+                                Lecture Description is required**
+                            </span>
                         )}
                     </div>
 

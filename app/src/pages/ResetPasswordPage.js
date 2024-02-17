@@ -9,7 +9,10 @@ import { Link } from "react-router-dom";
 // import API-call service
 // ===========================
 import { getResetPasswordToken } from "../services/operations/authAPI";
-import Button from "../components/core/HomePage/Button";
+
+// import assets
+// ===========================
+import { BiArrowBack } from "react-icons/bi";
 
 export default function ResetPasswordPage() {
     // initialise hooks -----------
@@ -35,17 +38,17 @@ export default function ResetPasswordPage() {
         <div className="reset-password-page">
             {loading ? (
                 // Show spinner
-                <div>Loading...</div>
+                <div className="spinner"></div>
             ) : (
-                <div>
-                    <h1>
+                <div className="reset-password-content">
+                    <h1 className="reset-password-header">
                         {/* Value depends on emailSent */}
                         {!emailSent
                             ? "Reset Your Password"
                             : "Check Your Email"}
                     </h1>
 
-                    <p>
+                    <p className="reset-password-description">
                         {/* Value depends on emailSent */}
                         {!emailSent
                             ? "Have no fear. We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery"
@@ -57,8 +60,11 @@ export default function ResetPasswordPage() {
                     <form onSubmit={handleOnSubmit}>
                         {/* Input-box only shows, when Email not sent & for entering Email */}
                         {!emailSent && (
-                            <label>
-                                <p>Email Address:</p>
+                            <label className="reset-password-label">
+                                <p className="reset-password-label-text">
+                                    Email Address{" "}
+                                    <sup className="compulsory-icon">*</sup>
+                                </p>
                                 <input
                                     required
                                     type="email"
@@ -66,21 +72,26 @@ export default function ResetPasswordPage() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Enter Your Email Address"
-                                    className="update-password-password"
+                                    className="reset-password-input"
                                 />
                             </label>
                         )}
 
                         {/* Submit button also depends on emailSent */}
-                        <button type="submit">
+                        <button
+                            type="submit"
+                            className="reset-password-submit-btn"
+                        >
                             {!emailSent ? "Reset Password" : "Resend Email"}
                         </button>
                     </form>
 
                     {/* Back to Login - link */}
-                    <div>
+                    <div className="reset-password-login-link">
                         <Link to="/login">
-                            <p>Back to Login</p>
+                            <p className="reset-password-login-text">
+                                <BiArrowBack /> Back to Login
+                            </p>
                         </Link>
                     </div>
                 </div>

@@ -14,6 +14,9 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import UpdatePasswordPage from "./pages/UpdatePasswordPage";
 import DashboardPage from "./pages/DashboardPage";
 import ErrorPage from "./pages/ErrorPage";
+import CatalogPage from "./pages/CatalogPage";
+import CourseDetailsPage from "./pages/CourseDetailsPage";
+import ViewCoursePage from "./pages/ViewCoursePage";
 
 // import components
 // =============================
@@ -29,6 +32,9 @@ import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Cart from "./components/core/Dashboard/Cart/Cart";
 import { ACCOUNT_TYPE } from "./utils/constants";
 import AddCourse from "./components/core/Dashboard/AddCourse/AddCourse";
+import MyCourses from "./components/core/Dashboard/MyCourses/MyCourses";
+import EditCourse from "./components/core/Dashboard/EditCourse/EditCourse";
+import VideoDetails from "./components/core/ViewCoursePage/VideoDetails";
 
 export default function App() {
     const { user } = useSelector((state) => state.profile);
@@ -58,6 +64,32 @@ export default function App() {
                     }
                 />
 
+                {/* Course route */}
+                <Route
+                    path="courses/:courseId"
+                    element={<CourseDetailsPage />}
+                />
+
+                {/* View Course routes */}
+                {/* =================== */}
+                <Route
+                    element={
+                        <PrivateRoute>
+                            <ViewCoursePage />
+                        </PrivateRoute>
+                    }
+                >
+                    {/* (student-only routes) */}
+                    {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+                        <>
+                            <Route
+                                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                                element={<VideoDetails />}
+                            />
+                        </>
+                    )}
+                </Route>
+
                 {/* Authentication pages */}
                 {/* =================== */}
                 <Route
@@ -85,16 +117,10 @@ export default function App() {
                     }
                 />
 
-                {/* About & Contact pages */}
+                {/* Catalog, About & Contact pages */}
                 {/* ====================== */}
-                <Route
-                    path="about"
-                    element={
-                        <OpenRoute>
-                            <AboutPage />
-                        </OpenRoute>
-                    }
-                />
+                <Route path="catalog/:catalogName" element={<CatalogPage />} />
+                <Route path="about" element={<AboutPage />} />
                 <Route path="contact" element={<ContactPage />} />
 
                 {/* Dashboard page routes */}
@@ -113,6 +139,7 @@ export default function App() {
                     <Route path="dashboard/settings" element={<Settings />} />
 
                     {/* Student-only routes */}
+                    {/* -------------------- */}
                     {user?.accountType === ACCOUNT_TYPE.STUDENT && (
                         <>
                             <Route
@@ -124,11 +151,20 @@ export default function App() {
                     )}
 
                     {/* Instructor-only routes */}
+                    {/* -------------------- */}
                     {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
                         <>
                             <Route
                                 path="dashboard/add-course"
                                 element={<AddCourse />}
+                            />
+                            <Route
+                                path="dashboard/my-courses"
+                                element={<MyCourses />}
+                            />
+                            <Route
+                                path="dashboard/edit-course/:courseId"
+                                element={<EditCourse />}
                             />
                         </>
                     )}

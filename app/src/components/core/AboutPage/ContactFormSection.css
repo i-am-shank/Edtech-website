@@ -1,0 +1,15 @@
+.contact-form-section {
+    @apply mx-auto;
+}
+
+.contact-form-heading {
+    @apply text-center text-4xl font-semibold;
+}
+
+.contact-form-text {
+    @apply text-center text-richblack-300 mt-3;
+}
+
+.contact-us-form {
+    @apply mt-12 mx-auto;
+}

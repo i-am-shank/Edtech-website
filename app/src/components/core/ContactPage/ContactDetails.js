@@ -46,7 +46,7 @@ export default function ContactDetails() {
                 // return contact-detail
                 // ======================
                 return (
-                    <div className="contact-detail">
+                    <div className="contact-detail" key={index}>
                         {/* Icon & heading ---------- */}
                         <div className="contact-icon-heading">
                             <Icon size={25} />

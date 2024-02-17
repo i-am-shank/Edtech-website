@@ -11,27 +11,27 @@ import { useSelector } from "react-redux";
 export default function Cart() {
     // states
     // ================
-    const { total, totalItems } = useSelector((state) => state.auth);
+    const { total, totalItems } = useSelector((state) => state.cart);
 
     return (
         <div className="cart">
             {/* Heading */}
             {/* =============== */}
-            <h1 className="cart-heading">Your Cart</h1>
+            <h1 className="cart-heading">Cart</h1>
 
             {/* Subtitle */}
             {/* =============== */}
             <p className="cart-subtitle">{totalItems} Courses in Cart</p>
 
             {/* Content */}
-            <div className="cart-content">
+            <div className="cart-content-wrapper">
                 {total > 0 ? (
-                    <div>
+                    <div className="cart-content">
                         <RenderCartCourses />
                         <RenderTotalAmount />
                     </div>
                 ) : (
-                    <p>Your Cart is Empty</p>
+                    <p className="cart-empty">Your Cart is Empty</p>
                 )}
             </div>
         </div>

@@ -88,7 +88,7 @@ export default function CourseInformationForm() {
             setValue("courseBenefits", course.whatYouWillLearn);
             setValue("courseCategory", course.category);
             setValue("courseRequirements", course.instructions);
-            // setValue("courseImage", course.thumbnail);
+            setValue("courseImage", course.thumbnail);
         }
 
         getCategories();
@@ -103,10 +103,10 @@ export default function CourseInformationForm() {
             currentValues.courseTitle !== course.courseName ||
             currentValues.courseShortDesc !== course.courseDescription ||
             currentValues.coursePrice !== course.price ||
-            // currentValues.courseTags.toString() !== course.tag.toString() ||
+            currentValues.courseTags.toString() !== course.tag.toString() ||
             currentValues.courseBenefits !== course.whatYouWillLearn ||
             currentValues.courseCategory._id !== course.category._id ||
-            // currentValues.courseImage !== course.thumbnail ||
+            currentValues.courseImage !== course.thumbnail ||
             currentValues.courseRequirements.toString() !==
                 course.instructions.toString()
         ) {
@@ -132,6 +132,7 @@ export default function CourseInformationForm() {
                 formData.append("courseId", course._id);
 
                 // Add all other form-field values
+                // (courseName, courseDescription, price, tag, whatYouWillLearn, category, instructions, thumbnailImage)
                 if (currentValues.courseTitle !== course.courseName) {
                     formData.append("courseName", data.courseTitle);
                 }
@@ -142,6 +143,12 @@ export default function CourseInformationForm() {
                 }
                 if (currentValues.coursePrice !== course.price) {
                     formData.append("price", data.coursePrice);
+                }
+                if (
+                    currentValues.courseTags.toString() !==
+                    course.tag.toString()
+                ) {
+                    formData.append("tag", JSON.stringify(data.courseTags));
                 }
                 if (currentValues.courseBenefits !== course.whatYouWillLearn) {
                     formData.append("whatYouWillLearn", data.courseBenefits);
@@ -158,6 +165,9 @@ export default function CourseInformationForm() {
                         JSON.stringify(data.courseRequirements)
                     );
                 }
+                if (currentValues.courseImage !== course.thumbnail) {
+                    formData.append("thumbnailImage", data.courseImage);
+                }
 
                 // Now purpose of editCourse is done.
                 // Fire API-call for it.
@@ -167,7 +177,7 @@ export default function CourseInformationForm() {
                 setLoading(false);
                 if (response) {
                     // go to next step
-                    setStep(2);
+                    dispatch(setStep(2));
                     // Update course
                     dispatch(setCourse(response));
                 }
@@ -184,12 +194,14 @@ export default function CourseInformationForm() {
             formData.append("courseName", data.courseTitle);
             formData.append("courseDescription", data.courseShortDesc);
             formData.append("price", data.coursePrice);
+            formData.append("tag", JSON.stringify(data.courseTags));
             formData.append("whatYouWillLearn", data.courseBenefits);
             formData.append("category", data.courseCategory);
             formData.append(
                 "instructions",
                 JSON.stringify(data.courseRequirements)
             );
+            formData.append("thumbnailImage", data.courseImage);
 
             // Can add any field to this object (if needed further)
             // Here adding status (just to check form-status)
@@ -284,7 +296,7 @@ export default function CourseInformationForm() {
             {/* ==================== */}
             <div className="course-info-form-field">
                 <label htmlFor="courseCategory" className="course-info-label">
-                    Course Category<sup className="compulsory-text">*</sup>
+                    Course Category<sup className="compulsory-icon">*</sup>
                 </label>
                 <select
                     id="courseCategory"
@@ -345,7 +357,7 @@ export default function CourseInformationForm() {
             <div className="course-info-form-field">
                 <label htmlFor="courseBenefits" className="course-info-label">
                     Benefits of the course
-                    <sup className="compulsory-text">*</sup>
+                    <sup className="compulsory-icon">*</sup>
                 </label>
 
                 <textarea

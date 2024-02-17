@@ -1,9 +1,31 @@
+.requirement-field {
+    @apply flex flex-col space-y-2;
+}
+
+/* Label */
+/* ====================================== */
+.requirement-field-label {
+    @apply text-sm text-richblack-5;
+}
+
+/* Input-field */
+/* ====================================== */
+.requirement-field-input-div {
+    @apply flex flex-col items-start space-y-2;
+}
+
 .requirement-field-input {
-    @apply w-full text-black;
+    @apply w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }
 
 .requirement-field-add-btn {
     @apply font-semibold text-yellow-50;
+}
+
+/* Requirement-list */
+/* ====================================== */
+.requirement-field-list {
+    @apply mt-2 list-inside list-disc;
 }
 
 .requirement-field-list-item {
@@ -11,5 +33,5 @@
 }
 
 .requirement-field-list-item-btn {
-    @apply text-xs text-pure-greys-300;
+    @apply ml-2 text-xs text-pure-greys-300;
 }

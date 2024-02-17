@@ -61,7 +61,7 @@ exports.createSection = async (req, res) => {
 exports.updateSection = async (req, res) => {
     try {
         // fetch data (section-name)
-        const { sectionName, sectionId } = req.body;
+        const { sectionName, sectionId, courseId } = req.body;
 
         // validate data
         if (!sectionName || !sectionId) {
@@ -71,7 +71,7 @@ exports.updateSection = async (req, res) => {
             });
         }
 
-        // update data in db
+        // update data in section-db
         const section = await sectionModel.findByIdAndUpdate(
             sectionId,
             { sectionName },
@@ -81,12 +81,22 @@ exports.updateSection = async (req, res) => {
         // 2nd arg ==> updated properties
         // 3rd arg ==> return updated object as response
 
-        // No need to update in course.. as course has id stored in it, which will be constant even after update
+        // Generate updated-course (to return in response)
+        const course = await courseModel
+            .findById(courseId)
+            .populate({
+                path: "courseContent",
+                populate: {
+                    path: "subSection",
+                },
+            })
+            .exec();
 
         // return response
         return res.status(200).json({
             success: true,
             message: "Section updated successfully !!",
+            data: course,
         });
     } catch (error) {
         return res.status(500).json({
@@ -101,7 +111,7 @@ exports.updateSection = async (req, res) => {
 // deleteSection-handler
 exports.deleteSection = async (req, res) => {
     try {
-        const { sectionId, courseId } = req.body.data;
+        const { sectionId, courseId } = req.body;
 
         // Remove section from course -----------
         await courseModel.findByIdAndUpdate(courseId, {

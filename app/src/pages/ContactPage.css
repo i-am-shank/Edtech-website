@@ -1,19 +1,19 @@
-.contact-section {
+.contactpage-contact-section {
     @apply mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white lg:flex-row;
 }
 
-.contact-details {
+.contactpage-contact-details {
     @apply lg:w-[40%];
 }
 
-.contact-form {
+.contactpage-contact-form {
     @apply lg:w-[60%];
 }
 
-.review-slider-section {
+.contactpage-review-slider-section {
     @apply relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
 }
 
-.review-heading {
+.contactpage-review-heading {
     @apply text-center text-4xl font-semibold mt-8;
 }

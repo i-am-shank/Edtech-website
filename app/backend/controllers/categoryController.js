@@ -1,4 +1,11 @@
+const { Mongoose } = require("mongoose");
 const categoryModel = require("../models/categoryModel");
+
+// Functions
+// =======================
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 // createCategory-handler
 // ========================================
@@ -62,18 +69,29 @@ exports.showAllCategory = async (req, res) => {
     }
 };
 
+// getCategoryPageDetails-handler
+// =====================================
 exports.categoryPageDetails = async (req, res) => {
     try {
         // fetch data
         const { categoryId } = req.body;
+        console.log("Printing Category ID (categoryController) : ", categoryId);
 
         // Get courses for the specified category
         const selectedCategory = await categoryModel
             .findById(categoryId)
-            .populate("courses")
+            .populate({
+                path: "courses",
+                match: { status: "Published" },
+                populate: "ratingAndReviews",
+                populate: {
+                    path: "instructor",
+                },
+            })
             .exec();
 
         // Handle the case when category isn't found
+        // ----------------------
         if (!selectedCategory) {
             console.log("Category not found !!");
             return res.status(404).json({
@@ -83,6 +101,7 @@ exports.categoryPageDetails = async (req, res) => {
         }
 
         // Handle the case when there are no courses
+        // ----------------------
         if (selectedCategory.courses.length === 0) {
             console.log("No courses found for the selected category !");
             return res.status(404).json({
@@ -91,23 +110,38 @@ exports.categoryPageDetails = async (req, res) => {
             });
         }
 
-        const selectedCourses = selectedCategory.courses;
-
         // Get courses for other categories
-        const categoriesExceptSelected = await categoryModel
-            .find({
-                _id: { $ne: categoryId },
+        // ----------------------
+        const categoriesExceptSelected = await categoryModel.find({
+            _id: { $ne: categoryId },
+        });
+        let differentCategory = await categoryModel
+            .findOne(
+                categoriesExceptSelected[
+                    getRandomInt(categoriesExceptSelected.length)
+                ]._id
+            )
+            .populate({
+                path: "courses",
+                match: { status: "Published" },
+                populate: {
+                    path: "instructor",
+                },
             })
-            .populate("courses")
             .exec();
 
-        let differentCourses = [];
-        for (const category of categoriesExceptSelected) {
-            differentCourses.push(...category.courses);
-        }
-
         // Get top-selling courses across all categories
-        const allCategories = await categoryModel.find().populate("courses");
+        // --------------------
+        const allCategories = await categoryModel
+            .find()
+            .populate({
+                path: "courses",
+                match: { status: "Published" },
+                populate: {
+                    path: "instructor",
+                },
+            })
+            .exec();
         const allCourses = allCategories.flatMap(
             (category) => category.courses
         );
@@ -116,10 +150,14 @@ exports.categoryPageDetails = async (req, res) => {
             .slice(0, 10);
 
         // return response
+        // ---------------------
         res.status(200).json({
-            selectedCourses: selectedCourses,
-            differentCourses: differentCourses,
-            mostSellingCourses: mostSellingCourses,
+            success: true,
+            data: {
+                selectedCategory,
+                differentCategory,
+                mostSellingCourses,
+            },
         });
     } catch (error) {
         console.log(error);
@@ -130,5 +168,3 @@ exports.categoryPageDetails = async (req, res) => {
         });
     }
 };
-
-// 35:00

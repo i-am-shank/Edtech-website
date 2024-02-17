@@ -40,7 +40,7 @@ export default function ChipInput({
                 validate: (value) => value.length > 0,
             });
         }
-    });
+    }, []);
 
     useEffect(() => {
         setValue(name, chips);

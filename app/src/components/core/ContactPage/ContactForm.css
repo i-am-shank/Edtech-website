@@ -6,6 +6,10 @@
     @apply text-4xl leading-10 font-semibold text-richblack-5;
 }
 
+.contact-form-para {
+    @apply mx-auto;
+}
+
 .contact-form-form {
     @apply mt-7;
 }

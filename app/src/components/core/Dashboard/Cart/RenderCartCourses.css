@@ -1,0 +1,66 @@
+.cart-courses {
+    @apply flex flex-1 flex-col;
+}
+
+.cart-course {
+    @apply flex w-full flex-wrap items-start justify-between gap-6;
+}
+
+.cart-last-course {
+    @apply border-b border-b-richblack-400 pb-6;
+}
+
+.cart-course-after-first {
+    @apply mt-6;
+}
+
+/* Course Content */
+/* ============================================= */
+
+.cart-course-content {
+    @apply flex flex-1 flex-col gap-4 xl:flex-row;
+}
+
+.cart-course-thumbnail {
+    @apply h-[148px] w-[220px] rounded-lg object-cover;
+}
+
+.cart-course-details {
+    @apply flex flex-col space-y-1;
+}
+
+.cart-course-details-coursename {
+    @apply text-lg font-medium text-richblack-5;
+}
+
+.cart-course-details-category {
+    @apply text-sm text-richblack-300;
+}
+
+/* Rating --------------- */
+.cart-course-details-rating {
+    @apply flex items-center gap-2;
+}
+
+.cart-course-details-avg-rating {
+    @apply text-yellow-5;
+}
+
+.cart-course-details-review-count {
+    @apply text-richblack-400;
+}
+
+/* Button & Price */
+/* ============================================ */
+
+.cart-btn-price-wrapper {
+    @apply flex flex-col items-end space-y-2;
+}
+
+.cart-delete-btn {
+    @apply flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200;
+}
+
+.cart-price {
+    @apply mb-6 text-3xl font-medium text-yellow-100;
+}
