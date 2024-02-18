@@ -1,0 +1,33 @@
+.instructor-chart {
+    @apply flex flex-1 flex-col gap-y-4 rounded-md bg-richblack-800 p-6;
+}
+
+.instructor-chart-heading {
+    @apply text-lg font-bold text-richblack-5;
+}
+
+/* Buttons */
+/* ========================================= */
+
+.instructor-chart-btns {
+    @apply space-x-4 font-semibold;
+}
+
+.instructor-chart-btn {
+    @apply rounded-sm p-1 px-3 transition-all duration-200;
+}
+
+.instructor-chart-active-btn {
+    @apply bg-richblack-700 text-yellow-50;
+}
+
+.instructor-chart-inactive-btn {
+    @apply text-yellow-400;
+}
+
+/* Pie Chart */
+/* ========================================= */
+
+.instructor-chart-pie-chart {
+    @apply relative mx-auto aspect-square h-full w-full;
+}

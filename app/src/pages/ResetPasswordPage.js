@@ -38,7 +38,9 @@ export default function ResetPasswordPage() {
         <div className="reset-password-page">
             {loading ? (
                 // Show spinner
-                <div className="spinner"></div>
+                <div className="loading-wrapper">
+                    <div className="spinner"></div>
+                </div>
             ) : (
                 <div className="reset-password-content">
                     <h1 className="reset-password-header">

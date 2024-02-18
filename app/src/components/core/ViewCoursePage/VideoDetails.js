@@ -8,8 +8,8 @@ import IconBtn from "../../common/IconBtn";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { Player } from "video-react";
-// import "~video-react/dist/video-react.css";
+import { BigPlayButton, Player } from "video-react";
+import "video-react/dist/video-react.css";
 
 // import API-call functions
 // =========================================
@@ -40,6 +40,7 @@ export default function VideoDetails() {
     const [videoData, setVideoData] = useState([]);
     const [videoEnded, setVideoEnded] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [previewSource, setPreviewSource] = useState("");
 
     // Render Handlers
     // ==================
@@ -48,16 +49,11 @@ export default function VideoDetails() {
         // function definition ----------
         const setVideoSpecificDetails = async () => {
             // Validate data
-            if (
-                !courseId ||
-                !sectionId ||
-                !subSectionId ||
-                !courseSectionData
-            ) {
-                navigate("/dashboard/enrolled-courses");
-            }
             if (!courseSectionData.length) {
                 return;
+            }
+            if (!courseId || !sectionId || !subSectionId) {
+                navigate("/dashboard/enrolled-courses");
             } else {
                 // All 3 ids are present
                 // fetch the active-lecture id
@@ -66,12 +62,13 @@ export default function VideoDetails() {
                 );
 
                 const filteredVideoData =
-                    filteredSection?.[0].subSection.filter(
+                    filteredSection?.[0]?.subSection.filter(
                         (lecture) => lecture._id === subSectionId
                     );
 
                 // Update the video-data
                 setVideoData(filteredVideoData[0]);
+                setPreviewSource(courseEntireData.thumbnail);
                 setVideoEnded(false);
             }
         };
@@ -250,20 +247,28 @@ export default function VideoDetails() {
         <div className="video-details-wrapper">
             <div className="video-details">
                 {!videoData ? (
-                    <div>No Data Found</div>
+                    <img
+                        src={previewSource}
+                        alt="Preview"
+                        className="video-details-no-video"
+                    />
                 ) : (
                     <div className="video-details-video">
                         <Player
                             ref={playerReference}
                             aspectRatio="16:9"
+                            playsInline
                             onEnded={() => setVideoEnded(true)}
                             src={videoData.videoUrl}
                         >
-                            <AiFillPlayCircle />
+                            <BigPlayButton position="center" />
 
-                            {/* Mark as completed btn */}
+                            {/* Btns */}
+                            {/* ================= */}
+                            {/*     (render when video ends) */}
                             {videoEnded && (
-                                <div>
+                                <div className="video-details-btns full">
+                                    {/* Mark as completed btn ------------- */}
                                     {!completedLectures.includes(
                                         subSectionId
                                     ) && (
@@ -277,10 +282,11 @@ export default function VideoDetails() {
                                                     ? "Mark As Completed"
                                                     : "Loading..."
                                             }
+                                            customClasses="text-xl max-w-max px-4 mx-auto"
                                         />
                                     )}
 
-                                    {/* Rewatch btn */}
+                                    {/* Rewatch btn -------------- */}
                                     <IconBtn
                                         disabled={loading}
                                         onClick={() => {
@@ -292,10 +298,10 @@ export default function VideoDetails() {
                                             }
                                         }}
                                         text="Rewatch"
-                                        customClasses="text-xl"
+                                        customClasses="text-xl max-w-max px-4 mx-auto mt-2"
                                     />
 
-                                    {/* Prev & Next btn */}
+                                    {/* Prev & Next btn --------------- */}
                                     <div className="video-details-prev-next-btns">
                                         {/* Previous btn */}
                                         {!isFirstVideo() && (
@@ -325,8 +331,14 @@ export default function VideoDetails() {
                     </div>
                 )}
 
-                <h1>{videoData?.title}</h1>
-                <p>{videoData?.description}</p>
+                {/* Video titles */}
+                {/* ================== */}
+                <h1 className="video-details-video-title">
+                    {videoData?.title}
+                </h1>
+                <p className="video-details-video-desc">
+                    {videoData?.description}
+                </p>
             </div>
         </div>
     );

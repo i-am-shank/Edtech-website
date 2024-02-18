@@ -56,7 +56,7 @@ export default function EnrolledCourses() {
             <div className="enrolled-courses-list">
                 {!enrolledCourses ? (
                     // show loading
-                    <div className="enrolled-courses-loader">
+                    <div className="loading-wrapper">
                         <div className="spinner"></div>
                     </div>
                 ) : // check length of courses-array

@@ -23,7 +23,7 @@ export default function CodeBlocks({
     codeColor,
 }) {
     return (
-        <div className={`codeblocks ${position}`}>
+        <div className={`codeblocks flex-col ${position}`}>
             {/* Section 1 --> text */}
             {/* ======================== */}
             <div className="codeblocks-section-1">

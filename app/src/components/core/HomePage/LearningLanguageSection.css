@@ -1,21 +1,13 @@
-.learning-language-section {
-    @apply mt-[130px] mb-28;
-}
-
 .learning-language-section-content {
-    @apply flex flex-col gap-5 items-center;
-}
-
-.learning-lang-heading {
-    @apply text-4xl font-semibold text-center;
+    @apply text-4xl font-semibold text-center my-10;
 }
 
 .learning-lang-subheading {
-    @apply text-center text-richblack-600 mx-auto text-base mt-3 font-medium w-[70%];
+    @apply text-center text-richblack-700 font-medium lg:w-[75%] mx-auto leading-6 text-base mt-3;
 }
 
 .learning-lang-content {
-    @apply flex flex-row items-center justify-center mt-5;
+    @apply flex flex-col lg:flex-row items-center justify-center mt-8 lg:mt-0;
 }
 
 .learning-lang-image {
@@ -23,13 +15,17 @@
 }
 
 .ll-img1 {
-    @apply -mr-28;
+    @apply lg:-mr-32;
+}
+
+.ll-img2 {
+    @apply lg:-mb-10 lg:-mt-0 -mt-12;
 }
 
 .ll-img3 {
-    @apply -ml-32;
+    @apply lg:-ml-36 lg:-mt-5 -mt-16;
 }
 
 .learning-lang-bottom {
-    @apply w-fit;
+    @apply w-fit mx-auto lg:mb-20 mb-8 -mt-5;
 }

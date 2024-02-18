@@ -1,10 +1,11 @@
 // import modules =========================
 require("dotenv").config();
 
-const courseProgressModel = require("../models/courseProgressModel");
 // import-models ==============================
 const profileModel = require("../models/profileModel");
 const userModel = require("../models/userModel");
+const courseProgressModel = require("../models/courseProgressModel");
+const courseModel = require("../models/courseModel");
 
 // import util-files ==============================
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
@@ -300,5 +301,36 @@ exports.getEnrolledCourses = async (req, res) => {
 // instructorDashboard-handler
 exports.instructorDashboard = async (req, res) => {
     try {
-    } catch (error) {}
+        // fire API-call -------------
+        const courseDetails = await courseModel.find({
+            instructor: req.user.id,
+        });
+
+        const courseData = courseDetails.map((course) => {
+            const totalStudentsEnrolled = course.studentsEnrolled.length;
+            const totalAmountGenerated = totalStudentsEnrolled * course.price;
+
+            // Create an object, to accumulate these data
+            const courseDataWithStats = {
+                _id: course._id,
+                courseName: course.courseName,
+                courseDescription: course.courseDescription,
+                totalStudentsEnrolled,
+                totalAmountGenerated,
+            };
+
+            // return this object
+            return courseDataWithStats;
+        });
+
+        // return response ------------
+        return res.status(200).json({
+            courses: courseData,
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal Server Error !",
+        });
+    }
 };

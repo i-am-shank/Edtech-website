@@ -157,9 +157,9 @@ export default function AboutPage() {
                 {/* ========================== */}
                 <section className="about-section-6">
                     <div>
-                        {/* <h1 className="about-section-6-heading">
+                        <h1 className="about-section-6-heading">
                             Reviews from other learners
-                        </h1> */}
+                        </h1>
 
                         {/* Review-section ----------- */}
                         <ReviewSection />

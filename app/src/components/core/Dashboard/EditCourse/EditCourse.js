@@ -66,7 +66,7 @@ export default function EditCourse() {
     if (loading) {
         // return loader --------
         return (
-            <div className="edit-course-loader">
+            <div className="loading-wrapper">
                 <div className="spinner"></div>
             </div>
         );

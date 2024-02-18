@@ -9,10 +9,11 @@ const {
     getAllUserDetails,
     updateDisplayPicture,
     getEnrolledCourses,
+    instructorDashboard,
 } = require("../controllers/profileController");
 
 // import middlewares ===============================
-const { auth } = require("../middlewares/authMiddlewares");
+const { auth, isInstructor } = require("../middlewares/authMiddlewares");
 
 // ===============================================
 // Profile routes ================================
@@ -32,6 +33,9 @@ router.get("/getEnrolledCourses", auth, getEnrolledCourses);
 
 // update-dp (authorized user) -------------
 router.put("/updateDisplayPicture", auth, updateDisplayPicture);
+
+// get instructor-dashboard data (authorized, instructor) ------------
+router.get("/instructorDashboard", auth, isInstructor, instructorDashboard);
 
 // Export router ====================================
 module.exports = router;

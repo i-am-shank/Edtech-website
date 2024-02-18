@@ -9,6 +9,11 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import IconBtn from "../../common/IconBtn";
 
+// import assets
+// =====================================
+import { IoIosArrowBack } from "react-icons/io";
+import { BsChevronDown } from "react-icons/bs";
+
 export default function VideoDetailsSidebar({ setReviewModal }) {
     // initialise hooks
     // =================
@@ -80,24 +85,21 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     {/* Buttons ----------- */}
                     <div className="video-details-btns">
                         {/* Back btn */}
-                        <div className="video-details-back-btn-wrapper">
-                            <button
-                                className="video-details-back-btn"
-                                onClick={() => {
-                                    navigate("/dashboard/enrolled-courses");
-                                }}
-                            >
-                                Back
-                            </button>
-                        </div>
+                        <button
+                            className="video-details-back-btn"
+                            onClick={() => {
+                                navigate("/dashboard/enrolled-courses");
+                            }}
+                        >
+                            <IoIosArrowBack size={30} />
+                        </button>
 
                         {/* Add Review btn */}
-                        <div className="video-details-add-review-btn">
-                            <IconBtn
-                                text="Add Review"
-                                onClick={() => setReviewModal(true)}
-                            />
-                        </div>
+                        <IconBtn
+                            text="Add Review"
+                            onClick={() => setReviewModal(true)}
+                            customClasses="ml-auto"
+                        />
                     </div>
 
                     {/* Headings ----------- */}
@@ -106,7 +108,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                         <p>{courseEntireData?.courseName}</p>
 
                         {/* Lecture count fraction */}
-                        <p>
+                        <p className="video-details-lecture-cnt">
                             {completedLectures?.length} / {totalNoOfLectures}
                         </p>
                     </div>
@@ -117,22 +119,36 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                 <div className="video-details-sections-subsections">
                     {courseSectionData.map((section, index) => (
                         <div
-                            className="video-details-course"
+                            className="video-details-section"
                             key={index}
                             onClick={() => setActiveStatus(section?._id)}
                         >
-                            {/* section */}
-                            <div className="video-details-section">
+                            {/* section-title ------------ */}
+                            <div className="video-details-section-title">
                                 {/* Section name */}
-                                <div>{section?.sectionName}</div>
+                                <div className="video-details-section-name">
+                                    {section?.sectionName}
+                                </div>
 
                                 {/* Arrow icon (with rotate logic) */}
+                                <div className="video-details-section-icon-wrapper">
+                                    <span
+                                        className={`video-details-section-icon ${
+                                            activeStatus ===
+                                            section?.sectionName
+                                                ? "video-details-section-active-icon"
+                                                : "video-details-section-inactive-icon"
+                                        }`}
+                                    >
+                                        <BsChevronDown />
+                                    </span>
+                                </div>
                             </div>
 
-                            {/* subsections (if active section) */}
-                            <div className="video-details-subsections">
+                            {/* subsections ------------ (if active section) */}
+                            <div className="video-details-subsections-wrapper">
                                 {activeStatus === section?._id && (
-                                    <div>
+                                    <div className="video-details-subsections transtion-[height]">
                                         {section.subSection.map(
                                             (lecture, idx) => (
                                                 <div

@@ -1,0 +1,118 @@
+/* Header */
+/* ============================================= */
+
+.instructor-dboard-header {
+    @apply space-y-2;
+}
+
+.instructor-dboard-header-heading {
+    @apply text-2xl font-bold text-richblack-5;
+}
+
+.instructor-dboard-header-para {
+    @apply font-medium text-richblack-200;
+}
+
+/* Pie-Chart OR No-Chart */
+/* ============================================= */
+
+.instructor-dboard-no-chart {
+    @apply flex-1 rounded-md bg-richblack-800 p-6;
+}
+
+.instructor-dboard-no-chart-heading {
+    @apply text-lg font-bold text-richblack-5;
+}
+
+.instructor-dboard-no-chart-para {
+    @apply mt-4 text-xl font-medium text-richblack-50;
+}
+
+/* Statistics */
+/* ============================================= */
+
+.instructor-dboard-statistics {
+    @apply flex min-w-[250px] flex-col rounded-md bg-richblack-800 p-6;
+}
+
+.instructor-dboard-statistics-heading {
+    @apply text-lg font-bold text-richblack-5;
+}
+
+.instructor-dboard-statistics-stats {
+    @apply mt-4 space-y-4;
+}
+
+.instructor-dboard-stat-heading {
+    @apply text-lg text-richblack-200;
+}
+
+.instructor-dboard-stat-data {
+    @apply text-3xl font-semibold text-richblack-50;
+}
+
+/* Your Courses */
+/* =============================================== */
+
+.instructor-dboard-courses {
+    @apply rounded-md bg-richblack-800 p-6;
+}
+
+/* Heading ----------------- */
+
+.instructor-dboard-courses-header {
+    @apply flex items-center justify-between;
+}
+
+.instructor-dboard-courses-header-heading {
+    @apply text-lg font-bold text-richblack-5;
+}
+
+.instructor-dboard-courses-header-para {
+    @apply text-xs font-semibold text-yellow-50;
+}
+
+/* Courses ------------------ */
+
+.instructor-dboard-courses-wrapper {
+    @apply my-4 flex items-start space-x-6;
+}
+
+.instructor-dboard-course {
+    @apply w-1/3;
+}
+
+.instructor-dboard-course-thumbnail {
+    @apply h-[201px] w-full rounded-md object-cover;
+}
+
+.instructor-dboard-course-details {
+    @apply mt-3 w-full;
+}
+
+.instructor-dboard-course-name {
+    @apply text-sm font-medium text-richblack-50;
+}
+
+.instructor-dboard-course-stat {
+    @apply mt-1 flex items-center space-x-2;
+}
+
+.instructor-dboard-course-stat-data {
+    @apply text-xs font-medium text-richblack-300;
+}
+
+/* No Courses */
+/* ========================================== */
+
+.instructor-dboard-no-courses {
+    @apply mt-20 rounded-md bg-richblack-800 p-6 py-20;
+}
+
+.instructor-dboard-no-courses-heading {
+    @apply text-center text-2xl font-bold text-richblack-5;
+}
+
+.instructor-dboard-no-courses-btn {
+    @apply mt-1 text-center text-lg font-semibold text-yellow-50;
+}

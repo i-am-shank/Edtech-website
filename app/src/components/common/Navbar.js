@@ -133,7 +133,7 @@ export default function Navbar() {
 
                                                     {/* Dropdown link-list */}
                                                     {loading ? (
-                                                        <p className="navbar-catalog-loader">
+                                                        <p className="loading-wrapper">
                                                             <div className="spinner"></div>
                                                         </p>
                                                     ) : subLinks.length ? (

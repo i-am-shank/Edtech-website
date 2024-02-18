@@ -27,7 +27,7 @@ export default function CourseCard({ course, height }) {
     }, [course]);
 
     return (
-        <div className="course-card">
+        <>
             {/* Link takes to course-page */}
             <NavLink to={`/courses/${course._id}`}>
                 <div className="course-card-content">
@@ -63,7 +63,7 @@ export default function CourseCard({ course, height }) {
                             <RatingStars reviewCount={avgReviewCount} />
                             {/* No. of Rating */}
                             <span className="course-rating-count">
-                                {course?.ratingAndReviews?.length} ratings
+                                {course?.ratingAndReviews?.length} Ratings
                             </span>
                         </div>
                         {/* Course Price ---------- */}
@@ -71,6 +71,6 @@ export default function CourseCard({ course, height }) {
                     </div>
                 </div>
             </NavLink>
-        </div>
+        </>
     );
 }

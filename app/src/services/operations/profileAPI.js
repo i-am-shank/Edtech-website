@@ -17,8 +17,11 @@ import { logout } from "./authAPI";
 // import Endpoints
 // ====================================
 import { profileEndpoints } from "../apis";
-const { GET_USER_DETAILS_API, GET_USER_ENROLLED_COURSES_API } =
-    profileEndpoints;
+const {
+    GET_USER_DETAILS_API,
+    GET_USER_ENROLLED_COURSES_API,
+    GET_INSTRUCTOR_DATA_API,
+} = profileEndpoints;
 
 // ============================================
 // Get User Details ===========================
@@ -116,4 +119,37 @@ export async function getUserEnrolledCourses(token) {
 
     // return courses-array ----------
     return courses;
+}
+
+// ============================================
+// Get Instructor-Data ========================
+// ============================================
+export async function getInstructorData(token) {
+    // initiate toast & result-array
+    const toastId = toast.loading("Loading...");
+    let result = [];
+
+    try {
+        // fire API-call (using endpoint)
+        const response = await apiConnector(
+            "GET",
+            GET_INSTRUCTOR_DATA_API,
+            null,
+            {
+                Authorization: `Bearer ${token}`,
+            }
+        );
+
+        console.log("GET_INSTRUCTOR_API response : ", response);
+
+        // Update result
+        result = response?.data?.courses;
+    } catch (error) {
+        console.log("GET_INSTRUCTOR_API error : ", error);
+        toast.error("Could not fetch Instructor data !");
+    }
+
+    // dismiss toast & return result
+    toast.dismiss(toastId);
+    return result;
 }

@@ -42,20 +42,30 @@ export default function TimelineSection() {
                     {timeline.map((element, index) => {
                         return (
                             <div className="timeline-element" key={index}>
-                                {/* image */}
-                                <div className="timeline-element-left">
-                                    <img src={element.Logo} alt="" />
+                                <div className="timeline-element-content">
+                                    {/* image */}
+                                    <div className="timeline-element-left">
+                                        <img src={element.Logo} alt="" />
+                                    </div>
+
+                                    {/* text-content */}
+                                    <div className="timeline-element-right">
+                                        <h2 className="timeline-element-heading">
+                                            {element.heading}
+                                        </h2>
+                                        <p className="timeline-element-para">
+                                            {element.Description}
+                                        </p>
+                                    </div>
                                 </div>
 
-                                {/* text-content */}
-                                <div className="timeline-element-right">
-                                    <h2 className="timeline-element-heading">
-                                        {element.heading}
-                                    </h2>
-                                    <p className="timeline-element-para">
-                                        {element.Description}
-                                    </p>
-                                </div>
+                                <div
+                                    className={`timeline-element-h-div ${
+                                        timeline.length - 1 === index
+                                            ? "timeline-last-element-h-div"
+                                            : "timeline-other-element-h-div"
+                                    }`}
+                                ></div>
                             </div>
                         );
                     })}
@@ -64,13 +74,7 @@ export default function TimelineSection() {
                 {/* Right section */}
                 {/* =================== */}
                 <div className="timeline-right">
-                    <img
-                        src={timelineImage}
-                        alt="timelineImage"
-                        className="timeline-image"
-                    />
-
-                    {/* Green section (overlapped) */}
+                    {/* Green section (overlapped) ----------- */}
                     <div className="overlap-div">
                         <div className="overlap-div-left">
                             <p className="overlap-text-heading">10</p>
@@ -84,6 +88,13 @@ export default function TimelineSection() {
                             <p className="overlap-text-para">Type of courses</p>
                         </div>
                     </div>
+
+                    {/* Timeline-image ------------ */}
+                    <img
+                        src={timelineImage}
+                        alt="timelineImage"
+                        className="timeline-image"
+                    />
                 </div>
             </div>
         </div>

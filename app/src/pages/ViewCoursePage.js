@@ -47,7 +47,7 @@ export default function ViewCoursePage() {
 
             // Update states in slices (using reducers)
             dispatch(
-                setCourseSectionData(courseData.courseDetails.courseContent)
+                setCourseSectionData(courseData.courseDetails?.courseContent)
             );
             dispatch(setEntireCourseData(courseData.courseDetails));
             dispatch(setCompletedLectures(courseData.completedVideos));
@@ -73,8 +73,10 @@ export default function ViewCoursePage() {
 
                 {/* Lecture Video */}
                 {/* ================= */}
-                <div>
-                    <Outlet />
+                <div className="view-course-lecture-wrapper">
+                    <div className="view-course-lecture">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
 

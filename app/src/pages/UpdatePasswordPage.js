@@ -54,7 +54,9 @@ export default function UpdatePasswordPage() {
     return (
         <div className="update-password-page">
             {loading ? (
-                <div className="spinner">Loading...</div>
+                <div className="loading-wrapper">
+                    <div className="spinner"></div>
+                </div>
             ) : (
                 <div className="update-password-page-content">
                     {/* Heading & Sub-heading */}

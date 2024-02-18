@@ -30,7 +30,9 @@ export default function Template({
     return (
         <div className="template min-h-[calc(100vh - 3.54rem)]">
             {loading ? (
-                <div className="spinner"></div>
+                <div className="loading-wrapper">
+                    <div className="spinner"></div>
+                </div>
             ) : (
                 <div className="template-div">
                     {/* Signup/Login form , Heading + Description */}

@@ -1,22 +1,56 @@
-.review-section {
+.review-section-wrapper {
     @apply text-white;
 }
 
-.review-section-heading {
-    @apply font-semibold mt-10 text-center text-4xl;
+.review-section {
+    @apply my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent;
 }
 
 .review-section-slider {
-    @apply h-[190px] max-w-maxContent;
-}
-
-.review-section-slider-swiper {
     @apply w-full;
 }
 
-/* Review */
-/* ====================================== */
+.review-section-card {
+    @apply flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25;
+}
+
+/* Header */
+/* ===================================== */
+
+.review-section-header {
+    @apply flex items-center gap-4;
+}
 
 .review-section-review-img {
     @apply h-9 w-9 object-cover rounded-full;
+}
+
+.review-user-course-names {
+    @apply flex flex-col;
+}
+
+.review-user-name {
+    @apply font-semibold text-richblack-5;
+}
+
+.review-course-name {
+    @apply text-[12px] font-medium text-richblack-500;
+}
+
+/* Review */
+/* ===================================== */
+
+.review-section-review {
+    @apply font-medium text-richblack-25;
+}
+
+/* Ratings */
+/* ===================================== */
+
+.review-section-ratings {
+    @apply flex items-center gap-2;
+}
+
+.review-section-rating {
+    @apply font-semibold text-yellow-100;
 }

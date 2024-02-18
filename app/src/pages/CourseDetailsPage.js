@@ -146,7 +146,7 @@ export default function CourseDetailsPage() {
     // =======================
     if (loading || !courseData) {
         return (
-            <div className="course-details-loader">
+            <div className="loading-wrapper">
                 <div className="spinner"></div>
             </div>
         );

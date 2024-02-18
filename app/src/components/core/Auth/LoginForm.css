@@ -17,7 +17,7 @@
 }
 
 .email-input {
-    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5;
+    @apply w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }
 
 /* Password field */
@@ -31,7 +31,7 @@
 }
 
 .password-input {
-    @apply w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5;
+    @apply w-full !pr-10 rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }
 
 .hide-unhide-password {

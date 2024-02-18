@@ -74,7 +74,9 @@ export default function VerifyEmailPage() {
     return (
         <div className="verify-email-page">
             {loading ? (
-                <div className="spinner"></div>
+                <div className="loading-wrapper">
+                    <div className="spinner"></div>
+                </div>
             ) : (
                 <div className="verify-email-content">
                     <h1 className="verify-email-heading">Verify Email</h1>

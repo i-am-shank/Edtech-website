@@ -38,7 +38,7 @@ export default function Sidebar() {
 
     if (profileLoading || authLoading) {
         return (
-            <div className="sidebar-loading">
+            <div className="loading-wrapper">
                 <div className="spinner"></div>
             </div>
         );

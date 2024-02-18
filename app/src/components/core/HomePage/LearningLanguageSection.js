@@ -42,16 +42,16 @@ export default function LearningLanguageSection() {
                         className="learning-lang-img ll-img3"
                     />
                 </div>
+            </div>
 
-                <div className="learning-lang-bottom">
-                    <Button
-                        active={true}
-                        linkto={"/signup"}
-                        className="learning-lang-bottom-btn"
-                    >
-                        Learn More
-                    </Button>
-                </div>
+            <div className="learning-lang-bottom">
+                <Button
+                    active={true}
+                    linkto={"/signup"}
+                    className="learning-lang-bottom-btn"
+                >
+                    Learn More
+                </Button>
             </div>
         </div>
     );

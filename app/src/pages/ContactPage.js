@@ -27,9 +27,9 @@ export default function ContactPage() {
             {/* ====================== */}
             <div className="contactpage-review-slider-section">
                 {/* Heading ------------- */}
-                {/* <h1 className="contactpage-review-heading">
+                <h1 className="contactpage-review-heading">
                     Reviews from other learners
-                </h1> */}
+                </h1>
 
                 {/* Review-slider ------------- */}
                 <ReviewSection />

@@ -1,4 +1,41 @@
+.video-details {
+    @apply flex flex-col gap-5 text-white;
+}
+
+.video-details-no-video {
+    @apply h-full w-full rounded-md object-cover;
+}
+
+/* Buttons */
+/* =================================== */
+
+.video-details-btns {
+    @apply absolute inset-0 z-[100] grid h-full place-content-center font-inter;
+    background-image: linear-gradient(
+        to top,
+        rgb(0, 0, 0),
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.1)
+    );
+}
+
+.video-details-prev-next-btns {
+    @apply mt-10 flex min-w-[250px] justify-center gap-x-4 text-xl;
+}
+
 .video-details-prev-btn,
 .video-details-next-btn {
     @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
+}
+
+/* Video titles */
+/* =================== */
+
+.video-details-video-titles {
+    @apply mt-4 text-3xl font-semibold;
+}
+
+.video-details-video-desc {
+    @apply pt-2 pb-6;
 }

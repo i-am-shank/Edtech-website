@@ -1,4 +1,87 @@
+.course-review-modal-wrapper {
+    @apply fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm;
+}
+
 .course-review-modal {
+    @apply my-10 w-11/12 max-w-[700px] rounded-lg border border-richblack-400 bg-richblack-800;
+}
+
+/* Modal header */
+/* ======================================= */
+
+.review-modal-header {
+    @apply flex items-center justify-between rounded-t-lg bg-richblack-700 p-5;
+}
+
+.review-modal-heading {
+    @apply text-xl font-semibold text-richblack-5;
+}
+
+.review-modal-cross-icon {
+    @apply text-2xl text-richblack-5;
+}
+
+/* Modal body */
+/* ======================================= */
+
+.review-modal-body {
+    @apply p-6;
+}
+
+/* User details ------------------- */
+
+.review-modal-body-header {
+    @apply flex items-center justify-center gap-x-4;
+}
+
+.review-modal-profile-pic {
+    @apply aspect-square w-[50px] rounded-full object-cover;
+}
+
+.review-modal-name {
+    @apply font-semibold text-richblack-5;
+}
+
+.review-modal-credential-text {
+    @apply text-sm text-richblack-5;
+}
+
+/* Form --------------------- */
+
+.review-modal-form {
+    @apply mt-6 flex flex-col items-center;
+}
+
+/* Experience field */
+.review-modal-experience {
+    @apply flex w-11/12 flex-col space-y-2;
+}
+
+.review-modal-experience-label {
+    @apply text-sm text-richblack-5;
+}
+
+.review-modal-experience-input {
+    @apply min-h-[130px] w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.review-modal-experience-error {
+    @apply ml-2 text-xs tracking-wide text-pink-200;
+}
+
+/* Buttons */
+
+.review-modal-btns {
+    @apply mt-6 flex w-11/12 justify-end gap-x-2;
+}
+
+.review-modal-cancel-btn {
+    @apply flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900;
+}
+
+/* ****************************************** */
+
+/* .course-review-modal {
     @apply text-white;
 }
 
@@ -12,4 +95,4 @@
 
 .review-modal-experience-input {
     @apply min-h-[130px] w-full rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
-}
+} */

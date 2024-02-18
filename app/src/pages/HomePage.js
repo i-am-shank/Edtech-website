@@ -102,9 +102,12 @@ export default function HomePage() {
                             linkto: "/login",
                             active: false,
                         }}
+                        codeColor={"text-yellow-25"}
                         codeblock={`<!DOCTYPE html> \n <html> \n <head> \n <title> Example </title> \n <link rel="stylesheet" href="styles.css"> \n </head> \n <body> \n <h1> <a href="/"> Header </a> </h1> \n </body> \n </html>
                             `}
-                        codeColor={"text-yellow-25"}
+                        backgroundGradient={
+                            <div className="homepage-codeblock-1 absolute"></div>
+                        }
                     />
                 </div>
 
@@ -132,9 +135,11 @@ export default function HomePage() {
                             linkto: "/login",
                             active: false,
                         }}
-                        codeblock={`<!DOCTYPE html> \n <html> \n <head> \n <title> Example </title> \n <link rel="stylesheet" href="styles.css"> \n </head> \n <body> \n <h1> <a href="/"> Header </a> </h1> \n </body> \n </html>
-                            `}
-                        codeColor={"text-yellow-25"}
+                        codeColor={"text-white"}
+                        codeblock={`import React from "react";\n import IconBtn from "../components/common/IconBtn";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nexport default function Home() => {\nreturn (\n<div>Home</div>\n);\n}\n`}
+                        backgroundGradient={
+                            <div className="homepage-codeblock-2 absolute"></div>
+                        }
                     />
                 </div>
 
@@ -204,6 +209,9 @@ export default function HomePage() {
                 <InstructorSection />
 
                 {/* Review-section */}
+                <h1 className="homepage-review-section">
+                    Reviews from other learners
+                </h1>
                 <ReviewSection />
             </div>
 

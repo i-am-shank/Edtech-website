@@ -91,7 +91,7 @@ export default function CatalogPage() {
     // =============================
     if (loading || !catalogPageData) {
         return (
-            <div className="catalog-page-loader">
+            <div className="loading-wrapper">
                 <div className="spinner"></div>
             </div>
         );
@@ -172,7 +172,7 @@ export default function CatalogPage() {
             <div className="catalog-page-top-courses">
                 <p className="catalog-section-heading">
                     Top Courses in{" "}
-                    {catalogPageData?.data?.selectedCategory?.name}
+                    {catalogPageData?.data?.differentCategory?.name}
                 </p>
 
                 {/* Top courses - content ------------- */}

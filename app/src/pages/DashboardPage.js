@@ -18,7 +18,7 @@ export default function DashboardPage() {
 
     if (profileLoading || authLoading) {
         return (
-            <div className="dashboard-loading">
+            <div className="loading-wrapper">
                 <div className="spinner"></div>
             </div>
         );
@@ -34,7 +34,6 @@ export default function DashboardPage() {
             {/* ====================== */}
             <div className="dashboard-contents">
                 <div className="dashboard-content">
-                    <h1>Dashboard Content</h1>
                     <Outlet />
                 </div>
             </div>

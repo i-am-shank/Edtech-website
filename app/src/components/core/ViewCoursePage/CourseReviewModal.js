@@ -14,6 +14,10 @@ import ReactStars from "react-rating-stars-component";
 // ====================================
 import { createRating } from "../../../services/operations/courseDetailsAPI";
 
+// import assets
+// ====================================
+import { RxCross2 } from "react-icons/rx";
+
 export default function CourseReviewModal({ setReviewModal }) {
     // states
     // ==================
@@ -62,11 +66,12 @@ export default function CourseReviewModal({ setReviewModal }) {
         <div className="course-review-modal-wrapper">
             <div className="course-review-modal">
                 {/* Modal header */}
+                {/* ================= */}
                 <div className="review-modal-header">
-                    <p>Add Review</p>
+                    <p className="review-modal-heading">Add Review</p>
                     <button onClick={() => setReviewModal(false)}>
-                        {/* Add cross icon */}
-                        Close
+                        {/* cross icon */}
+                        <RxCross2 className="review-modal-cross-icon" />
                     </button>
                 </div>
 
@@ -79,14 +84,16 @@ export default function CourseReviewModal({ setReviewModal }) {
                         <img
                             className="review-modal-profile-pic"
                             src={user?.image}
-                            alt="User Image"
+                            alt={user?.firstName + " profile"}
                         />
                         {/* Credentials */}
                         <div className="review-modal-credentials">
                             <p className="review-modal-name">
                                 {user?.firstName} {user?.lastName}
                             </p>
-                            <p>Posting Publicly</p>
+                            <p className="review-modal-credential-text">
+                                Posting Publicly
+                            </p>
                         </div>
                     </div>
 
@@ -105,19 +112,25 @@ export default function CourseReviewModal({ setReviewModal }) {
 
                         {/* Experience field */}
                         <div className="review-modal-experience">
-                            <label htmlFor="courseExperience">
-                                Add Your Experience*
+                            <label
+                                htmlFor="courseExperience"
+                                className="review-modal-experience-label"
+                            >
+                                Add Your Experience{" "}
+                                <sup className="compulsory-icon">*</sup>
                             </label>
                             <textarea
                                 id="courseExperience"
-                                placeholder="Add Your Experience here"
+                                placeholder="Add Your Experience"
                                 {...register("courseExperience", {
                                     required: true,
                                 })}
-                                className="review-modal-experience-input"
+                                className="review-modal-experience-input resize-x-none"
                             />
                             {errors.courseExperience && (
-                                <span>Please add your experience</span>
+                                <span className="review-modal-experience-error">
+                                    Please Add Your Experience
+                                </span>
                             )}
                         </div>
 
@@ -132,7 +145,7 @@ export default function CourseReviewModal({ setReviewModal }) {
                             </button>
 
                             {/* Save btn */}
-                            <IconBtn text="save" />
+                            <IconBtn text="Save" />
                         </div>
                     </form>
                 </div>

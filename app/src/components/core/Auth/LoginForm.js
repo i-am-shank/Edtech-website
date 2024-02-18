@@ -63,10 +63,6 @@ export default function LoginForm() {
                     value={email}
                     onChange={handleOnChange}
                     placeholder="Enter email address"
-                    style={{
-                        boxShadow:
-                            "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                    }}
                     className="email-input"
                 />
             </label>

@@ -70,7 +70,7 @@
 
 /* Section - 3 B ----------- */
 .about-section-3-b {
-    @apply flex flex-col items-center lg:gap-10 lg:flex-row;
+    @apply flex flex-col items-center lg:gap-10 lg:flex-row justify-between;
 }
 
 .about-section-3-b-child {
@@ -100,7 +100,7 @@
 /* ================================== */
 
 .about-section-6 {
-    @apply relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
+    @apply relative mx-auto w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
 }
 
 .about-section-6-heading {

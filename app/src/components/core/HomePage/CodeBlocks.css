@@ -3,11 +3,11 @@
 }
 
 .codeblocks-section-1 {
-    @apply w-[50%] flex flex-col gap-8;
+    @apply w-[100%] lg:w-[50%] flex flex-col gap-8;
 }
 
 .codeblocks-section-1-subheading {
-    @apply text-richblack-300 font-bold;
+    @apply text-richblack-300 text-base font-bold w-[85%] -mt-3;
 }
 
 .codeblocks-btns {
@@ -15,17 +15,29 @@
 }
 
 .codeblocks-btn {
-    @apply flex gap-2 items-center;
+    @apply flex items-center gap-2;
+}
+
+/* Section - 2 */
+/* ============================================ */
+
+.codeblocks-section-2 {
+    @apply h-fit flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px];
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00);
+    background: linear-gradient(
+        111.93deg,
+        rgba(14, 26, 45, 0.24) -1.4%,
+        rgba(17, 30, 50, 0.38) 104.96%
+    );
 }
 
 .codeblocks-code-numbering {
-    @apply text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold;
+    @apply text-center flex flex-col w-[10%] select-none text-richblack-400 font-inter font-bold;
 }
 
 .codeblocks-code-div {
-    @apply w-[90%] flex flex-col gap-2 font-bold font-mono pr-2;
-}
-
-.codeblocks-section-2 {
-    @apply h-fit flex flex-row text-[10px] w-[100%] py-4 lg:w-[500px];
+    @apply w-[90%] flex flex-col gap-2 font-bold font-mono pr-1;
 }

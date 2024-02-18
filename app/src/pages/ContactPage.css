@@ -11,7 +11,7 @@
 }
 
 .contactpage-review-slider-section {
-    @apply relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
+    @apply relative mx-auto w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white;
 }
 
 .contactpage-review-heading {
