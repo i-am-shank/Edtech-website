@@ -52,7 +52,7 @@ exports.resetPasswordToken = async (req, res) => {
         // 3rd arg ==> return new object as response
 
         // generate url (with token) ---- url of frontend
-        const url = `http://localhost:3000/update-password/${token}`;
+        const url = `https://edtechify-iamshank.netlify.app/${token}`;
         // Different token for different-users --> different links.
 
         // Send mail returning url
