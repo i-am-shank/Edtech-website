@@ -1,42 +1,46 @@
+.catalog-course-card {
+    @apply mb-4 hover:scale-[1.03] transition-all duration-200 z-50;
+}
+
 /* Course Img */
 /* ======================================== */
 
-.course-card-img-wrapper {
-    @apply rounded-lg;
-}
-
-.course-card-img {
-    @apply w-full rounded-xl object-cover;
+.catalog-course-card-img {
+    @apply rounded-xl object-cover;
 }
 
 /* Course Details */
 /* ======================================== */
 
-.course-card-details {
+.catalog-course-card-details {
     @apply flex flex-col gap-2 px-1 py-3;
 }
 
-.course-card-title {
-    @apply text-xl text-richblack-5;
+.catalog-course-card-title {
+    @apply text-sm md:text-xl text-richblack-5;
 }
 
-.course-card-instructor {
-    @apply text-sm text-richblack-50;
+.catalog-course-card-instructor {
+    @apply text-[12px] md:text-base text-richblack-300;
+}
+
+.catalog-course-card-instructor-name {
+    @apply text-yellow-50 opacity-70;
 }
 
 /* Course Rating */
-.course-rating-wrapper {
-    @apply flex items-center gap-2;
+.catalog-course-rating-wrapper {
+    @apply flex gap-x-3 items-center;
 }
 
-.course-rating-avg {
+.catalog-course-rating-avg {
     @apply text-yellow-5;
 }
 
-.course-rating-count {
-    @apply text-richblack-400;
+.catalog-course-rating-count {
+    @apply md:block hidden md:text-xl text-richblack-400;
 }
 
-.course-card-price {
+.catalog-course-card-price {
     @apply text-xl text-richblack-5;
 }

@@ -11,7 +11,7 @@
 
 /* Buttons -------------------- */
 
-.video-details-btns {
+.video-details-sidebar-btns {
     @apply flex w-full items-center justify-between;
 }
 

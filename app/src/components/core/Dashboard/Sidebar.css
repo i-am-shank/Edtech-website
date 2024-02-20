@@ -1,9 +1,13 @@
-.sidebar-loading {
-    @apply grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800;
+.sidebar {
+    @apply text-white bg-richblack-800;
 }
 
-.sidebar-content {
-    @apply flex min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10;
+/* Desktop Sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ===================================================== */
+/* ===================================================== */
+
+.desktop-sidebar {
+    @apply hidden min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 lg:flex h-[calc(100vh-3.5rem)] bg-richblack-800 py-10;
 }
 
 .sidebar-links {
@@ -14,7 +18,7 @@
 /* ============================== */
 
 .sidebar-horz-line {
-    @apply mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700;
+    @apply mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-600;
 }
 
 /* Setting & Logout */
@@ -25,13 +29,25 @@
 }
 
 .sidebar-logout-btn {
-    @apply text-sm font-medium text-richblack-300 px-8 py-2;
+    @apply text-sm font-medium text-richblack-300 mx-4 my-4;
 }
 
 .sidebar-logout-btn-content {
-    @apply flex items-center gap-x-2;
+    @apply flex items-center gap-x-2 p-4;
 }
 
 .sidebar-logout-icon {
     @apply text-lg;
+}
+
+/* Mobile Sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================= */
+/* ============================================================= */
+
+.mobile-sidebar {
+    @apply flex lg:hidden fixed bottom-0 justify-between items-center px-2 py-1 bg-richblack-900 z-50 w-full;
+}
+
+.mobile-sidebar-content {
+    @apply flex flex-row gap-1 w-full justify-between;
 }

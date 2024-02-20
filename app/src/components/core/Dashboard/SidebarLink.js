@@ -7,6 +7,10 @@ import "./SidebarLink.css";
 import { NavLink, useLocation, matchPath } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+// import reducers (from slices)
+// ==============================
+import { setEditCourse } from "../../../slices/courseSlice";
+
 // import assets
 // ==============================
 import * as Icons from "react-icons/vsc";
@@ -32,24 +36,27 @@ export default function SidebarLink({ link, iconName }) {
     return (
         <NavLink
             to={link.path}
-            onClick={() => {}}
             className={`sidebar-link ${
                 matchRoute(link.path)
                     ? "active-sidebar-link"
                     : "inactive-sidebar-link"
             }`}
         >
-            {/* Left border (active-link) */}
-            <span
-                className={`sidebar-link-border ${
-                    matchRoute(link.path) ? "active-border" : "inactive-border"
-                }`}
-            ></span>
-
             {/* Icon & Link-name */}
-            <div className="sidebar-link-content">
+            <div
+                className="sidebar-link-content"
+                onClick={() => dispatch(setEditCourse(false))}
+            >
                 <Icon className="sidebar-link-icon" />
-                <span>{link.name}</span>
+                <span className="sidebar-link-name">{link.name}</span>
+
+                <span
+                    className={`sidebar-link-border ${
+                        matchRoute(link.path)
+                            ? "active-border"
+                            : "inactive-border"
+                    }`}
+                ></span>
             </div>
         </NavLink>
     );

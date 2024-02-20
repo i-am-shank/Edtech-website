@@ -17,6 +17,7 @@ import ErrorPage from "./pages/ErrorPage";
 import CatalogPage from "./pages/CatalogPage";
 import CourseDetailsPage from "./pages/CourseDetailsPage";
 import ViewCoursePage from "./pages/ViewCoursePage";
+import CreateCategoryPage from "./pages/CreateCategoryPage";
 
 // import components
 // =============================
@@ -42,7 +43,7 @@ export default function App() {
 
     return (
         <div className="App">
-            <Navbar />
+            <Navbar className="navbar-element" />
             <Routes>
                 <Route path="/" element={<HomePage />} />
 
@@ -138,6 +139,17 @@ export default function App() {
                         element={<MyProfile />}
                     />
                     <Route path="dashboard/settings" element={<Settings />} />
+
+                    {/* Admin-only routes */}
+                    {/* -------------------- */}
+                    {user?.accountType === ACCOUNT_TYPE.ADMIN && (
+                        <>
+                            <Route
+                                path="dashboard/create-category"
+                                element={<CreateCategoryPage />}
+                            />
+                        </>
+                    )}
 
                     {/* Student-only routes */}
                     {/* -------------------- */}

@@ -6,7 +6,7 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 // import hooks & React-tools
 // =============================
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 
 // import data & constants
@@ -19,6 +19,7 @@ import { ACCOUNT_TYPE } from "../../utils/constants";
 import logo from "../../assets/Logo/Logo-Full-Light.png";
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
+import { MdClose } from "react-icons/md";
 
 // import API related modules
 // =============================
@@ -84,6 +85,24 @@ export default function Navbar() {
         return matchPath({ path: route }, location.pathname);
     };
 
+    // Mobile navbar show/hide handler ---------
+    const show = useRef();
+    const overlay = useRef();
+    const showHideNavbar = () => {
+        console.log("show-Classlist : ", show.current.classList);
+        console.log("overlay-ClassList : ", overlay.current.classList);
+        show.current.classList.toggle("navshow");
+        overlay.current.classList.toggle("hidden");
+    };
+
+    // Mobile navbar close handler --------
+    const closeNavbar = () => {
+        show.current.classList.remove("navshow");
+        overlay.current.classList.add("hidden");
+        console.log("Navbar closed !");
+        return;
+    };
+
     return (
         <div
             className={`navbar ${
@@ -93,6 +112,10 @@ export default function Navbar() {
             }`}
         >
             <div className="navbar-content">
+                {/* Desktop Navbar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+                {/* ============================================ */}
+                {/* ============================================ */}
+
                 {/* Logo */}
                 {/* ==================== */}
                 <Link to="/">
@@ -239,11 +262,168 @@ export default function Navbar() {
                     {/* {token !== null && <p>Token - not null</p>} */}
                 </div>
 
-                {/* Navbar Menu */}
-                {/* =========================== */}
-                <button className="navbar-menu">
-                    <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-                </button>
+                {/* Mobile Navbar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+                {/* ============================================ */}
+                {/* ============================================ */}
+
+                <div className="navbar-mobile-navbar">
+                    {/* Cart link */}
+                    {/* ==================== */}
+                    <div>
+                        {user &&
+                            user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
+                                <div className="navbar-mobile-cart">
+                                    <Link
+                                        to="/dashboard/cart"
+                                        className="navbar-mobile-cart-link"
+                                    >
+                                        <div>
+                                            <AiOutlineShoppingCart className="navbar-mobile-cart-icon" />
+                                        </div>
+                                        {totalItems > 0 && (
+                                            <span className="navbar-mobile-item-cnt">
+                                                {totalItems}
+                                            </span>
+                                        )}
+                                    </Link>
+                                </div>
+                            )}
+                    </div>
+
+                    {/* Navbar Menu */}
+                    {/* =========================== */}
+                    <div
+                        className={`navbar-menu ${
+                            token !== null &&
+                            user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR
+                                ? "navbar-menu-student"
+                                : "navbar-menu-instructor"
+                        } ${
+                            token === null
+                                ? "navbar-menu-logout"
+                                : "navbar-menu-login"
+                        }`}
+                    >
+                        {/* Menu icon ----------- */}
+                        <AiOutlineMenu
+                            fontSize={24}
+                            fill="#AFB2BF"
+                            className="navbar-mobile-hamburger"
+                            onClick={() => showHideNavbar()}
+                        />
+                        <div
+                            className="navbar-mobile-hamburger-overlay"
+                            ref={overlay}
+                            onClick={() => showHideNavbar()}
+                        ></div>
+
+                        {/* Navbar Mobile Links */}
+                        {/* =================== */}
+                        <div
+                            className="navbar-mobile-hamburger-show mobNav"
+                            ref={show}
+                        >
+                            <nav className="navbar-mobile-links" ref={show}>
+                                {/* Close Navbar btn -------------- */}
+                                <button
+                                    onClick={() => closeNavbar()}
+                                    className="navbar-mobile-close"
+                                >
+                                    <MdClose fontSize={24} fill="#AFB2BF" />
+                                </button>
+
+                                {/* Login link ----------- */}
+                                {token === null && (
+                                    <Link to="/login">
+                                        <button
+                                            onClick={() => showHideNavbar()}
+                                            className="navbar-mobile-auth-btn"
+                                        >
+                                            Login
+                                        </button>
+                                    </Link>
+                                )}
+
+                                {/* Signup link ----------- */}
+                                {token === null && (
+                                    <Link
+                                        to="/signup"
+                                        className="navbar-mobile-signup-link"
+                                    >
+                                        <button
+                                            onClick={() => showHideNavbar()}
+                                            className="navbar-mobile-auth-btn"
+                                        >
+                                            Signup
+                                        </button>
+                                    </Link>
+                                )}
+
+                                {/* Dashboard link ----------- */}
+                                {token !== null && (
+                                    <div className="navbar-mobile-dashboard-link">
+                                        {/* <p className="navbar-mobile-dashboard-text">
+                                        Dashboard
+                                    </p> */}
+                                        <ProfileDropDown />
+                                    </div>
+                                )}
+
+                                {/* Separation div */}
+                                <div className="navbar-mobile-separation-div"></div>
+
+                                {/* Categories header ------------ */}
+                                <p className="navbar-mobile-categories-header">
+                                    Catalog
+                                </p>
+
+                                {/* Categories list ------------ */}
+                                <div className="navbar-mobile-categories-list">
+                                    {subLinks.length < 0 ? (
+                                        <div></div>
+                                    ) : (
+                                        subLinks?.map((element, index) => (
+                                            <Link
+                                                to={`/catalog/${element?.name}`}
+                                                key={index}
+                                                onClick={() => showHideNavbar()}
+                                                className="navbar-mobile-category"
+                                            >
+                                                <p className="navbar-mobile-category-name">
+                                                    {element?.name}
+                                                </p>
+                                            </Link>
+                                        ))
+                                    )}
+                                </div>
+                                {/* Separation div */}
+                                <div className="navbar-mobile-separation-div"></div>
+
+                                {/* About link ------------ */}
+                                <Link
+                                    to="/about"
+                                    onClick={() => showHideNavbar()}
+                                    className="navbar-mobile-page-link"
+                                >
+                                    <p className="navbar-mobile-page-name">
+                                        About
+                                    </p>
+                                </Link>
+
+                                {/* Contact link ------------ */}
+                                <Link
+                                    to="/contact"
+                                    onClick={() => showHideNavbar()}
+                                    className="navbar-mobile-page-link"
+                                >
+                                    <p className="navbar-mobile-page-name">
+                                        Contact
+                                    </p>
+                                </Link>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

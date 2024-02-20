@@ -1,76 +1,71 @@
 // import components
-// =======================================
+// ============================================
 import "./CourseCard.css";
 import RatingStars from "../../common/RatingStars";
 
 // import hooks & React-tools
-// =======================================
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+// ============================================
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // import utility-functions
-// =======================================
-import getAvgRating from "../../../utils/avgRating";
+// ============================================
+import GetAvgRating from "../../../utils/avgRating";
 
-export default function CourseCard({ course, height }) {
+export default function CourseCard({ course, Height }) {
     // states
-    // ================
+    // ===================
     const [avgReviewCount, setAvgReviewCount] = useState(0);
 
     // Render handlers
-    // ================
+    // ===================
     useEffect(() => {
-        // Calculate avg rating ---------
-        const count = getAvgRating(course.ratingAndReviews);
-        // Update avg rating state ----------
+        const count = GetAvgRating(course.ratingAndReviews);
         setAvgReviewCount(count);
     }, [course]);
 
     return (
-        <>
-            {/* Link takes to course-page */}
-            <NavLink to={`/courses/${course._id}`}>
-                <div className="course-card-content">
+        <div className="catalog-course-card">
+            <Link to={`/courses/${course._id}`}>
+                <div>
                     {/* Course Img */}
-                    {/* ================ */}
-                    <div className="course-card-img-wrapper">
+                    {/* ==================== */}
+                    <div>
                         <img
                             src={course?.thumbnail}
-                            alt="thumbnail"
-                            className={`course-card-img ${height}`}
+                            alt="course thumbnail"
+                            className={`${Height} catalog-course-card-img`}
                         />
                     </div>
 
                     {/* Course Details */}
-                    {/* ================ */}
-                    <div className="course-card-details">
-                        {/* Course Title =--------- */}
-                        <p className="course-card-title">
+                    {/* ==================== */}
+                    <div className="catalog-course-card-details">
+                        <p className="catalog-course-card-title">
                             {course?.courseName}
                         </p>
-                        {/* Course Instructor ---------- */}
-                        <p className="course-card-instructor">
-                            {course?.instructor?.firstName}{" "}
-                            {course?.instructor?.lastName}
+                        <p className="catalog-course-card-instructor">
+                            By{" "}
+                            <span className="catalog-course-card-instructor-name">
+                                {course?.instructor?.firstName}{" "}
+                                {course?.instructor?.lastName}
+                            </span>
                         </p>
-                        {/* Course Rating ---------- */}
-                        <div className="course-rating-wrapper">
-                            {/* Avg. rating */}
-                            <span className="course-rating-avg">
+                        <div className="catalog-course-rating-wrapper">
+                            <span className="catalog-course-rating-avg">
                                 {avgReviewCount || 0}
                             </span>
-                            {/* Stars */}
-                            <RatingStars reviewCount={avgReviewCount} />
-                            {/* No. of Rating */}
-                            <span className="course-rating-count">
+                            <RatingStars Review_Count={avgReviewCount} />
+                            <span className="catalog-course-rating-count">
                                 {course?.ratingAndReviews?.length} Ratings
                             </span>
                         </div>
-                        {/* Course Price ---------- */}
-                        <p className="course-card-price">₹ {course?.price}</p>
+                        <p className="catalog-course-card-price">
+                            Rs. {course?.price}
+                        </p>
                     </div>
                 </div>
-            </NavLink>
-        </>
+            </Link>
+        </div>
     );
 }

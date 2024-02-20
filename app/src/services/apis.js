@@ -59,6 +59,7 @@ export const ratingsEndpoints = {
 // =================================
 export const categories = {
     CATEGORIES_API: BASE_URL + "/course/showAllCategories",
+    CREATE_CATEGORY_API: BASE_URL + "/course/createCategory",
 };
 
 // CATALOG PAGE DATA

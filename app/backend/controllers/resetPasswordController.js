@@ -3,6 +3,8 @@
 // import modules ===========================
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
+require("dotenv").config();
+const FRONTEND_BASE_URL = process.env.FRONTEND_BASE_URL;
 
 // import models ===========================
 const userModel = require("../models/userModel");
@@ -52,7 +54,7 @@ exports.resetPasswordToken = async (req, res) => {
         // 3rd arg ==> return new object as response
 
         // generate url (with token) ---- url of frontend
-        const url = `https://edtechify-iamshank.netlify.app/${token}`;
+        const url = `${FRONTEND_BASE_URL}/update-password/${token}`;
         // Different token for different-users --> different links.
 
         // Send mail returning url

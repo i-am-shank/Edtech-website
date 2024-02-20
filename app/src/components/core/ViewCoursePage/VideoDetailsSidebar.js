@@ -77,22 +77,23 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
     // =================
 
     return (
-        <div className="video-details-sidebar-wrapper">
+        <>
             <div className="video-details-sidebar">
                 {/* Buttons & Headings */}
                 {/* ================== */}
                 <div className="video-details-btns-headings">
                     {/* Buttons ----------- */}
-                    <div className="video-details-btns">
+                    <div className="video-details-sidebar-btns">
                         {/* Back btn */}
-                        <button
+                        <div
                             className="video-details-back-btn"
                             onClick={() => {
                                 navigate("/dashboard/enrolled-courses");
                             }}
+                            title="back"
                         >
                             <IoIosArrowBack size={30} />
-                        </button>
+                        </div>
 
                         {/* Add Review btn */}
                         <IconBtn
@@ -192,6 +193,6 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 }

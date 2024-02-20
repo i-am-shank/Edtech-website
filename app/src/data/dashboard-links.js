@@ -42,9 +42,18 @@ export const sidebarLinks = [
     },
     {
         id: 6,
-        name: "Purchase History",
-        path: "/dashboard/purchase-history",
+        name: "Cart",
+        path: "/dashboard/cart",
         type: ACCOUNT_TYPE.STUDENT,
-        icon: "VscHistory",
+        icon: "VscArchive",
+    },
+    // Admin-only links
+    // ==================================
+    {
+        id: 7,
+        name: "Create Category",
+        path: "/dashboard/create-category",
+        type: ACCOUNT_TYPE.ADMIN,
+        icon: "VscListSelection",
     },
 ];

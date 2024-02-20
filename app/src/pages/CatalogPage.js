@@ -158,21 +158,18 @@ export default function CatalogPage() {
                 </div>
 
                 {/* Start courses - content ------------- */}
-                <div className="catalog-page-start-courses-content">
-                    <CourseSlider
-                        courses={
-                            catalogPageData?.data?.selectedCategory?.courses
-                        }
-                    />
-                </div>
+
+                <CourseSlider
+                    courses={catalogPageData?.data?.selectedCategory?.courses}
+                />
             </div>
 
             {/* Top Courses */}
             {/* ====================== */}
             <div className="catalog-page-top-courses">
                 <p className="catalog-section-heading">
-                    Top Courses in{" "}
-                    {catalogPageData?.data?.differentCategory?.name}
+                    Courses Similar to{" "}
+                    {catalogPageData?.data?.selectedCategory?.name}
                 </p>
 
                 {/* Top courses - content ------------- */}
@@ -191,18 +188,16 @@ export default function CatalogPage() {
                 <p className="catalog-section-heading">Frequently Bought</p>
 
                 {/* Frequently bought - content ------------- */}
-                <div className="catalog-frequently-bought-content">
-                    <div className="catalog-frequently-bought-courses">
-                        {catalogPageData?.data?.mostSellingCourses
-                            ?.slice(0, 4)
-                            .map((course, index) => (
-                                <CourseCard
-                                    course={course}
-                                    key={index}
-                                    height={"h-[400px]"}
-                                />
-                            ))}
-                    </div>
+                <div className="catalog-frequently-bought-courses">
+                    {catalogPageData?.data?.mostSellingCourses
+                        ?.slice(0, 4)
+                        .map((course, index) => (
+                            <CourseCard
+                                course={course}
+                                key={index}
+                                height={"h-[100px] lg:h-[400px]"}
+                            />
+                        ))}
                 </div>
             </div>
 

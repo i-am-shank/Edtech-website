@@ -65,7 +65,7 @@ export default function ViewCoursePage() {
     }, []);
 
     return (
-        <div className="view-course-page-wrapper">
+        <>
             <div className="view-course-page">
                 {/* Sidebar */}
                 {/* ================= */}
@@ -85,6 +85,6 @@ export default function ViewCoursePage() {
             {reviewModal && (
                 <CourseReviewModal setReviewModal={setReviewModal} />
             )}
-        </div>
+        </>
     );
 }

@@ -1,0 +1,23 @@
+.create-category-form {
+    @apply rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 space-y-8;
+}
+
+.create-category-field {
+    @apply flex flex-col space-y-2;
+}
+
+.create-category-label {
+    @apply text-sm text-richblack-5;
+}
+
+.create-category-input {
+    @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+}
+
+.create-category-name-input {
+    @apply w-full;
+}
+
+.create-category-desc-input {
+    @apply min-h-[130px] w-full;
+}

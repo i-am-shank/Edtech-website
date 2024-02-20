@@ -10,6 +10,10 @@
     @apply flex w-11/12 max-w-maxContent items-center justify-between;
 }
 
+/* Desktop Navbar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ======================================================== */
+/* ======================================================== */
+
 /* Navbar links */
 /* =========================================== */
 
@@ -81,6 +85,151 @@
     @apply rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100;
 }
 
+/* Mobile Navbar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ========================================================= */
+/* ========================================================= */
+
+.navbar-mobile-navbar {
+    @apply flex gap-2 items-center justify-between;
+}
+
+/* Cart Link */
+/* =========================================== */
+
+.navbar-mobile-cart {
+    @apply md:hidden;
+}
+
+.navbar-mobile-cart-link {
+    @apply relative;
+}
+
+.navbar-mobile-cart-icon {
+    @apply fill-richblack-25 w-8 h-8;
+}
+
+.navbar-mobile-item-cnt {
+    @apply font-medium text-[12px] shadow-black bg-yellow-100 text-richblack-900 rounded-full px-[4px] absolute -top-[2px] right-[1px];
+}
+
+/* Navbar Menu */
+/* ======================================== */
+
 .navbar-menu {
-    @apply mr-4 md:hidden;
+    @apply flex md:hidden relative flex-row text-white;
+}
+
+.navbar-menu-login {
+    @apply mr-6;
+}
+
+.navbar-menu-logout {
+    @apply mr-12;
+}
+
+.navbar-menu-student {
+    @apply -left-12;
+}
+
+.navbar-menu-instructor {
+    @apply -left-12;
+}
+
+/* Menu icon --------------- */
+
+.navbar-mobile-hamburger {
+    @apply w-16 h-8 fill-richblack-25 absolute left-10 -bottom-4;
+}
+
+.navbar-mobile-hamburger-overlay {
+    @apply fixed top-0 bottom-0 left-0 right-0 z-30 w-[100vw] hidden h-[100vh] overflow-y-hidden bg-[rgba(0,0,0,0.5)];
+}
+
+.navbar-mobile-hamburger-show {
+    @apply z-50;
+}
+
+/* Navbar hidden (default mode) */
+.mobNav {
+    @apply transition-all duration-500;
+    transform: translateX(100vw);
+}
+
+/* Navbar visible (slided to left) */
+.mobNav.navshow {
+    @apply transition-all duration-500;
+    transform: translateX(0vw);
+}
+
+/* Navbar Mobile Links */
+/* ========================================= */
+
+.navbar-mobile-links {
+    @apply items-center flex flex-col absolute w-[200px] -left-[80px] -top-7 rounded-2xl;
+    background: rgba(13, 18, 30, 0.75);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+    border: 1px solid rgba(13, 18, 30, 0.3);
+}
+
+/* Close Navbar btn ------------------ */
+
+.navbar-mobile-close {
+    @apply mr-36 mt-3 -mb-2 bg-white bg-opacity-10 rounded-full p-1;
+}
+
+/* Login & Signup link ----------------- */
+
+.navbar-mobile-auth-btn {
+    @apply mt-4 text-center text-[15px] px-6 py-2 rounded-md font-semibold bg-yellow-50 text-black hover:scale-95 transition-all duration-200;
+}
+
+.navbar-mobile-signup-link {
+    @apply text-yellow-50;
+}
+
+/* Dashboard link ------------------ */
+
+.navbar-mobile-dashboard-link {
+    @apply mt-2;
+}
+
+.navbar-mobile-dashboard-text {
+    @apply text-richblack-50 text-center mb-2;
+}
+
+/* Separation div */
+.navbar-mobile-separation-div {
+    @apply mt-4 mb-4 bg-richblack-25 w-[200px] h-[2px];
+}
+
+/* Categories header ------------ */
+
+.navbar-mobile-categories-header {
+    @apply text-xl text-yellow-50 font-semibold;
+}
+
+/* Categories list ------------- */
+
+.navbar-mobile-categories-list {
+    @apply flex flex-col items-center;
+}
+
+.navbar-mobile-category {
+    @apply p-2 text-sm;
+}
+
+.navbar-mobile-category-name {
+    @apply text-richblack-5;
+}
+
+/* About & Contact page links -------------- */
+
+.navbar-mobile-page-link {
+    @apply p-2;
+}
+
+.navbar-mobile-page-name {
+    @apply text-richblack-5;
 }

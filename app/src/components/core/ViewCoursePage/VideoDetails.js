@@ -8,8 +8,8 @@ import IconBtn from "../../common/IconBtn";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { BigPlayButton, Player } from "video-react";
 import "video-react/dist/video-react.css";
+import { BigPlayButton, Player } from "video-react";
 
 // import API-call functions
 // =========================================
@@ -18,10 +18,6 @@ import { markLectureAsCompleted } from "../../../services/operations/courseDetai
 // import reducers (from slice)
 // =========================================
 import { updateCompletedLectures } from "../../../slices/viewCourseSlice";
-
-// import assets
-// =========================================
-import { AiFillPlayCircle } from "react-icons/ai";
 
 export default function VideoDetails() {
     // initialise hooks
@@ -52,7 +48,7 @@ export default function VideoDetails() {
             if (!courseSectionData.length) {
                 return;
             }
-            if (!courseId || !sectionId || !subSectionId) {
+            if (!courseId && !sectionId && !subSectionId) {
                 navigate("/dashboard/enrolled-courses");
             } else {
                 // All 3 ids are present
@@ -244,102 +240,88 @@ export default function VideoDetails() {
     };
 
     return (
-        <div className="video-details-wrapper">
-            <div className="video-details">
-                {!videoData ? (
-                    <img
-                        src={previewSource}
-                        alt="Preview"
-                        className="video-details-no-video"
-                    />
-                ) : (
-                    <div className="video-details-video">
-                        <Player
-                            ref={playerReference}
-                            aspectRatio="16:9"
-                            playsInline
-                            onEnded={() => setVideoEnded(true)}
-                            src={videoData.videoUrl}
-                        >
-                            <BigPlayButton position="center" />
+        <div className="video-details">
+            {!videoData ? (
+                <img
+                    src={previewSource}
+                    alt="Preview"
+                    className="video-details-no-video"
+                />
+            ) : (
+                <Player
+                    ref={playerReference}
+                    aspectRatio="16:9"
+                    playsInline
+                    onEnded={() => setVideoEnded(true)}
+                    src={videoData?.videoUrl}
+                >
+                    <BigPlayButton position="center" />
 
-                            {/* Btns */}
-                            {/* ================= */}
-                            {/*     (render when video ends) */}
-                            {videoEnded && (
-                                <div className="video-details-btns full">
-                                    {/* Mark as completed btn ------------- */}
-                                    {!completedLectures.includes(
-                                        subSectionId
-                                    ) && (
-                                        <IconBtn
-                                            disabled={loading}
-                                            onClick={() =>
-                                                handleLectureCompletion()
-                                            }
-                                            text={
-                                                !loading
-                                                    ? "Mark As Completed"
-                                                    : "Loading..."
-                                            }
-                                            customClasses="text-xl max-w-max px-4 mx-auto"
-                                        />
-                                    )}
-
-                                    {/* Rewatch btn -------------- */}
-                                    <IconBtn
-                                        disabled={loading}
-                                        onClick={() => {
-                                            if (playerReference?.current) {
-                                                playerReference.current?.seek(
-                                                    0
-                                                );
-                                                setVideoEnded(false);
-                                            }
-                                        }}
-                                        text="Rewatch"
-                                        customClasses="text-xl max-w-max px-4 mx-auto mt-2"
-                                    />
-
-                                    {/* Prev & Next btn --------------- */}
-                                    <div className="video-details-prev-next-btns">
-                                        {/* Previous btn */}
-                                        {!isFirstVideo() && (
-                                            <button
-                                                className="video-details-prev-btn"
-                                                onClick={() => goToPrevVideo()}
-                                                disabled={loading}
-                                            >
-                                                Prev
-                                            </button>
-                                        )}
-
-                                        {/* Next btn */}
-                                        {!isLastVideo() && (
-                                            <button
-                                                className="video-details-next-btn"
-                                                onClick={() => goToNextVideo()}
-                                                disabled={loading}
-                                            >
-                                                Next
-                                            </button>
-                                        )}
-                                    </div>
-                                </div>
+                    {/* Btns */}
+                    {/* ================= */}
+                    {/*     (render when video ends) */}
+                    {videoEnded && (
+                        <div className="video-details-btns full">
+                            {/* Mark as completed btn ------------- */}
+                            {!completedLectures.includes(subSectionId) && (
+                                <IconBtn
+                                    disabled={loading}
+                                    onClick={() => handleLectureCompletion()}
+                                    text={
+                                        !loading
+                                            ? "Mark As Completed"
+                                            : "Loading..."
+                                    }
+                                    customClasses="text-xl max-w-max px-4 mx-auto"
+                                />
                             )}
-                        </Player>
-                    </div>
-                )}
 
-                {/* Video titles */}
-                {/* ================== */}
-                <h1 className="video-details-video-title">
-                    {videoData?.title}
-                </h1>
-                <p className="video-details-video-desc">
-                    {videoData?.description}
-                </p>
-            </div>
+                            {/* Rewatch btn -------------- */}
+                            <IconBtn
+                                disabled={loading}
+                                onClick={() => {
+                                    if (playerReference?.current) {
+                                        playerReference.current?.seek(0);
+                                        setVideoEnded(false);
+                                    }
+                                }}
+                                text="Rewatch"
+                                customClasses="text-xl max-w-max px-4 mx-auto mt-2"
+                            />
+
+                            {/* Prev & Next btn --------------- */}
+                            <div className="video-details-prev-next-btns">
+                                {/* Previous btn */}
+                                {!isFirstVideo() && (
+                                    <button
+                                        className="video-details-prev-btn"
+                                        onClick={() => goToPrevVideo()}
+                                        disabled={loading}
+                                    >
+                                        Prev
+                                    </button>
+                                )}
+
+                                {/* Next btn */}
+                                {!isLastVideo() && (
+                                    <button
+                                        className="video-details-next-btn"
+                                        onClick={() => goToNextVideo()}
+                                        disabled={loading}
+                                    >
+                                        Next
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </Player>
+            )}
+
+            {/* Video titles */}
+            {/* ================== */}
+            <h1 className="video-details-video-title">{videoData?.title}</h1>
+            <p className="video-details-video-desc">{videoData?.description}</p>
         </div>
     );
 }

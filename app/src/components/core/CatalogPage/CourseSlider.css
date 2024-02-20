@@ -1,7 +1,24 @@
 .course-slider-swiper {
-    @apply max-h-[30rem];
+    /* @apply max-h-[30rem]; */
+    @apply md:pt-5;
+    --swiper-navigation-size: 20px;
 }
+
+/* No Course */
+/* =========================================== */
 
 .course-slider-no-course {
     @apply text-xl text-richblack-5;
+}
+
+.no-course-skeleton-1 {
+    @apply md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl;
+}
+
+.no-course-skeleton-2 {
+    @apply md:h-[20px] w-[70px] rounded-md;
+}
+
+.no-course-skeleton-3 {
+    @apply md:h-[20px] md:w-[400px] rounded-md;
 }

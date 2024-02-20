@@ -1,17 +1,29 @@
 .sidebar-link {
-    @apply relative px-8 py-2 text-sm font-medium transition-all duration-200;
+    @apply py-2 px-4 relative md:px-8 md:py-2 text-sm font-medium transition-all duration-300;
 }
 
 .active-sidebar-link {
-    @apply bg-yellow-800 text-yellow-50;
+    @apply bg-yellow-800;
 }
 
 .inactive-sidebar-link {
-    @apply bg-opacity-0 text-richblack-300;
+    @apply bg-opacity-0;
+}
+
+.sidebar-link-content {
+    @apply flex items-center gap-x-2 flex-col md:flex-row;
+}
+
+.sidebar-link-icon {
+    @apply md:text-lg text-3xl;
+}
+
+.sidebar-link-name {
+    @apply hidden md:block;
 }
 
 .sidebar-link-border {
-    @apply absolute left-0 top-0 h-full w-[0.15rem] bg-yellow-50;
+    @apply absolute bottom-0 left-0 md:top-0 h-[0.2rem] w-full md:h-full md:w-[0.2rem] bg-yellow-50 opacity-0 transition-all duration-300;
 }
 
 .active-border {
@@ -20,12 +32,4 @@
 
 .inactive-border {
     @apply opacity-0;
-}
-
-.sidebar-link-content {
-    @apply flex items-center gap-x-2;
-}
-
-.sidebar-link-icon {
-    @apply text-lg;
 }

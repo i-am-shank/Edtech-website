@@ -12,6 +12,7 @@ function getRandomInt(max) {
 
 exports.createCategory = async (req, res) => {
     try {
+        console.log("Req's body in createCategory-controller : ", req.body);
         // fetch data
         const { name, description } = req.body;
 

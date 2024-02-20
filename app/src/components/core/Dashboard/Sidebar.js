@@ -17,6 +17,7 @@ import { sidebarLinks } from "../../../data/dashboard-links";
 // ==================================
 import { logout } from "../../../services/operations/authAPI";
 import { VscSignOut } from "react-icons/vsc";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import ConfirmationModal from "../../common/ConfirmationModal";
 
 export default function Sidebar() {
@@ -46,7 +47,11 @@ export default function Sidebar() {
 
     return (
         <div className="sidebar">
-            <div className="sidebar-content">
+            {/* Desktop Sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+            {/* ==================================================== */}
+            {/* ==================================================== */}
+
+            <div className="desktop-sidebar">
                 {/* Sidebar - links */}
                 {/* =================== */}
                 <div className="sidebar-links">
@@ -97,6 +102,36 @@ export default function Sidebar() {
                             <span>Logout</span>
                         </div>
                     </button>
+                </div>
+            </div>
+
+            {/* Mobile Sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+            {/* ===================================================== */}
+            {/* ===================================================== */}
+
+            <div className="mobile-sidebar">
+                <div className="mobile-sidebar-content">
+                    {sidebarLinks.map((link) => {
+                        if (link.type && user?.accountType !== link.type) {
+                            return null;
+                        } else {
+                            return (
+                                <SidebarLink
+                                    key={link.id}
+                                    link={link}
+                                    iconName={link.icon}
+                                />
+                            );
+                        }
+                    })}
+
+                    <SidebarLink
+                        link={{
+                            name: "Settings",
+                            path: "/dashboard/settings",
+                        }}
+                        iconName="VscSettingsGear"
+                    />
                 </div>
             </div>
 
