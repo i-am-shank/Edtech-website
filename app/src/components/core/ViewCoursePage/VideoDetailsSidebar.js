@@ -37,7 +37,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
     useEffect(() => {
         // function definition -----------
         const setActiveFlags = () => {
-            console.log("Completed Lectures : ", completedLectures);
+            // console.log("Completed Lectures : ", completedLectures);
             if (!courseSectionData.length) {
                 // no data in section.. nothing to do
                 return;
@@ -185,7 +185,6 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                                                 </div>
                                             )
                                         )}
-                                        )
                                     </div>
                                 )}
                             </div>

@@ -124,7 +124,7 @@ exports.deleteSection = async (req, res) => {
         const section = await sectionModel.findById(sectionId);
 
         // Validate ----------
-        console.log(sectionId, courseId);
+        // console.log(sectionId, courseId);
         if (!section) {
             return res.status(404).json({
                 success: false,

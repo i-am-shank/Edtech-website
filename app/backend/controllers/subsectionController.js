@@ -23,7 +23,7 @@ exports.createSubsection = async (req, res) => {
                 message: "All fields are required. Please try again.",
             });
         }
-        console.log("Lecture video : ", video);
+        // console.log("Lecture video : ", video);
         // store video-url (have to upload to cloudinary)
         // upload to cloudinary -------------
         const uploadDetails = await uploadImageToCloudinary(

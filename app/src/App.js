@@ -37,6 +37,8 @@ import MyCourses from "./components/core/Dashboard/MyCourses/MyCourses";
 import EditCourse from "./components/core/Dashboard/EditCourse/EditCourse";
 import VideoDetails from "./components/core/ViewCoursePage/VideoDetails";
 import InstructorDashboard from "./components/core/Dashboard/InstructorDashboard/InstructorDashboard";
+import CategoriesList from "./components/core/Dashboard/CategoriesList/CategoriesList";
+import EditCategory from "./components/core/Dashboard/CategoriesList/EditCategory";
 
 export default function App() {
     const { user } = useSelector((state) => state.profile);
@@ -148,6 +150,14 @@ export default function App() {
                                 path="dashboard/create-category"
                                 element={<CreateCategoryPage />}
                             />
+                            <Route
+                                path="dashboard/categories-list"
+                                element={<CategoriesList />}
+                            />
+                            <Route
+                                path="dashboard/edit-category/:catalogName"
+                                element={<EditCategory />}
+                            />
                         </>
                     )}
 
@@ -189,7 +199,11 @@ export default function App() {
 
                 {/* Error page */}
                 {/* ====================== */}
-                <Route path="*" element={<ErrorPage />} />
+                {/* <Route path="*" element={<ErrorPage />} /> */}
+
+                {/* Redirects all non-existing-links */}
+                {/* ====================== */}
+                <Route path="*" element={<HomePage />} />
             </Routes>
         </div>
     );

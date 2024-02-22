@@ -9,6 +9,14 @@ import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
 import Footer from "../components/common/Footer";
 import ReviewSection from "../components/core/HomePage/ReviewSection";
 
+// import React-tools
+// ==========================
+import { Helmet } from "react-helmet";
+
+// import data
+// ==========================
+import titles from "../titles";
+
 // import assets
 // ==========================
 import BannerImage1 from "../assets/Images/aboutus1.webp";
@@ -19,6 +27,10 @@ import FoundingStory from "../assets/Images/FoundingStory.png";
 export default function AboutPage() {
     return (
         <div className="about-page">
+            <Helmet>
+                <title>{titles.AboutPage}</title>
+            </Helmet>
+
             <div className="about-page-content">
                 {/* Section - 1 */}
                 {/* ========================== */}

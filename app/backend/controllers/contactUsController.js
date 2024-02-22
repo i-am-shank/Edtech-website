@@ -12,7 +12,7 @@ exports.contactUsController = async (req, res) => {
     //   (email, firstname, lastname, message, phoneNo, countrycode)
     const { email, firstname, lastname, message, phoneNo, countrycode } =
         req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         // fire API-call (for sending mail) ------------
@@ -28,17 +28,18 @@ exports.contactUsController = async (req, res) => {
                 countrycode
             )
         );
-        console.log("Email Res : ", emailRes);
+        // console.log("Email Res : ", emailRes);
 
         // return response ------------
         return res.json({
             success: true,
             message: "Email send successfully",
+            data: emailRes,
         });
     } catch (error) {
         // log error ------------
-        console.log("Error : ", error);
-        console.log("Error message : ", error.message);
+        // console.log("Error : ", error);
+        // console.log("Error message : ", error.message);
 
         // return error-response ------------
         return res.status(500).json({

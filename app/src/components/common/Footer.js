@@ -141,7 +141,7 @@ export default function Footer() {
                             <h1 className="part-3-heading-2">Community</h1>
 
                             {/* Part - 3 .. links - 2 */}
-                            <div className="part-3-links">
+                            <div className="part-3-links-2">
                                 {Community.map((ele, index) => {
                                     return (
                                         <div

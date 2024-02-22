@@ -25,6 +25,9 @@ const {
     createCategory,
     showAllCategory,
     categoryPageDetails,
+    deleteCategory,
+    editCategory,
+    getCategory,
 } = require("../controllers/categoryController");
 
 // section-controllers ---------------
@@ -107,8 +110,14 @@ router.post("/deleteSubsection", auth, isInstructor, deleteSubsection);
 router.post("/createCategory", auth, isAdmin, createCategory);
 // show-all-categories (all users) ---------------
 router.get("/showAllCategories", showAllCategory);
+// get-a-category (authorized users) ---------------
+router.get("/getCategory", auth, getCategory);
 // get-a-category-details (all users) ---------------
 router.post("/getCategoryPageDetails", categoryPageDetails);
+// edit-a-category (admin) -----------------
+router.post("/editCategory", auth, isAdmin, editCategory);
+// delete-a-category (admin) ------------------
+router.post("/deleteCategory", auth, isAdmin, deleteCategory);
 
 // ==============================================
 // RatingAndReview-routes =======================

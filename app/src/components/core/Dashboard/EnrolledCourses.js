@@ -32,10 +32,10 @@ export default function EnrolledCourses() {
             const response = await getUserEnrolledCourses(token);
             // Update state
             setEnrolledCourses(response);
-            console.log("Enrolled Courses : ", response);
+            // console.log("Enrolled Courses : ", response);
         } catch (error) {
             // log error
-            console.log("Unable to fetch enrolled courses.");
+            // console.log("Unable to fetch enrolled courses.");
         }
     };
 

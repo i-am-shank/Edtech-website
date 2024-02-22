@@ -69,7 +69,7 @@ exports.capturePayment = async (req, res) => {
     try {
         // initiate the payment using razorpay
         const paymentResponse = await instance.orders.create(options);
-        console.log(paymentResponse);
+        // console.log(paymentResponse);
 
         // return response
         return res.status(200).json({
@@ -82,7 +82,7 @@ exports.capturePayment = async (req, res) => {
             amount: paymentResponse.amount,
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: "Could not initiate order",
@@ -113,7 +113,7 @@ exports.verifySignature = async (req, res) => {
 
     // Try to match signature & digest
     if (signature === digest) {
-        console.log("Payment is authorized !");
+        // console.log("Payment is authorized !");
 
         // fetch userId --> req.user (this time not possible.. as API is hit by webhook, not by user's-HTTP-request)
         // notes is used, in which both userId & courseId is passed (& notes is passed in options-object, while creating order)
@@ -139,7 +139,7 @@ exports.verifySignature = async (req, res) => {
                 });
             }
 
-            console.log("enrolledCourse : ", enrolledCourse);
+            // console.log("enrolledCourse : ", enrolledCourse);
 
             // 2. find the student & add the course to their enrolled-courses array
             const enrolledStudent = await userModel.findOneAndUpdate(
@@ -156,7 +156,7 @@ exports.verifySignature = async (req, res) => {
                 });
             }
 
-            console.log("enrolledStudent : ", enrolledStudent);
+            // console.log("enrolledStudent : ", enrolledStudent);
 
             // Send Course Enrollment Confirmation mail
             // ==============================
@@ -165,7 +165,7 @@ exports.verifySignature = async (req, res) => {
                 "Congratulations ! You are onboarded into new StudyNotion course.",
                 courseEnrollmentEmail
             );
-            console.log(emailResponse);
+            // console.log(emailResponse);
 
             // return response
             return res.status(200).json({
@@ -173,7 +173,7 @@ exports.verifySignature = async (req, res) => {
                 message: "Signature verified & course added.",
             });
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return res.status(500).json({
                 success: false,
                 message: error.message,

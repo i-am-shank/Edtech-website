@@ -41,7 +41,7 @@ export function getUserDetails(token, navigate) {
                     Authorization: `Bearer ${token}`,
                 }
             );
-            console.log("GET_USER_DETAILS API Response : ", response);
+            // console.log("GET_USER_DETAILS API Response : ", response);
 
             // condition 0ver response ------------
             if (!response.data.success) {
@@ -65,7 +65,7 @@ export function getUserDetails(token, navigate) {
             // dispatch logout ------------
             dispatch(logout(navigate));
             // log error -----------
-            console.log("GET_USER_DETAILS API error : ", error);
+            // console.log("GET_USER_DETAILS API error : ", error);
             // Error toast -----------
             toast.error("Could not get user details");
         }
@@ -109,7 +109,7 @@ export async function getUserEnrolledCourses(token) {
         }
     } catch (error) {
         // Log error -----------
-        console.log("GET_USER_ENROLLED_COURSES_API API error : ", error);
+        // console.log("GET_USER_ENROLLED_COURSES_API API error : ", error);
         // Error toast -----------
         toast.error("Could not get Enrolled Courses");
     }
@@ -140,12 +140,12 @@ export async function getInstructorData(token) {
             }
         );
 
-        console.log("GET_INSTRUCTOR_API response : ", response);
+        // console.log("GET_INSTRUCTOR_API response : ", response);
 
         // Update result
         result = response?.data?.courses;
     } catch (error) {
-        console.log("GET_INSTRUCTOR_API error : ", error);
+        // console.log("GET_INSTRUCTOR_API error : ", error);
         toast.error("Could not fetch Instructor data !");
     }
 

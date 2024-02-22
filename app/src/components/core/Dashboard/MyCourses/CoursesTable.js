@@ -6,7 +6,7 @@ import ConfirmationModal from "../../../common/ConfirmationModal";
 // import hooks & React-tools
 // ================================
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
@@ -36,7 +36,6 @@ import { COURSE_STATUS } from "../../../../utils/constants";
 export default function CoursesTable({ courses, setCourses }) {
     // initialise hooks
     // ==============
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     // states

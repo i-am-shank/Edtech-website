@@ -6,6 +6,7 @@ import "./ContactUsForm.css";
 // ===============================
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 // import API-connector & API-endpoints
 // ===============================
@@ -31,7 +32,7 @@ export default function ContactUsForm() {
     // =========================
     // Send all data through a backend API-call function.
     const submitContactForm = async (data) => {
-        console.log("Contact form data : ", data);
+        // console.log("Contact form data : ", data);
         try {
             // show loading ----------
             setLoading(true);
@@ -42,13 +43,16 @@ export default function ContactUsForm() {
                 contactusEndpoint.CONTACT_US_API,
                 data
             );
-            // const response = { status: "OK" };
-            console.log("Contact form response : ", response);
+
+            // console.log("Contact form response : ", response);
+            toast.success(
+                "Message sent successfully ! Please view your inbox for confirmation"
+            );
 
             // hide loading ----------
             setLoading(false);
         } catch (error) {
-            console.log("Error in contact-form submission : ", error.message);
+            // console.log("Error in contact-form submission : ", error.message);
             setLoading(false);
         }
     };

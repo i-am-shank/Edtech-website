@@ -1,3 +1,7 @@
+.create-category-heading {
+    @apply mb-14 text-3xl font-medium text-richblack-5;
+}
+
 .create-category-form {
     @apply rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 space-y-8;
 }

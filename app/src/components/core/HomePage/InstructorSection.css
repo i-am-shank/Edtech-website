@@ -3,15 +3,15 @@
 }
 
 .instructor-section-content {
-    @apply flex flex-row gap-20 items-center;
+    @apply flex flex-col md:flex-row gap-20 items-center;
 }
 
 .instructor-section-left {
-    @apply w-[50%];
+    @apply w-[80%] md:w-[50%];
 }
 
 .instructor-section-right {
-    @apply w-[50%] flex flex-col gap-10;
+    @apply w-full mx-auto md:mx-0 md:w-[50%] flex flex-col gap-10;
 }
 
 .instructor-section-right-heading {

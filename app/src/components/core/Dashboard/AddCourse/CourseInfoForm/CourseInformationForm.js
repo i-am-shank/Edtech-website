@@ -18,8 +18,9 @@ import { toast } from "react-hot-toast";
 import {
     addCourseDetails,
     editCourseDetails,
-    fetchCourseCategories,
 } from "../../../../../services/operations/courseDetailsAPI";
+
+import { fetchCourseCategories } from "../../../../../services/operations/categoryAPI";
 
 // import reducers (from slices)
 // ====================================
@@ -219,11 +220,11 @@ export default function CourseInformationForm() {
                 dispatch(setStep(2));
                 // Update course (with current added data)
                 dispatch(setCourse(response));
-                console.log("Updated Step : ", step);
+                // console.log("Updated Step : ", step);
             }
             setLoading(false);
-            console.log("PRINTING FORMDATA : ", formData);
-            console.log("PRINTING RESPONSE : ", response);
+            // console.log("PRINTING FORMDATA : ", formData);
+            // console.log("PRINTING RESPONSE : ", response);
         }
     };
 
@@ -377,7 +378,7 @@ export default function CourseInformationForm() {
             {/* ====================== */}
             <RequirementField
                 name="courseRequirements"
-                label="Requirements / Instructions"
+                label="This Course Includes:"
                 register={register}
                 errors={errors}
                 setValue={setValue}

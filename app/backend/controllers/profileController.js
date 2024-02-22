@@ -58,7 +58,7 @@ exports.updateProfile = async (req, res) => {
             profileDetails,
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             error: error.message,
@@ -127,7 +127,7 @@ exports.getAllUserDetails = async (req, res) => {
             .findById(id)
             .populate("additionalDetails")
             .exec();
-        console.log(userDetails);
+        // console.log(userDetails);
 
         // return response
         return res.status(200).json({
@@ -161,7 +161,7 @@ exports.updateDisplayPicture = async (req, res) => {
             1000,
             1000
         );
-        console.log(image);
+        // console.log(image);
 
         // put secure_url to the profile (update)
         // (args --> matching-condition, change, options)

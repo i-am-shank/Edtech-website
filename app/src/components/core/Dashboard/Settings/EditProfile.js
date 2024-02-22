@@ -44,7 +44,7 @@ export default function EditProfile() {
             dispatch(updateProfile(token, data));
         } catch (error) {
             // Log error
-            console.log("ERROR MESSAGE : ", error.message);
+            // console.log("ERROR MESSAGE : ", error.message);
         }
     };
 

@@ -8,10 +8,6 @@ import { useSelector } from "react-redux";
 // =============================
 import frameImg from "../../../assets/Images/frame.png";
 
-// import icons
-// =============================
-import { FcGoogle } from "react-icons/fc";
-
 // import forms
 // =============================
 import LoginForm from "./LoginForm";

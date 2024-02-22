@@ -32,12 +32,9 @@ async function sendVerificationEmail(email, otp) {
             otpTemplate(otp)
         );
         // Arguments : (email, title, body)
-        console.log("Email sent successfully : ", mailResponse);
+        // console.log("Email sent successfully : ", mailResponse);
     } catch (error) {
-        console.log(
-            "Error occured while sending OTP verification mail.",
-            error
-        );
+        // console.log("Error occured while sending OTP verification mail.", error);
         throw error;
     }
 }

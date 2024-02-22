@@ -75,7 +75,7 @@ exports.capturePayment = async (req, res) => {
                 totalAmount += course.price;
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return res.status(500).json({
                 success: false,
                 message: error.message,
@@ -103,7 +103,7 @@ exports.capturePayment = async (req, res) => {
             message: paymentResponse,
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: "Could not initiate order !",
@@ -234,9 +234,9 @@ const enrollStudents = async (courses, userId, res) => {
                     `${enrolledStudent.firstName} ${enrolledStudent.lastName}`
                 )
             );
-            console.log("Email Sent Successfully !", emailResponse);
+            // console.log("Email Sent Successfully !", emailResponse);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return res.status(500).json({
                 success: false,
                 message: error.message,
@@ -284,7 +284,7 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
             message: "Payment Success Email is sent successfully !",
         });
     } catch (error) {
-        console.log("Error in sending successful payment email : ", error);
+        // console.log("Error in sending successful payment email : ", error);
         return res.status(500).json({
             success: false,
             message: "Couldn't send Payment success email !",

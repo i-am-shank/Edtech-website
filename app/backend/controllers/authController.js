@@ -39,7 +39,7 @@ exports.sendOTP = async (req, res) => {
                 specialChars: false,
             });
 
-            console.log("Reached level 1 !!");
+            // console.log("Reached level 1 !!");
 
             // verify if OTP is unique
             let result = await otpModel.findOne({ otp: otp });
@@ -52,7 +52,7 @@ exports.sendOTP = async (req, res) => {
                     lowerCaseAlphabets: false,
                     specialChars: false,
                 });
-                console.log("Reached level 2 !!");
+                // console.log("Reached level 2 !!");
                 // result = await otpModel.findOne({ otp: otp });
             }
 
@@ -62,9 +62,9 @@ exports.sendOTP = async (req, res) => {
             // create a db-entry
             const otpBody = await otpModel.create(otpPayload);
 
-            console.log("Reached level 3 !!");
+            // console.log("Reached level 3 !!");
 
-            console.log(otpBody);
+            // console.log(otpBody);
 
             res.status(200).json({
                 success: true,
@@ -73,7 +73,7 @@ exports.sendOTP = async (req, res) => {
             });
         }
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: error.message,
@@ -189,7 +189,7 @@ exports.signUp = async (req, res) => {
             user,
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: "User registration failed. Please try again.",
@@ -235,7 +235,7 @@ exports.login = async (req, res) => {
             };
 
             const token = jwt.sign(payload, process.env.JWT_SECRET, {
-                expiresIn: "2h",
+                expiresIn: "24h",
             });
 
             // Insert JWT in user-object
@@ -246,6 +246,7 @@ exports.login = async (req, res) => {
             // Create cookie & send response
             const options = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                httpOnly: true,
             };
 
             res.cookie("token", token, options).status(200).json({
@@ -322,10 +323,10 @@ exports.changePassword = async (req, res) => {
             );
 
             // Log confirmation text .. for testing
-            console.log("Email sent successfully: ", emailResponse.response);
+            // console.log("Email sent successfully: ", emailResponse.response);
         } catch (error) {
             // Error in sending mail
-            console.log("Error occured while sending email : ", error);
+            // console.log("Error occured while sending email : ", error);
             // handle error --> send response
             return res.status(500).json({
                 success: false,

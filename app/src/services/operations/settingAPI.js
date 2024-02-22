@@ -46,7 +46,7 @@ export function updateDisplayPicture(token, formData) {
             );
 
             // Testing API-response -------------
-            console.log("UPDATE_DISPLAY_PICTURE_API API RESPONSE : ", response);
+            // console.log("UPDATE_DISPLAY_PICTURE_API API RESPONSE : ", response);
 
             // Condition over API-response --------------
             if (!response.data.success) {
@@ -58,7 +58,7 @@ export function updateDisplayPicture(token, formData) {
             }
         } catch (error) {
             // Log error & Failure-toast
-            console.log("UPDATE_DISPLAY_PICTURE_API API ERROR : ", error);
+            // console.log("UPDATE_DISPLAY_PICTURE_API API ERROR : ", error);
             toast.error("Could Not Update Display Picture");
         }
 
@@ -86,7 +86,7 @@ export function updateProfile(token, formData) {
                     Authorization: `Bearer ${token}`,
                 }
             );
-            console.log("UPDATE_PROFILE_API API RESPONSE : ", response);
+            // console.log("UPDATE_PROFILE_API API RESPONSE : ", response);
 
             // Condition over API-response -------------
             if (!response.data.success) {
@@ -110,7 +110,7 @@ export function updateProfile(token, formData) {
             }
         } catch (error) {
             // Log error -----------
-            console.log("UPDATE_PROFILE_API API ERROR : ", error);
+            // console.log("UPDATE_PROFILE_API API ERROR : ", error);
             // Error toast -----------
             toast.error("Could Not Update Profile");
         }
@@ -137,7 +137,7 @@ export async function changePassword(token, formData) {
                 Authorization: `Bearer ${token}`,
             }
         );
-        console.log("CHANGE_PASSWORD_API API RESPONSE : ", response);
+        // console.log("CHANGE_PASSWORD_API API RESPONSE : ", response);
 
         // Condition over response --------------
         if (!response.data.success) {
@@ -148,9 +148,9 @@ export async function changePassword(token, formData) {
         }
     } catch (error) {
         // Log error
-        console.log("CHANGE_PASSWORD_API API ERROR : ", error);
+        // console.log("CHANGE_PASSWORD_API API ERROR : ", error);
         // Error toast
-        toast.error(error.response.data.message);
+        toast.error("Error in changing Password !");
     }
 
     // Dismiss toast-id ------------
@@ -175,7 +175,7 @@ export function deleteProfile(token, navigate) {
                     Authorization: `Bearer ${token}`,
                 }
             );
-            console.log("DELETE_PROFILE_API API RESPONSE : ", response);
+            // console.log("DELETE_PROFILE_API API RESPONSE : ", response);
 
             // Condition over API-response --------------
             if (!response.data.success) {
@@ -189,7 +189,7 @@ export function deleteProfile(token, navigate) {
             }
         } catch (error) {
             // Log error
-            console.log("DELETE_PROFILE_API API ERROR : ", error);
+            // console.log("DELETE_PROFILE_API API ERROR : ", error);
             // Error toast
             toast.error("Could Not Delete Profile");
         }

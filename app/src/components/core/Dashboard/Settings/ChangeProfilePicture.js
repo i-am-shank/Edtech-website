@@ -46,7 +46,7 @@ export default function ChangeProfilePicture() {
 
     const handleFileUpload = () => {
         try {
-            console.log("uploading...");
+            // console.log("uploading...");
             // start loading ------------
             setLoading(true);
             const formData = new FormData();
@@ -57,7 +57,7 @@ export default function ChangeProfilePicture() {
                 setLoading(false);
             });
         } catch (error) {
-            console.log("Error in Profile pic change : ", error.message);
+            // console.log("Error in Profile pic change : ", error.message);
         }
     };
 

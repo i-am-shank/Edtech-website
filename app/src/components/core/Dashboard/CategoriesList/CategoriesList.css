@@ -1,0 +1,69 @@
+.categories-list {
+    @apply text-white;
+}
+
+.categories-list-header {
+    @apply flex flex-col md:flex-row justify-between items-center;
+}
+
+.categories-list-heading {
+    @apply mb-5 text-3xl font-medium text-richblack-5;
+}
+
+.add-category-btn {
+    @apply mb-5;
+}
+
+.categories-list-table {
+    @apply rounded-xl border border-richblack-800;
+}
+
+/* Table heading */
+/* ============================================== */
+
+.categories-list-header-row {
+    @apply flex justify-between rounded-t-md border-b border-b-richblack-800 px-2 py-2;
+}
+
+.categories-list-header-heading {
+    @apply text-left text-sm font-medium uppercase text-richblack-100;
+}
+
+/* Table body */
+/* ============================================== */
+
+.categories-list-no-category {
+    @apply py-10 text-center text-2xl font-medium text-richblack-100;
+}
+
+.categories-list-category {
+    @apply flex gap-x-10 border-b justify-between border-richblack-800 px-6 py-8;
+}
+
+/* Name & Description -------------------------------- */
+
+.categories-list-category-details {
+    @apply flex flex-1 flex-col gap-x-4 items-start;
+}
+
+.categories-list-category-name {
+    @apply text-lg font-semibold text-richblack-5;
+}
+
+.categories-list-category-desc {
+    @apply text-xs text-richblack-300;
+}
+
+/* Action btns --------------------------------- */
+
+.categories-list-category-btns {
+    @apply text-sm font-medium text-richblack-100;
+}
+
+.categories-list-edit-category {
+    @apply px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300;
+}
+
+.categories-list-delete-category {
+    @apply px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000];
+}

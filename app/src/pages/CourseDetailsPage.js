@@ -89,15 +89,12 @@ export default function CourseDetailsPage() {
             try {
                 // fire API-call
                 const response = await fetchCourseDetails(courseId);
-                console.log(
-                    "Printing CourseData : ",
-                    response.data.courseDetails[0]
-                );
+                // console.log("Printing CourseData : ", response.data.courseDetails[0]);
 
                 // Update course-data
                 setCourseData(response.data.courseDetails[0]);
             } catch (error) {
-                console.log("Could not fetch course details");
+                // console.log("Could not fetch course details");
             }
         };
 

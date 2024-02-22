@@ -31,7 +31,7 @@ export default function RenderTotalAmount() {
         // So, do console-log for time-being
         const courses = cart.map((course) => course._id);
         buyCourse(token, courses, user, navigate, dispatch);
-        console.log("Bought these courses:", courses);
+        // console.log("Bought these courses:", courses);
 
         // (ToDo) API integrate => Takes us to payment-gateway
     };

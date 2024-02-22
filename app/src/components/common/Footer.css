@@ -73,7 +73,7 @@
 
 /* Part - 3 */
 .footer-above-section-1-part-3 {
-    @apply w-[48%] lg:w-[30%] mb-7 lg:pl-0;
+    @apply w-[48%] lg:w-[30%] mb-7 lg:pl-0 hidden md:block;
 }
 
 .part-3-heading-1 {
@@ -100,7 +100,7 @@
 /* ========================================== */
 
 .footer-above-section-2 {
-    @apply lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3;
+    @apply lg:w-[50%] md:flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-3 hidden;
 }
 
 .footer-above-section-2-lists {

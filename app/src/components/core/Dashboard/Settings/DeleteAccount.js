@@ -33,7 +33,7 @@ export default function DeleteAccount() {
             dispatch(deleteProfile(token, navigate));
         } catch (error) {
             // Log error
-            console.log("ERROR in deleting account : ", error.message);
+            // console.log("ERROR in deleting account : ", error.message);
         }
     }
 

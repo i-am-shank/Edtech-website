@@ -23,10 +23,10 @@ const mailSender = async (email, title, body) => {
         });
 
         // Just to see, what is stored in this
-        console.log(info);
+        // console.log(info);
         return info;
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
     }
 };
 

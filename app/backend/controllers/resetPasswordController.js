@@ -71,7 +71,7 @@ exports.resetPasswordToken = async (req, res) => {
                 "Email with reset password link is sent successfully. Please check your inbox & spam folder.",
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: "Something went wrong while password reset.",
@@ -133,7 +133,7 @@ exports.resetPassword = async (req, res) => {
             message: "Password reset is successfully.",
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message:

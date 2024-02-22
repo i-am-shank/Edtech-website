@@ -1,16 +1,21 @@
 // import components
 // ===============================
 import "./MyProfile.css";
+import IconBtn from "../../common/IconBtn";
 
 // import hooks & React-tools
 // ===============================
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import IconBtn from "../../common/IconBtn";
+import { Helmet } from "react-helmet";
 
 // import assets
 // ===============================
 import { RiEditBoxLine } from "react-icons/ri";
+
+// import data
+// ===============================
+import titles from "../../../titles";
 
 export default function MyProfile() {
     // states
@@ -23,6 +28,10 @@ export default function MyProfile() {
 
     return (
         <div className="my-profile-wrapper">
+            <Helmet>
+                <title>{titles.DashboardPage}</title>
+            </Helmet>
+
             <div className="my-profile">
                 {/* Heading */}
                 {/* ================ */}

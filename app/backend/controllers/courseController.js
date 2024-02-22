@@ -37,8 +37,8 @@ exports.createCourse = async (req, res) => {
         const tag = JSON.parse(_tag);
         const instructions = JSON.parse(_instructions);
 
-        console.log("tag : ", tag);
-        console.log("instructions : ", instructions);
+        // console.log("tag : ", tag);
+        // console.log("instructions : ", instructions);
 
         // validation
         if (
@@ -65,7 +65,7 @@ exports.createCourse = async (req, res) => {
         const instructorDetails = await userModel.findById(userId, {
             accountType: "Instructor",
         });
-        console.log("Instructor Details : ", instructorDetails);
+        // console.log("Instructor Details : ", instructorDetails);
         if (!instructorDetails) {
             return res.status(404).json({
                 success: false,
@@ -88,7 +88,7 @@ exports.createCourse = async (req, res) => {
             thumbnail,
             process.env.FOLDER_NAME
         );
-        console.log(thumbnailImage);
+        // console.log(thumbnailImage);
 
         // Create course entry in db
         // (instructor --> reference, i.e. id)
@@ -171,7 +171,7 @@ exports.getAllCourses = async (req, res) => {
             data: allCourses,
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(404).json({
             success: false,
             message: "Can't fetch All-Courses",
@@ -241,7 +241,7 @@ exports.getCourseDetails = async (req, res) => {
             },
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             success: false,
             message: error.message,
@@ -284,7 +284,7 @@ exports.getFullCourseDetails = async (req, res) => {
             courseId: courseId,
             userId: userId,
         });
-        console.log("courseProgressCount : ", courseProgressCount);
+        // console.log("courseProgressCount : ", courseProgressCount);
 
         // Validate courseDetails -----------
         if (!courseDetails) {
@@ -328,7 +328,7 @@ exports.getFullCourseDetails = async (req, res) => {
 // ========================================
 exports.getInstructorCourses = async (req, res) => {
     try {
-        console.log("In getInstructorCourses controller");
+        // console.log("In getInstructorCourses controller");
         // fetch data ----------
         const instructorId = req.user.id;
 
@@ -341,7 +341,7 @@ exports.getInstructorCourses = async (req, res) => {
                 createdAt: -1,
             });
 
-        console.log("Instructor Courses (controller) : ", instructorCourses);
+        // console.log("Instructor Courses (controller) : ", instructorCourses);
 
         // return response ----------
         return res.status(200).json({
@@ -378,7 +378,7 @@ exports.editCourse = async (req, res) => {
 
         // If thumbnail img if found, update it -----------
         if (req.files) {
-            console.log("thumbnail update");
+            // console.log("thumbnail update");
             // fetch img
             const thumbnail = req.files.thumbnailImage;
             // upload to cloudinary & update-url
@@ -486,7 +486,7 @@ exports.deleteCourse = async (req, res) => {
         // return response ----------
         return res.status(200).json({
             success: true,
-            message: "Course delete successfully",
+            message: "Course deleted successfully",
         });
     } catch (error) {
         console.error(error);

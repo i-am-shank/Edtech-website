@@ -17,7 +17,6 @@ import { sidebarLinks } from "../../../data/dashboard-links";
 // ==================================
 import { logout } from "../../../services/operations/authAPI";
 import { VscSignOut } from "react-icons/vsc";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import ConfirmationModal from "../../common/ConfirmationModal";
 
 export default function Sidebar() {

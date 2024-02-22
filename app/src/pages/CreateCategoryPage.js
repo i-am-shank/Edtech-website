@@ -29,16 +29,14 @@ export default function CreateCategoryPage() {
     const {
         register,
         handleSubmit,
-        setValue,
-        getValues,
         formState: { errors },
     } = useForm();
 
     // Handlers
     // ====================
     const onSubmit = async (data) => {
-        console.log("Category name : ", data.categoryName);
-        console.log("Category desc : ", data.categoryDescription);
+        // console.log("Category name : ", data.categoryName);
+        // console.log("Category desc : ", data.categoryDescription);
 
         // Create a form-data ----------
         const formData = new FormData();
@@ -55,10 +53,7 @@ export default function CreateCategoryPage() {
 
         // Condition on API-response ----------
         if (response) {
-            console.log(
-                "Fired Create Category function, from Create-category-page : ",
-                response
-            );
+            // console.log("Fired Create Category function, from Create-category-page : ", response);
         }
 
         // Hide loading ----------

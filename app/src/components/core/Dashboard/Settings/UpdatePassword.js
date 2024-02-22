@@ -45,7 +45,7 @@ export default function UpdatePassword() {
             await changePassword(token, data);
         } catch (error) {
             // Log error
-            console.log("ERROR in password-submission : ", error.message);
+            // console.log("ERROR in password-submission : ", error.message);
         }
     };
 

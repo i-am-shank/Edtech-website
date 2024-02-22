@@ -19,7 +19,7 @@ export const getCatalogPageData = async (categoryId) => {
             catalogData.CATALOGPAGEDATA_API,
             { categoryId: categoryId }
         );
-        console.log("GET CATALOGUE response : ", response);
+        // console.log("GET CATALOGUE response : ", response);
 
         // condition over API-response ----------
         if (!response?.data?.success) {
@@ -28,8 +28,8 @@ export const getCatalogPageData = async (categoryId) => {
             result = response?.data;
         }
     } catch (error) {
-        console.log("CATALOG PAGE DATA API error : ", error);
-        toast.error(error.message);
+        // console.log("CATALOG PAGE DATA API error : ", error);
+        toast.error("Error in fetching Catalog Page's data !");
         result = error.response?.data;
     }
 

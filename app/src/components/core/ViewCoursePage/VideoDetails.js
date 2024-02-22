@@ -231,7 +231,7 @@ export default function VideoDetails() {
 
         // Update state ----------
         if (response) {
-            console.log("Firing update-completed-lectures !");
+            // console.log("Firing update-completed-lectures !");
             dispatch(updateCompletedLectures(subSectionId));
         }
 

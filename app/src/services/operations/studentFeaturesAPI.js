@@ -98,7 +98,7 @@ export async function buyCourse(
             throw new Error(orderResponse.data.message);
         }
 
-        console.log("Printing orderResponse : ", orderResponse);
+        // console.log("Printing orderResponse : ", orderResponse);
 
         // Create options object (to open Razorpay modal) ----------
         const options = {
@@ -140,7 +140,7 @@ export async function buyCourse(
         // Define actions ---------
         paymentObject.on("payment.failed", function (response) {
             toast.error("oops, payment failed !");
-            console.log(response.error);
+            // console.log(response.error);
         });
 
         //miss hogya tha
@@ -151,7 +151,7 @@ export async function buyCourse(
         //     console.log(response.error);
         // });
     } catch (error) {
-        console.log("Error in Payment !", error);
+        // console.log("Error in Payment !", error);
         toast.error("Could not make payment !");
     }
 
@@ -173,7 +173,7 @@ async function sendPaymentSuccessEmail(response, amount, token) {
             }
         );
     } catch (error) {
-        console.log("PAYMENT SUCCESS EMAIL error : ", error);
+        // console.log("PAYMENT SUCCESS EMAIL error : ", error);
     }
 }
 
@@ -212,7 +212,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
             dispatch(resetCart());
         }
     } catch (error) {
-        console.log("PAYMENT VERIFY error : ", error);
+        // console.log("PAYMENT VERIFY error : ", error);
         toast.error("Could not verify payment !");
     }
 

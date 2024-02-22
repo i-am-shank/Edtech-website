@@ -1,17 +1,13 @@
-.review-section-wrapper {
-    @apply text-white;
-}
-
 .review-section {
-    @apply my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent;
+    @apply py-2;
 }
 
 .review-section-slider {
-    @apply w-full;
+    @apply md:pt-5;
 }
 
 .review-section-card {
-    @apply flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25;
+    @apply flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] text-richblack-25;
 }
 
 /* Header */

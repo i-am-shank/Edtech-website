@@ -37,18 +37,18 @@ export function sendOtp(email, navigate) {
                 email,
                 checkUserPresent: true,
             });
-            console.log("SENDOTP API RESPONSE............", response);
-            console.log(response.data.success);
+            // console.log("SENDOTP API RESPONSE............", response);
+            // console.log(response.data.success);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);
             } else {
                 // API call is successful.. show success toast
-                toast.success("OTP Sent Successfull");
+                toast.success("OTP Sent Successfully !");
                 navigate("/verify-email");
             }
         } catch (error) {
-            console.log("SENDOTP API ERROR..........", error);
+            // console.log("SENDOTP API ERROR..........", error);
             toast.error("Could Not Send OTP");
         }
 
@@ -86,22 +86,22 @@ export function signUp(
                 confirmPassword,
                 otp,
             });
-            console.log("SIGNUP API RESPONSE........", response);
+            // console.log("SIGNUP API RESPONSE........", response);
 
             if (!response.data.success) {
                 // API call failed
-                console.log("Response isn't success");
+                // console.log("Response isn't success");
                 throw new Error(response.data.message);
             } else {
                 // API call successful .. success toast
-                toast.success("Signup Successful");
+                toast.success("Signup Successful !");
                 navigate("/login");
             }
         } catch (error) {
             // Some error occured while API call
             // Divert to signup-page
-            console.log("SIGNUP API ERROR.........", error);
-            toast.error("Signup Failed");
+            // console.log("SIGNUP API ERROR.........", error);
+            toast.error("Signup Failed !");
             navigate("/signup");
         }
 
@@ -125,7 +125,7 @@ export function login(email, password, navigate) {
                 email,
                 password,
             });
-            console.log("LOGIN API RESPONSE..........", response);
+            // console.log("LOGIN API RESPONSE..........", response);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);
@@ -152,7 +152,7 @@ export function login(email, password, navigate) {
             }
         } catch (error) {
             // Error in API-call -----------
-            console.log("LOGIN API ERROR..........", error);
+            // console.log("LOGIN API ERROR..........", error);
             toast.error("Login Failed");
         }
 
@@ -175,7 +175,7 @@ export function getPasswordResetToken(email, setEmailSent) {
             const response = await apiConnector("POST", RESETPASSTOKEN_API, {
                 email,
             });
-            console.log("RESETPASSTOKEN RESPONSE...........", response);
+            // console.log("RESETPASSTOKEN RESPONSE...........", response);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);
@@ -186,7 +186,7 @@ export function getPasswordResetToken(email, setEmailSent) {
             }
         } catch (error) {
             // Error while API call
-            console.log("RESETPASSTOKEN ERROR..........", error);
+            // console.log("RESETPASSTOKEN ERROR..........", error);
             toast.error("Failed to send reset email");
         }
 
@@ -210,7 +210,7 @@ export function resetPassword(password, confirmPassword, token) {
                 confirmPassword,
                 token,
             });
-            console.log("RESETPASSWORD RESPONSE : ", response);
+            // console.log("RESETPASSWORD RESPONSE : ", response);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);
@@ -220,7 +220,7 @@ export function resetPassword(password, confirmPassword, token) {
             }
         } catch (error) {
             // Error in API process
-            console.log("RESETPASSWORD ERROR............", error);
+            // console.log("RESETPASSWORD ERROR............", error);
             toast.error("Failed to Reset Password");
         }
 
@@ -263,7 +263,7 @@ export function getResetPasswordToken(email, setEmailSent) {
             const response = await apiConnector("POST", RESETPASSTOKEN_API, {
                 email,
             });
-            console.log("RESET PASSWORD TOKEN RESPONSE : ", response);
+            // console.log("RESET PASSWORD TOKEN RESPONSE : ", response);
 
             if (!response.data.success) {
                 throw new Error(response.data.message);
@@ -274,10 +274,7 @@ export function getResetPasswordToken(email, setEmailSent) {
                 setEmailSent(email);
             }
         } catch (error) {
-            console.log(
-                "Some error in Reset-password token API call to backend.",
-                error
-            );
+            // console.log("Some error in Reset-password token API call to backend.", error);
             toast.error("Failed to send email for resetting password.");
         }
 

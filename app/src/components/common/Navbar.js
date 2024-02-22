@@ -23,8 +23,7 @@ import { MdClose } from "react-icons/md";
 
 // import API related modules
 // =============================
-import { apiConnector } from "../../services/apiConnector";
-import { categories } from "../../services/apis";
+import { fetchCourseCategories } from "../../services/operations/categoryAPI";
 
 // Temporarily adding subLinks (for testing)
 // =============================
@@ -60,13 +59,13 @@ export default function Navbar() {
 
         try {
             // fire API-call ----------
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
-            console.log("Printing SubLinks result : ", result);
+            const result = await fetchCourseCategories();
+            // console.log("Printing SubLinks result : ", result);
 
             // Update the state of links-array
-            setSubLinks(result.data.data);
+            setSubLinks(result);
         } catch (error) {
-            console.log("Could'nt fetch the category list : ", error);
+            // console.log("Could'nt fetch the category list : ", error);
         }
 
         // hide loading ----------
@@ -89,8 +88,8 @@ export default function Navbar() {
     const show = useRef();
     const overlay = useRef();
     const showHideNavbar = () => {
-        console.log("show-Classlist : ", show.current.classList);
-        console.log("overlay-ClassList : ", overlay.current.classList);
+        // console.log("show-Classlist : ", show.current.classList);
+        // console.log("overlay-ClassList : ", overlay.current.classList);
         show.current.classList.toggle("navshow");
         overlay.current.classList.toggle("hidden");
     };
@@ -99,7 +98,7 @@ export default function Navbar() {
     const closeNavbar = () => {
         show.current.classList.remove("navshow");
         overlay.current.classList.add("hidden");
-        console.log("Navbar closed !");
+        // console.log("Navbar closed !");
         return;
     };
 
@@ -384,7 +383,10 @@ export default function Navbar() {
                                     ) : (
                                         subLinks?.map((element, index) => (
                                             <Link
-                                                to={`/catalog/${element?.name}`}
+                                                to={`/catalog/${element.name
+                                                    .split(" ")
+                                                    .join("-")
+                                                    .toLowerCase()}`}
                                                 key={index}
                                                 onClick={() => showHideNavbar()}
                                                 className="navbar-mobile-category"

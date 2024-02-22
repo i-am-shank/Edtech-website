@@ -47,7 +47,7 @@ export default function CourseDetailsCard({
         }
         if (token) {
             // fire reducer ---------
-            console.log("Dispatching add to cart !");
+            // console.log("Dispatching add to cart !");
             dispatch(addToCart(course));
             return;
         } else {

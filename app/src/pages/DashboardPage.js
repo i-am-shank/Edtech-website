@@ -7,6 +7,11 @@ import Sidebar from "../components/core/Dashboard/Sidebar";
 // ==================================
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
+// import data
+// ==================================
+import titles from "../titles";
 
 export default function DashboardPage() {
     // states
@@ -26,6 +31,10 @@ export default function DashboardPage() {
 
     return (
         <div className="dashboard-page">
+            <Helmet>
+                <title>{titles.DashboardPage}</title>
+            </Helmet>
+
             {/* Sidebar */}
             {/* ====================== */}
             <Sidebar />

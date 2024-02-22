@@ -69,15 +69,12 @@ export default function CatalogPage() {
             try {
                 // fire API-call
                 const response = await getCatalogPageData(categoryId);
-                console.log("Category page details : ", response);
+                // console.log("Category page details : ", response);
 
                 // Update Category-page data
                 setCatalogPageData(response);
             } catch (error) {
-                console.log(
-                    "Error in fetching category-page details : ",
-                    error
-                );
+                // console.log("Error in fetching category-page details : ", error);
             }
         };
 

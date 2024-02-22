@@ -27,10 +27,10 @@ exports.auth = async (req, res, next) => {
         } else {
             // verify jwt based on secret-key
             try {
-                console.log("BEFORE JWT verification");
+                // console.log("BEFORE JWT verification");
                 const decode = await jwt.verify(token, process.env.JWT_SECRET);
-                console.log("AFTER JWT verification");
-                console.log("Decode : ", decode);
+                // console.log("AFTER JWT verification");
+                // console.log("Decode : ", decode);
                 req.user = decode;
             } catch (err) {
                 // Verification issue
@@ -101,7 +101,7 @@ exports.isInstructor = async (req, res, next) => {
 exports.isAdmin = async (req, res, next) => {
     try {
         // accountType is inside req-body
-        console.log("AccountType : ", req.user.accountType);
+        // console.log("AccountType : ", req.user.accountType);
         if (req.user.accountType !== "Admin") {
             return res.status(401).json({
                 success: false,

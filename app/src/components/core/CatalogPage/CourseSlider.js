@@ -9,14 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import {
-    FreeMode,
-    Pagination,
-    Autoplay,
-    Navigation,
-    Mousewheel,
-    Keyboard,
-} from "swiper";
+import { FreeMode, Pagination, Navigation, Mousewheel, Keyboard } from "swiper";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default function CourseSlider({ courses }) {

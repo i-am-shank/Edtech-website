@@ -6,7 +6,6 @@ import "./RenderCartCourses.css";
 // ===============================
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
 
 // import assets

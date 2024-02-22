@@ -15,8 +15,8 @@ export const formatDate = (dateString) => {
         .toString()
         .padStart(2, "0")} ${period}`;
 
-    console.log("formattedDate : ", formattedDate);
-    console.log("formattedTime : ", formattedTime);
+    // console.log("formattedDate : ", formattedDate);
+    // console.log("formattedTime : ", formattedTime);
 
     // return date (in required format) -----------
     return `${formattedDate} | ${formattedTime}`;

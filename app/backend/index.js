@@ -10,6 +10,7 @@ const courseRoutes = require("./routes/courseRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const userRoutes = require("./routes/userRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 
 // import from config-files
 const database = require("./config/database");
@@ -50,6 +51,7 @@ app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
+app.use("/api/v1/reach", contactRoutes);
 
 // default route ================================
 app.get("/", (req, res) => {
@@ -61,5 +63,5 @@ app.get("/", (req, res) => {
 
 // Activate server ================================
 app.listen(PORT, () => {
-    console.log(`App is running at PORT no. ${PORT}`);
+    // console.log(`App is running at PORT no. ${PORT}`);
 });

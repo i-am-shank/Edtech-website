@@ -35,7 +35,7 @@ export default function InstructorDashboard() {
             const instructorApiData = await getInstructorData(token);
             const instructorCoursesData = await fetchInstructorCourses(token);
 
-            console.log("Instructor-Api data : ", instructorApiData);
+            // console.log("Instructor-Api data : ", instructorApiData);
 
             // Condition over API-response
             if (instructorApiData.length) {

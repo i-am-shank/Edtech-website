@@ -92,7 +92,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
     // Render Handlers
     // ===================
     useEffect(() => {
-        console.log("Rendering it again !");
+        // console.log("Rendering it again !");
     }, [course]);
 
     return (

@@ -43,7 +43,7 @@ export default function ViewCoursePage() {
             // fire API call
             const courseData = await getFullDetailsOfCourse(courseId, token);
             // log response
-            console.log("Course-data : ", courseData);
+            // console.log("Course-data : ", courseData);
 
             // Update states in slices (using reducers)
             dispatch(
